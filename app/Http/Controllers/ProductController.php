@@ -157,6 +157,7 @@ class ProductController extends Controller
         }
     }
 
+    // Получаем состояние корзины и отправляем клиенту в JSON
     public function cart_condition(Request $req) {
 
         if ($req->ajax()) {
@@ -167,7 +168,7 @@ class ProductController extends Controller
 
             $data = \Cart::getContent();
 
-            return response()->json($data);
+            return response()->json(['data' => $data]);
         }
     }
 

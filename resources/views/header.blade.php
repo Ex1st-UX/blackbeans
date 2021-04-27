@@ -5,7 +5,7 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
 ?>
 <header id="site-header" class="fixed-top">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark stroke" style="margin-bottom: 10px; margin-top: 25px;">
+        <nav class="navbar navbar-expand-lg navbar-dark stroke" style="margin-bottom: 30px; margin-top: 25px;">
             <a class="navbar-brand" href="/">
                 <span class="fa fa-coffee"></span> Coffee
             </a>
@@ -59,10 +59,11 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
             </div>
             <!-- //toggle switch for light and dark theme -->
         </nav>
+{{--        Состояние корзины--}}
         <div class="card cart-condition" id="cart-condition" style="display: none!important;">
-            <div class="card-body">
-                <p id="cart-condition-name"></p>
+            <div class="card-body" id="cart-condition-content">
             </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-order">Оформить заказ</button>
         </div>
     </div>
 </header>

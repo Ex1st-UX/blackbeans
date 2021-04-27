@@ -107,16 +107,26 @@
     color: black;
 }
 .success-element {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .cart-condition {
     float: right!important;
     position: relative;
     z-index: 3000!important;
-    min-height: 350px!important;
+    min-height: 200px!important;
     width: 400px!important;
     margin-right: 45px!important;
-    border: 1px solid black!important;
+    border: 1px solid grey!important;
+}
+.cart-condition-image {
+    max-width: 100px;
+    max-height: 80px;
+}
+.cart-condition-entry {
+    margin-top: 10px;
+}
+.btn-order {
+    margin-top: 30px;
 }
 
 /*MEDIA*/

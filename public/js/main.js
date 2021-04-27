@@ -1,7 +1,6 @@
-
 var currentQuantity = Number($('#quantity-value').text());
 
-// Объект содержит данные об добавляемом товаре. Отправляется в AJAX
+// Объект содержит данные о добавляемом товаре. Отправляется в AJAX
 var data = {
     id: $('#sku-one').data('current'),
     price: $('#add-to-cart').data('summary'),
@@ -27,8 +26,7 @@ $('#minus').on('click', function () {
 
     if (currentQuantity <= 1) {
         $('#minus').prop('disabled', true);
-    }
-    else {
+    } else {
         $('#minus').prop('disabled', false);
     }
 })
@@ -42,8 +40,7 @@ $('#plus').on('click', function () {
 
     if (currentQuantity <= 1) {
         $('#minus').prop('disabled', true);
-    }
-    else {
+    } else {
         $('#minus').prop('disabled', false);
     }
 })
@@ -83,32 +80,64 @@ $(document).ready(function () {
 });
 
 // Обработчик всплытия корзины при наведении
-$('#cart-total-icon').hover(function (e) {
+conditionHandler();
 
-    $.ajax({
-        url: '/shop/condition',
-        type: 'POST',
-        dataType: 'JSON',
-        data: {
-            _token: $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function () {
-            $('.cart-condition').attr('style', 'display: block;');
+function conditionHandler() {
+    $('#cart-total-icon').mouseenter(function (e) {
+        e.preventDefault();
 
-            var arData = json;
+        $.ajax({
+            url: '/shop/condition',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
 
-            console.log(arData);
-        },
-        error: function () {
-            alert('Ошибка');
-        }
+                // Раскрываем состояние корзины
+                $('.cart-condition').attr('style', 'display: block;');
+
+                var arr = response.data;
+
+                for (var subArr of Object.entries(arr)) {
+
+                    var name = subArr[1].name;
+                    var quantity = subArr[1].quantity;
+                    var price = subArr[1].price;
+
+                    // Отрисовываем твоар в состояние корзины
+                    $(
+                        '<div class="media cart-condition-entry">' +
+                        '<img class="d-flex align-self-center mr-3 cart-condition-image" data-src="{{ asset(\'/images/product.png\') }}" src="/images/product.png">' +
+                        '<div class="media-body">' +
+                        '<h5 class="mt-0">' + name + '</h5>' +
+                        '<span>' +
+                        '<span>' + price + '</span>' +
+                        '<br>' +
+                        '<span> Количество: ' + quantity + '</span>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>'
+                    ).appendTo('#cart-condition-content');
+
+                    $('#cart-total-icon').unbind();
+                }
+            },
+            error: function () {
+                alert('Ошибка');
+            }
+        });
     });
-
-
-});
+}
 
 // Убирать состояние корзины, если пользователь убрал мышь
-$('#cart-condition').mouseleave( function () {
+$('#cart-condition').mouseleave(function () {
 
     $('.cart-condition').attr('style', 'display: none!important;')
+
+    // Удаляем карточку в состоянии корзины
+    $('.cart-condition-entry').detach();
+
+    $('#cart-total-icon').bind('hover', conditionHandler());
 });

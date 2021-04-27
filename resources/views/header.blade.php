@@ -59,11 +59,14 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
             </div>
             <!-- //toggle switch for light and dark theme -->
         </nav>
-{{--        Состояние корзины--}}
+        {{--        Состояние корзины--}}
         <div class="card cart-condition" id="cart-condition" style="display: none!important;">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="cart-condition-close" id="cart_condition_close">&times;</span>
+            </button>
             <div class="card-body" id="cart-condition-content">
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block btn-order">Оформить заказ</button>
+
         </div>
     </div>
 </header>

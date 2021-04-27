@@ -2,6 +2,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +19,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'product_list'])->name('home');
 
-
+/*PRODUCT*/
 // product pages
 Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
 Route::post('/shop/{id}/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
 
 /*CART*/
-Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
 
 // cart condition
-Route::post('/shop/condition', [ProductController::class, 'cart_condition'])->name('cart-condition');
+Route::post('/shop/condition', [CartController::class, 'cart_condition'])->name('cart-condition');
+
+// cart page
+Route::get('/cart', [CartController::class, 'cart'])->name('cart');
+Route::post('/cart/render', [CartController::class, 'cart_render'])->name('cart-render');
+
+// cart delete
+Route::post('/cart/update', [CartController::class, 'cart_update'])->name('cart-update');
 
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

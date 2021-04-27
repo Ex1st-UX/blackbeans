@@ -105,8 +105,8 @@
             <div class="container">
                 <span class="success-symbol">&#10004;</span>
                 <h3 class="success-element">Товар добавлен в корзину</h3>
-                <a href="/cart"><button class="btn btn-style btn-primary success-element">Перейти в корзину</button></a>
-                <button class="btn btn-style btn-white success-element" data-dismiss="modal">Продолжить покупки</button>
+                <a href="/cart"><button class="btn-lg btn-block btn-order">Перейти в корзину</button></a>
+                <a class="continue-shop" data-dismiss="modal">Продолжить покупки</a>
             </div>
         </div>
     </div>
@@ -273,5 +273,7 @@
 
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
+<script src="{{ URL::asset('js/shop/detail-page/detail-page.js') }}"></script>
+<script src="{{ URL::asset('js/shop/cart.js') }}"></script>
 </body>
 </html>

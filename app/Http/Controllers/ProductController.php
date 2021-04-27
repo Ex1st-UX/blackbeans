@@ -157,22 +157,5 @@ class ProductController extends Controller
         }
     }
 
-    // Получаем состояние корзины и отправляем клиенту в JSON
-    public function cart_condition(Request $req) {
 
-        if ($req->ajax()) {
-
-            $user_id = Cookie::get('user_id');
-
-            \Cart::session($user_id);
-
-            $data = \Cart::getContent();
-
-            return response()->json(['data' => $data]);
-        }
-    }
-
-    public function cart() {
-        return view('templates.cart');
-    }
 }

@@ -30,6 +30,11 @@
                             </a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{ route('delievery-admin') }}">
+                                <button class="btn btn-warning w-100">Способы доставки</button>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{ route('users-admin') }}">
                                 <button class="btn btn-warning w-100">Пользователи</button>
                             </a>

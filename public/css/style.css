@@ -134,6 +134,15 @@
     border-radius: 0!important;
     outline: none!important;
 }
+.btn-order-submit {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 0!important;
+    outline: none!important;
+}
 .cart-condition-close {
     font-size: 32px;
     padding-right: 15px;
@@ -163,6 +172,47 @@
     width: 25px!important;
     height: 25px!important;
 }
+.delievery-map {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.pochta-russia-logo {
+    min-width: 100px;
+}
+.cachelogo {
+    padding: 20;
+    max-width: 50px;
+}
+.delievery-title {
+    margin-top: 30px;
+}
+.delievery-item-wrapper {
+    padding: 20px;
+    border: solid darkgrey 2px;
+
+}
+.delievery-item-content {
+    padding: 20px;
+    margin-leftleft: 20px;
+    color: darkgrey;
+}
+.delievery-adress {
+    margin-top: 20px;
+}
+.payment {
+    font-size: 18px;
+    padding: 50px;
+    background-color: #f6f6f6;
+}
+.payment-item {
+    font-size: 18px;
+    padding: 60px;
+}
+.method-active {
+    border: solid orange 2px;
+}
+
+
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

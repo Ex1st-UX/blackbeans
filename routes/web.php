@@ -1,4 +1,9 @@
 <?php
+
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\DelieveryController;
+use App\Http\Controllers\OrderBasketController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +37,7 @@ Route::post('/shop/condition', [CartController::class, 'cart_condition'])->name(
 // cart page
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('/cart/render', [CartController::class, 'cart_render'])->name('cart-render');
+Route::post('/cart/submit', [OrderController::class, 'orderCreate'])->name('order-submit');
 
 // cart delete
 Route::post('/cart/update', [CartController::class, 'cart_update'])->name('cart-update');
@@ -69,6 +75,11 @@ Route::group(['middleware' => ['role:admin']], function () {
     })->name('category-add-admin');
 
     Route::post('/admin/category/add/submit', [CategoryController::class, 'category_add']);
+
+    // delievery
+    Route::get('/admin/delivery', [DelieveryController::class, 'delievery_list'])->name('delievery-admin');
+    Route::get('/admin/delivery/add', [DelieveryController::class, 'delievery_add'])->name('delievery-add-admin');
+    Route::post('/admin/delivery/add/submit', [DelieveryController::class, 'delievery_add_submit'])->name('delievery-add-submit-admin');
 
 //users-content
     Route::get('/admin/users', function () {

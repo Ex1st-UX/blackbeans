@@ -58,12 +58,13 @@ class CartController extends Controller
             } else {
                 $user_id = Cookie::get('user_id');
 
-                \Cart::session($user_id);
+                $session = \Cart::session($user_id);
 
                 $data = \Cart::getContent();
+                $cartTotal = $session->getTotal();
             }
 
-            return response()->json(['data' => $data]);
+            return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
         }
     }
 
@@ -96,8 +97,9 @@ class CartController extends Controller
         }
 
         $data = \Cart::getContent();
+        $cartTotal = \Cart::session($user_id)->getTotal();
 
-        return response()->json(['data' => $data]);
+        return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
     }
 
     public function cart()

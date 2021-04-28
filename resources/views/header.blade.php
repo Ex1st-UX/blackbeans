@@ -66,7 +66,6 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
             </button>
             <div class="card-body" id="cart-condition-content">
             </div>
-
         </div>
     </div>
 </header>

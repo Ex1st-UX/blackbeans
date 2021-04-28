@@ -1,3 +1,8 @@
+// Генерация случайного числа
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 var config = {
     _token: $('meta[name="csrf-token"]').attr('content'),
 };
@@ -14,3 +19,4 @@ function preloaderRemove() {
     $('.spinner-border').detach();
     $('.sr-only').detach();
 }
+

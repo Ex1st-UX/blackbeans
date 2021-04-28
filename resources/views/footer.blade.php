@@ -88,7 +88,6 @@
     </script>
     <!-- /move top -->
 </section>
-
 {{--МОДАЛЬНЫЕ ОКНА--}}
 
 <!-- Button trigger modal -->
@@ -273,7 +272,7 @@
 
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
-<script src="{{ URL::asset('js/shop/detail-page/detail-page.js') }}"></script>
+<script src="{{ URL::asset('js/shop/detail-page.js') }}"></script>
 <script src="{{ URL::asset('js/shop/cart.js') }}"></script>
 </body>
 </html>

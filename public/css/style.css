@@ -158,7 +158,11 @@
     position: absolute;
     top: 50%;
 }
-
+.button-quantity {
+    padding: 0!important;
+    width: 25px!important;
+    height: 25px!important;
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

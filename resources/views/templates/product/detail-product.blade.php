@@ -2,6 +2,7 @@
 
 @section('title', 'Детальная страница')
 
+@section('body')
 <div class="inner-banner">
 </div>
 <section class="w3l-breadcrumb">
@@ -47,9 +48,9 @@
                         </select>
                         <div class="detail-entry-footer">
                             <div class="quantity mt-4">
-                                <button class="btn  border-btn" disabled type="button" id="minus">-</button>
+                                <button class="btn minus border-btn" disabled type="button" id="minus">-</button>
                                 <span class="quantity-total" id="quantity-value">1</span>
-                                <button class="btn  border-btn" type="button" id="plus">+</button>
+                                <button class="btn plus border-btn" type="button" id="plus">+</button>
                             </div>
                             <button type="button" data-sku="250" data-issku="false" data-current="{{ $data->id }}"
                                     data-price="{{ $data->price }}" id="sku-one"
@@ -97,5 +98,6 @@
         </div>
     </div>
 </section>
+@endsection
 
 

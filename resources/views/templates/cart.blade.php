@@ -85,6 +85,20 @@
                         </table>
                     </div>
                 </div>
+                {{--ДОСТАВКА--}}
+                <h3 class="title-big text-left mb-5 ">Доставка</h3>
+                <h5>Доставка осуществляется Почтой России</h5>
+                <br>
+                <div id="ecom-widget" style="height: 500px">
+                    <script src="https://widget.pochta.ru/map/widget/widget.js"></script>
+                    <script>
+                        ecomStartWidget({
+                            id: 12627,
+                            callbackFunction: null,
+                            containerId: 'ecom-widget'
+                        });
+                    </script>
+                </div>
             </div>
     </section>
 @endsection

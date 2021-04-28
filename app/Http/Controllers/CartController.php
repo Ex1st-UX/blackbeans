@@ -42,7 +42,6 @@ class CartController extends Controller
     // Получаем корзину
     public function cart_render(Request $req)
     {
-
         if ($req->ajax()) {
 
             // куки
@@ -68,13 +67,32 @@ class CartController extends Controller
         }
     }
 
-    //Удаляем товар из корзины
+    //Обновляем товар из корзины
     public function cart_update(Request $req) {
 
         $user_id = Cookie::get('user_id');
 
+        // Удаление товара
         if ($req->action == 'delete') {
             \Cart::session($user_id)->remove($req->id);
+        }
+
+        // Уменьшить количество
+        if ($req->action == 'minus') {
+            $newQty = $req->quantity - 1;
+
+            \Cart::session($user_id)->update($req->id, array(
+                'quantity' => $newQty,
+            ));
+        }
+
+        // Увеличить количество
+        if ($req->action == 'plus') {
+            $newQty = $req->quantity + 1;
+
+            \Cart::session($user_id)->update($req->id, array(
+                'quantity' => $newQty,
+            ));
         }
 
         $data = \Cart::getContent();

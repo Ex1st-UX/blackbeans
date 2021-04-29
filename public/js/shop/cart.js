@@ -45,7 +45,7 @@ function cartRender(response) {
         // Рендерим раздел "итого"
         $(
             '<div class="payment" id="cart-total-summary">' +
-            '<table class="table table-borderless payment-table text-left">' +
+            '<table class="table table-borderless payment-table">' +
             '<tbody>' +
             '<tr>' +
             '<td>Корзина</td>' +
@@ -67,7 +67,7 @@ function cartRender(response) {
             '</table>' +
             '<button type="submit" id="add_to_order" class="btn-lg btn-block btn-order-submit">Оформить заказ</button>' +
             '</div>'
-        ).appendTo('.cart-total-content');
+        ).appendTo('.left-side-block');
     }
 }
 

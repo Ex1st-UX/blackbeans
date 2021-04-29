@@ -19,7 +19,7 @@
                 <form method="post" action="{{ route('order-submit') }}" id="order_create">
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
-                        <div class="contacts12-main">
+                        <div class="contacts12-main left-side-block">
                             <h3 class="title-big text-left mb-5">Оформление заказа</h3>
                             <div class="input-grids">
                                 <div>

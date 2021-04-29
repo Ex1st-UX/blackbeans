@@ -26,6 +26,10 @@ class CreateOrdersTable extends Migration
             $table->integer('discount');
             $table->integer('order_basket');
             $table->integer('total');
+            $table->string('city');
+            $table->string('street');
+            $table->string('apps');
+            $table->string('postcode');
         });
     }
 

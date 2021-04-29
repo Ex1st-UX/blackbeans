@@ -24,81 +24,97 @@
                             <div class="input-grids">
                                 <div>
                                     <label class="form-field" for="w3lName">Имя</label>
-                                    <input type="text" name="w3lName" required placeholder="Сергей"
+                                    <input type="text" name="w3lName" id="name" required placeholder="Сергей"
                                            class="contact-input"/>
                                 </div>
                                 <div>
                                     <label class="form-field" for="w3lSender">Фамилия</label class="form-field">
-                                    <input type="text" name="w3lSender" required placeholder="Иванов"
+                                    <input type="text" name="w3lSender" id="surname" required placeholder="Иванов"
                                            class="contact-input"/>
                                 </div>
                             </div>
                             <div>
                                 <label class="form-field" for="w3lSubect">E-mail</label class="form-field">
-                                <input type="text" name="w3lSubect " required placeholder="info@blackbeans.ru"
+                                <input type="text" name="w3lSubect" id="email" required placeholder="info@blackbeans.ru"
                                        class="contact-input"/>
                             </div>
                             <div>
                                 <label class="form-field" for="w3lSubect">Номер телефона</label class="form-field">
-                                <input type="text" name="w3lSubect " required placeholder="+7 (999) 999 99 99"
+                                <input type="text" name="w3lSubect " id="phone" required
+                                       placeholder="+7 (999) 999 99 99"
                                        class="contact-input form-control"/>
                             </div>
                             {{--ДОСТАВКА--}}
                             <h3 class="title-big text-left mb-5 delievery-title">Доставка</h3>
-                            <a class="" data-toggle="collapse" href="#delievery-map-open" aria-expanded="false"
-                               aria-controls="collapseExample">
-                                <div class="delievery-item-wrapper">
-                                    <img class="pochta-russia-logo" src="{{ asset('/images/pochta-russia-logo.png') }}">
-                                    <span class="delievery-item-content">
-                                Почта России
-                                </span>
-                                </div>
-                                <div class="collapse delievery-adress" id="delievery-map-open">
-                                    <div class="input-grids delievery-">
-                                        <div>
-                                            <label class="form-field" for="w3lSubect">Город</label class="form-field">
-                                            <input type="text" name="w3lSubect" required placeholder="Москва"
-                                                   class="contact-input"/>
+                            {{--РЕНДЕРИМ СПОСОБЫ ДОСТАВКИ--}}
+                            @foreach ($dataDelievery as $delieveryItem)
+                                @if ($delieveryItem->active == 'Y')
+                                    <a class="" data-toggle="collapse" id="method-item" data-symbol="{{ $delieveryItem->symbol_code }}"
+                                       data-cost="{{ $delieveryItem->cost }}"
+                                       data-id="{{ $delieveryItem->id }}" href="#{{ $delieveryItem->symbol_code }}"
+                                       aria-expanded="false"
+                                       aria-controls="collapseExample">
+                                        <div class="delievery-item-wrapper">
+                                            <img class="pochta-russia-logo"
+                                                 src="{{ asset('/images/pochta-russia-logo.png') }}">
+                                            <span class="delievery-item-content">
+                                            {{ $delieveryItem->name }}
+                                            </span>
                                         </div>
-                                        <div>
-                                            <label class="form-field" for="w3lSubect">Улица,
-                                                дом</label class="form-field">
-                                            <input type="text" name="w3lSubect" required placeholder="Тверская д. 18"
-                                                   class="contact-input"/>
-                                        </div>
-                                        <div class="input-grids">
+                                    </a>
 
+                                    <div class="collapse delievery-adress" id="{{ $delieveryItem->symbol_code }}">
+                                        <div class="input-grids delievery-">
                                             <div>
-                                                <label class="form-field" for="w3lName">Квартира</label>
-                                                <input type="text" name="w3lName" required placeholder="72"
+                                                <label class="form-field"
+                                                       for="w3lSubect">Город</label class="form-field">
+                                                <input type="text" name="w3lSubect" id="city" required
+                                                       placeholder="Москва"
                                                        class="contact-input"/>
                                             </div>
                                             <div>
-                                                <label class="form-field" for="w3lName">Индекс</label>
-                                                <input type="text" name="w3lName" required placeholder="000000"
+                                                <label class="form-field" for="w3lSubect">Улица,
+                                                    дом</label class="form-field">
+                                                <input type="text" name="w3lSubect" id="street" required
+                                                       placeholder="Тверская д. 18"
                                                        class="contact-input"/>
+                                            </div>
+                                            <div class="input-grids">
+
+                                                <div>
+                                                    <label class="form-field" for="w3lName">Квартира</label>
+                                                    <input type="text" name="w3lName" id="apps" required
+                                                           placeholder="72"
+                                                           class="contact-input"/>
+                                                </div>
+                                                <div>
+                                                    <label class="form-field" for="w3lName">Индекс</label>
+                                                    <input type="text" name="w3lName" id="postcode" required
+                                                           placeholder="000000"
+                                                           class="contact-input"/>
+                                                </div>
                                             </div>
                                         </div>
+                                        {{--Виджет Почты России--}}
+                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">
+                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>
+                                            <script>
+                                                ecomStartWidget({
+                                                    id: 12627,
+                                                    callbackFunction: null,
+                                                    containerId: 'ecom-widget'
+                                                });
+                                            </script>
+                                        </div>
+                                        {{--Виджет Почты России--}}
                                     </div>
-                                    {{--Виджет Почты России--}}
-                                    <div id="ecom-widget" class="delievery-map" style="height: 500px">
-                                        <script src="https://widget.pochta.ru/map/widget/widget.js"></script>
-                                        <script>
-                                            ecomStartWidget({
-                                                id: 12627,
-                                                callbackFunction: null,
-                                                containerId: 'ecom-widget'
-                                            });
-                                        </script>
-                                    </div>
-                                    {{--Виджет Почты России--}}
-                                </div>
-                            </a>
+                                @endif
+                            @endforeach
                             {{--Способы оплаты--}}
                             <div class="payment-wrapper">
                                 <h3 class="title-big text-left mb-5 delievery-title">Оплата</h3>
                                 <a>
-                                    <div data-method="" class="delievery-item-wrapper">
+                                    <div data-method="" id="payment-method-cache" class="delievery-item-wrapper" data-id="1">
                                         <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
                                         <span class="delievery-item-content">Наложенный платеж</span>
                                     </div>

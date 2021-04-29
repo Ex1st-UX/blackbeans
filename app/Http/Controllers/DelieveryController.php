@@ -25,6 +25,7 @@ class DelieveryController extends Controller
         $delievery->active = 'Y';
         $delievery->name = $req->input('name');
         $delievery->cost = $req->input('cost');
+        $delievery->symbol_code = $req->input('symbol_code');
         $delievery->image = $req->file('image')->store('uploads', 'public');
 
         $delievery->save();

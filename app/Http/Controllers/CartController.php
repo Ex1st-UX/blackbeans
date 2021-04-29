@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Delievery;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -69,41 +70,57 @@ class CartController extends Controller
     }
 
     //Обновляем товар из корзины
-    public function cart_update(Request $req) {
+    public function cartRenderAction(Request $req) {
 
-        $user_id = Cookie::get('user_id');
-
-        // Удаление товара
-        if ($req->action == 'delete') {
-            \Cart::session($user_id)->remove($req->id);
+        // куки
+        if (!Cookie::get('user_id')) {
+            $generate_id = intval(uniqid());
+            $user_id = $generate_id;
+        } else {
+            $user_id = Cookie::get('user_id');
         }
 
-        // Уменьшить количество
-        if ($req->action == 'minus') {
-            $newQty = $req->quantity - 1;
+        if (\Cart::session($user_id)->isEmpty()) {
+            $data = false;
+        } else {
+            // Получаем активные доставки
+            $delieveryCollection = new Delievery();
 
-            \Cart::session($user_id)->update($req->id, array(
-                'quantity' => $newQty,
-            ));
+            // Удаление товара
+            if ($req->action == 'delete') {
+                \Cart::session($user_id)->remove($req->id);
+            }
+
+            // Уменьшить количество
+            if ($req->action == 'minus') {
+                $newQty = $req->quantity - 1;
+
+                \Cart::session($user_id)->update($req->id, array(
+                    'quantity' => $newQty,
+                ));
+            }
+
+            // Увеличить количество
+            if ($req->action == 'plus') {
+                $newQty = $req->quantity + 1;
+
+                \Cart::session($user_id)->update($req->id, array(
+                    'quantity' => $newQty,
+                ));
+            }
+
+            $data = \Cart::getContent();
+            $cartTotal = \Cart::session($user_id)->getTotal();
+
+            return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
         }
-
-        // Увеличить количество
-        if ($req->action == 'plus') {
-            $newQty = $req->quantity + 1;
-
-            \Cart::session($user_id)->update($req->id, array(
-                'quantity' => $newQty,
-            ));
-        }
-
-        $data = \Cart::getContent();
-        $cartTotal = \Cart::session($user_id)->getTotal();
-
-        return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
     }
 
     public function cart()
     {
-        return view('templates.cart');
+        $delievery = new Delievery();
+        $data = $delievery->all();
+
+        return view('templates.cart', ['dataDelievery' => $data]);
     }
 }

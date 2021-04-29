@@ -11,6 +11,10 @@
             <input type="text" class="form-control" id="formGroupExampleInput" name="name">
         </div>
         <div class="form-group">
+            <label for="formGroupExampleInput">Символьный код доставки</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="symbol_code">
+        </div>
+        <div class="form-group">
             <label for="formGroupExampleInput">Стоимость доставки</label>
             <input type="text" class="form-control" id="formGroupExampleInput" name="cost">
         </div>

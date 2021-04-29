@@ -36,11 +36,11 @@ Route::post('/shop/condition', [CartController::class, 'cart_condition'])->name(
 
 // cart page
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
-Route::post('/cart/render', [CartController::class, 'cart_render'])->name('cart-render');
+Route::post('/cart/render', [CartController::class, 'cartRenderAction'])->name('cart-render');
 Route::post('/cart/submit', [OrderController::class, 'orderCreate'])->name('order-submit');
 
 // cart delete
-Route::post('/cart/update', [CartController::class, 'cart_update'])->name('cart-update');
+Route::post('/cart/update', [CartController::class, 'cartRenderAction'])->name('cart-update');
 
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

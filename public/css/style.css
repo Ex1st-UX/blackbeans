@@ -78,141 +78,204 @@
 .sku-button {
     max-width: 110px;
 }
+
 .title-price {
     font-weight: 900;
     font-size: 32px;
 }
+
 .slide-image {
     max-width: 150px;
     float: left;
 }
+
 .slide-image-wrapper {
     margin-left: 40px;
     margin-right: 25px;
 }
+
 .quantity-total {
     padding: 0.375rem 0.75rem;
 }
+
 .detail-entry-footer {
     float: left;
 }
+
 .table th, .table td {
-    vertical-align: middle!important;
+    vertical-align: middle !important;
 }
+
 .modal-success-content {
     padding: 60px;
 }
+
 .success-symbol {
     font-size: 44px;
     color: black;
 }
+
 .success-element {
     margin-top: 10px;
 }
+
 .cart-condition {
-    float: right!important;
+    float: right !important;
     position: relative;
-    z-index: 3000!important;
-    min-height: 200px!important;
-    width: 400px!important;
-    margin-right: 45px!important;
-    border: 1px solid grey!important;
+    z-index: 3000 !important;
+    min-height: 200px !important;
+    width: 400px !important;
+    margin-right: 45px !important;
+    border: 1px solid grey !important;
 }
+
 .cart-condition-image {
     max-width: 100px;
     max-height: 80px;
 }
+
 .cart-condition-entry {
     margin-top: 10px;
 }
+
 .btn-order {
     margin-top: 35px;
     margin-bottom: 20px;
     background-color: black;
     color: white;
     border-color: black;
-    border-radius: 0!important;
-    outline: none!important;
+    border-radius: 0 !important;
+    outline: none !important;
 }
+
 .btn-order-submit {
     margin-top: 35px;
     margin-bottom: 20px;
     background-color: black;
     color: white;
     border-color: black;
-    border-radius: 0!important;
-    outline: none!important;
+    border-radius: 0 !important;
+    outline: none !important;
 }
+
 .cart-condition-close {
     font-size: 32px;
     padding-right: 15px;
-    outline: none!important;
+    outline: none !important;
 }
+
 .cart-condition-close:focus {
     outline: none !important
 }
+
 .cart-total {
-    color: #000!important;
+    color: #000 !important;
 }
+
 .additionally-information {
     color: darkgrey;
     font-size: 16px;
 }
+
 .preloader-condition {
     position: absolute;
     top: 50%;
     left: 50%;
 }
+
 .preloader-total-cart {
     position: absolute;
     top: 50%;
 }
+
 .button-quantity {
-    padding: 0!important;
-    width: 25px!important;
-    height: 25px!important;
+    padding: 0 !important;
+    width: 25px !important;
+    height: 25px !important;
 }
+
 .delievery-map {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
 .pochta-russia-logo {
     min-width: 100px;
 }
+
 .cachelogo {
     padding: 20;
     max-width: 50px;
 }
+
 .delievery-title {
     margin-top: 30px;
 }
+
 .delievery-item-wrapper {
     padding: 20px;
     border: solid darkgrey 2px;
 
 }
+
 .delievery-item-content {
     padding: 20px;
     margin-leftleft: 20px;
     color: darkgrey;
 }
+
 .delievery-adress {
     margin-top: 20px;
 }
+
 .payment {
     font-size: 18px;
     margin-top: 40px;
     padding: 50px;
     background-color: #f6f6f6;
 }
+
 .payment-item {
     font-size: 18px;
     padding: 60px;
 }
+
 .method-active {
     border: solid orange 2px;
 }
 
+.filter-icon {
+    max-height: 150px;
+    padding: 35px;
+    border: darkgrey solid 2px;
+}
+.filter-card {
+
+}
+.title-catalog {
+    margin-bottom: 20px;
+    margin-top: 60px;
+    color: darkgrey;
+}
+
+.product-section {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.sort {
+    margin-top: 60px;
+}
+
+.filters-wrapper {
+    padding: 40px;
+}
+.catalog-tabs li{
+    display: inline;
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding-right: 40px;
+}
 
 /*MEDIA*/
 @media (max-width: 600px) {
@@ -220,8 +283,9 @@
         max-width: 300px;
     }
 }
+
 @media (max-width: 600px) {
     .cart-total {
-        display: none!important;
+        display: none !important;
     }
 }

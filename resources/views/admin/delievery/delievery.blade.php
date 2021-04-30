@@ -9,16 +9,19 @@
             <th>ID</th>
             <th>Название</th>
             <th>Стоимость</th>
+            <th>Активность</th>
             <th><a href="{{ route('delievery-add-admin') }}"><button class="btn btn-warning">Добавить доставку</button></a></th>
         </tr>
         </thead>
         <tbody>
+        @foreach($data as $item)
         <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row">{{ $item->id }}</th>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->cost }}</td>
+            <td>{{ $item->active }}</td>
         </tr>
+        @endforeach
         {{--        @foreach ($data as $item)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>

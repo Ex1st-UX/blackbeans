@@ -24,7 +24,6 @@ class CreateOrdersTable extends Migration
             $table->integer('payment_id');
             $table->string('delievery_cost');
             $table->integer('discount');
-            $table->integer('order_basket');
             $table->integer('total');
             $table->string('city');
             $table->string('street');

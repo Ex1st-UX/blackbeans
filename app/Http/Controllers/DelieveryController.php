@@ -10,7 +10,7 @@ class DelieveryController extends Controller
     public function delievery_list() {
         $delievery = new Delievery();
 
-        return view('admin.delievery.delievery', ['data' => $delievery]);
+        return view('admin.delievery.delievery', ['data' => $delievery->all()]);
     }
 
     public function delievery_add() {

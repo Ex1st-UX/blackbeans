@@ -224,8 +224,8 @@ $(document).on('click', '#add_to_order', function (e) {
         postcode: $('#postcode').val(),
         payment: $('#payment-method-cache').data('id'),
         _token: $('meta[name="csrf-token"]').attr('content'),
-};
-
+    };
+    x
     $.ajax({
         url: '/cart/submit',
         dataType: 'JSON',
@@ -271,20 +271,6 @@ function conditionHandler() {
                     // Проходим по элементам объекта
                     for (var arItem of Object.entries(arData)) {
 
-                        // TODO: Сортировка по убыванию цены в состоянии корзины
-                        // priceSorted.sort(function (a, b)
-                        // {
-                        //     if (a.quantity > b.quantity) {
-                        //
-                        //         return console.log('-1');
-                        //     }
-                        //     if (a.quantity < b.quantity) {
-                        //         return console.log('1');
-                        //     }
-                        //     // a должно быть равным b
-                        //     return console.log('0');;
-                        // });
-
                         var name = arItem[1].name;
                         var quantity = arItem[1].quantity;
                         var price = arItem[1].price;
@@ -296,7 +282,7 @@ function conditionHandler() {
                             '<div class="media-body">' +
                             '<h5 class="mt-0">' + name + '</h5>' +
                             '<span>' +
-                            '<span>' + price + '</span>' +
+                            '<span>' + price + ' р</span>' +
                             '<br>' +
                             '<span> Количество: ' + quantity + '</span>' +
                             '</span>' +
@@ -336,19 +322,6 @@ $('#cart_condition_close').on('click', function () {
     $('.cart-condition').attr('style', 'display: none!important;');
 });
 
-// Добавляем аниацию выбранному методу оплаты
-// $(document).on('click', '.delievery-item-wrapper', function () {
-//
-//     active = $(this).addClass('method-active');
-//     hasActive = $(this).hasClass('method-active');
-//
-//     if (hasActive) {
-//         $(this).removeClass('method-active');
-//     }
-//     else {
-//         active;
-//     }
-// })
 
 
 

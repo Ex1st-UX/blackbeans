@@ -25,9 +25,12 @@ use App\Http\Controllers\CartController;
 Route::get('/', [ProductController::class, 'product_list'])->name('home');
 
 /*PRODUCT*/
+
 // product pages
 Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
 Route::post('/shop/{id}/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
+// catalog product
+Route::get('/catalog', [ProductController::class, 'product_catalog_list'])->name('catalog-product');
 
 /*CART*/
 

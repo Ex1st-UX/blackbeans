@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Cookie;
 
 class OrderController extends Controller
 {
-    public function orderCreate(Request $req) {
+    public function orderCreate(Request $req)
+    {
 
         $basketOrder = new BasketOrder();
         $order = new Order();
@@ -61,9 +62,8 @@ class OrderController extends Controller
 
         if ($basketInsert) {
             return response()->json(array('orderId' => $orderId));
-        }
-        else {
-            return response()->json(array('orderId' =>'Ошибка. Попробуйте снова'));
+        } else {
+            return response()->json(array('orderId' => 'Ошибка. Попробуйте снова'));
         }
     }
 }

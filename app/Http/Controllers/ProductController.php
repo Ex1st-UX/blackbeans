@@ -86,6 +86,12 @@ class ProductController extends Controller
         return view('home', ['product' => $product->all()]);
     }
 
+    public function product_catalog_list() {
+        $product = new Product();
+
+        return view('templates.product.catalog-product', ['data' => $product->all()]);
+    }
+
     public function product_detail($id, Request $req)
     {
 

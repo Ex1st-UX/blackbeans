@@ -23,10 +23,10 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item about__active">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="{{ route('catalog-product') }}">Купить</a>
                     </li>
                     <li class="nav-item menu__active">
                         <a class="nav-link" href="menu.html">Menu</a>
@@ -47,13 +47,6 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
             <div class="mobile-position">
                 <nav class="navigation">
                     <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            {{--                            <input type="checkbox" id="checkbox">
-                                                        <div class="mode-container py-1">
-                                                            <i class="gg-sun"></i>
-                                                            <i class="gg-moon"></i>
-                                                        </div>--}}
-                        </label>
                     </div>
                 </nav>
             </div>

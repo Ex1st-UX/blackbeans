@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class ProductController extends Controller
 {
+    // Добавить товар в админке
     public function add_product(Request $req)
     {
         $category = new Category();
@@ -48,6 +49,7 @@ class ProductController extends Controller
         return redirect()->route('product-admin')->with('success', 'товар добавлен');
     }
 
+    // Изменить товар в админке
     public function product_edit_page($id)
     {
         $product = new Product();
@@ -55,6 +57,7 @@ class ProductController extends Controller
         return view('admin.product.product-edit', ['product' => $product->find($id)]);
     }
 
+    // Изменить товар в админке - отправка формы
     public function product_edit($id, Request $req)
     {
 
@@ -73,6 +76,7 @@ class ProductController extends Controller
         return redirect()->route('product-admin')->with('success', 'товар изменен');
     }
 
+    // Показать список товаров в админке
     public function product_list_admin(Request $req)
     {
         $product = new Product();
@@ -80,18 +84,15 @@ class ProductController extends Controller
         return view('admin.product.product-content', ['data' => $product->all()]);
     }
 
+    // Показать товары на главной
     public function product_list()
     {
         $product = new Product();
+
         return view('home', ['product' => $product->all()]);
     }
 
-    public function product_catalog_list() {
-        $product = new Product();
-
-        return view('templates.product.catalog-product', ['data' => $product->all()]);
-    }
-
+    // Детальная страница товара
     public function product_detail($id, Request $req)
     {
 
@@ -100,6 +101,7 @@ class ProductController extends Controller
         return view('templates.product.detail-product', ['data' => $product]);
     }
 
+    // Добавить товар в корзину
     public function product_add_to_cart(Request $req)
     {
 
@@ -163,5 +165,43 @@ class ProductController extends Controller
         }
     }
 
+    // Показать все товары на странице каталога
+    public function product_catalog_list() {
+        $product = new Product();
 
+        return view('templates.product.catalog-product', ['data' => $product->all()]);
+    }
+
+    // Отфильтровать по категории
+    public function category_filter(Request $req) {
+
+        if ($req->ajax()) {
+
+            $products = new Product();
+            $categories = new Category();
+
+            // Фильтр по категории "Турка"
+            if ($req->item == 'category-turka') {
+                $resTurka = $categories->where('category', 'like', '%Турка%')->get();
+
+                foreach ($resTurka as $key => $item) {
+                    $resultTurka[] = $products->where('id', $item->product_id)->get();
+                }
+
+                foreach ($resultTurka as $productItem) {
+
+                    foreach ($productItem as $value) {
+                        $categoryItem = $categories->where('product_id', $value->id)->get();
+
+                        foreach ($categoryItem as $category) {
+                            array_push($resultTurka, $category->category);
+                        }
+                    }
+                }
+
+            }
+
+            return response()->json($resultTurka);
+        }
+    }
 }

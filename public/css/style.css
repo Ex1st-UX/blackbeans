@@ -249,8 +249,8 @@
     padding: 35px;
     border: darkgrey solid 2px;
 }
-.filter-card {
-
+.filter-name {
+    color: darkgrey;
 }
 .title-catalog {
     margin-bottom: 20px;
@@ -268,13 +268,16 @@
 }
 
 .filters-wrapper {
-    padding: 40px;
+    margin-top: 40px;
 }
 .catalog-tabs li{
     display: inline;
     font-weight: 500;
     font-size: 1.7rem;
     padding-right: 40px;
+}
+.filter-sort {
+    background-color: #fafafa!important;
 }
 
 /*MEDIA*/

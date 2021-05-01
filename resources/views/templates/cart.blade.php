@@ -141,3 +141,6 @@
             </div>
     </section>
 @endsection
+@section('js')
+    <script src="{{ URL::asset('js/shop/cart.js') }}"></script>
+@endsection

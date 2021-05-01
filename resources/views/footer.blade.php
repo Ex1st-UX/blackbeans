@@ -273,6 +273,8 @@
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
 <script src="{{ URL::asset('js/shop/detail-page.js') }}"></script>
-<script src="{{ URL::asset('js/shop/cart.js') }}"></script>
+
+@yield('js')
+
 </body>
 </html>

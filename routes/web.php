@@ -29,8 +29,10 @@ Route::get('/', [ProductController::class, 'product_list'])->name('home');
 // product pages
 Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
 Route::post('/shop/{id}/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
+
 // catalog product
 Route::get('/catalog', [ProductController::class, 'product_catalog_list'])->name('catalog-product');
+Route::post('/catalog/filterByCategory', [ProductController::class, 'category_filter']);
 
 /*CART*/
 

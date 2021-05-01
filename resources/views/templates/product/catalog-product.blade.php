@@ -19,80 +19,100 @@
         <div class="filters-wrapper">
             <div class="row text-center">
                 <div class="team-info col-md-2 col-6 filter-card">
-                    <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-turka.jpg') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                    <a class="filter-category-item" data-filter="category-turka">
+                    <div class="column position-relative ">
+                        <img src="{{ asset('images/filter-icon-turka.jpg') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Турка</a></h4>
+                    <h4 class="filter-name">Турка</h4>
+                    </a>
                 </div>
-                <div class="team-info col-md-2 col-6">
+                <div class="team-info col-md-2 col-6 filter-card">
+                    <a class="filter-category-item" data-filter="category-gaser">
                     <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-gaser.png') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                        <img src="{{ asset('images/filter-icon-gaser.png') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Гейзер</a></h4>
+                    <h4 class="filter-name">Гейзер</h4>
+                    </a>
                 </div>
-                <div class="team-info col-md-2 col-6">
+                <div class="team-info col-md-2 col-6 filter-card">
+                    <a class="filter-category-item" data-filter="category-french">
                     <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-french.png') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                        <img src="{{ asset('images/filter-icon-french.png') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Френч-пресс</a></h4>
+                    <h4 class="filter-name">Френч-пресс</h4>
+                    </a>
                 </div>
-                <div class="team-info col-md-2 col-6">
+                <div class="team-info col-md-2 col-6 filter-card">
+                    <a class="filter-category-item" data-filter="category-purover">
                     <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-purover.png') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                        <img src="{{ asset('images/filter-icon-purover.png') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Пуровер</a></h4>
+                    <h4 class="filter-name">Пуровер</h4>
+                    </a>
                 </div>
-                <div class="team-info col-md-2 col-6">
+                <div class="team-info col-md-2 col-6 filter-card">
+                    <a class="filter-category-item" data-filter="category-cofemachine">
                     <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-coffemachine.png') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                        <img src="{{ asset('images/filter-icon-coffemachine.png') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Кофеварка</a></h4>
+                    <h4 class="filter-name">Кофеварка</h4>
+                    </a>
                 </div>
-                <div class="team-info col-md-2 col-6">
+                <div class="team-info col-md-2 col-6 filter-card">
+                    <a class="filter-category-item" data-filter="category-cup">
                     <div class="column position-relative">
-                        <a href="#url"><img src="{{ asset('images/filter-icon-cap.png') }}" alt=""
-                                            class="img-fluid radius-image filter-icon"></a>
+                        <img src="{{ asset('images/filter-icon-cap.png') }}" alt=""
+                                            class="img-fluid radius-image filter-icon">
                     </div>
-                    <h4><a href="#team">Чашка</a></h4>
+                    <h4 class="filter-name">Чашка</h4>
+                    </a>
                 </div>
             </div>
-            <form>
-                <div class="row sort">
-                    <div class="col-md-3">
-                        <select class="custom-select">
-                            <option selected>Цена</option>
-                            <option value="1">Дешевле</option>
-                            <option value="2">Дороже</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <select class="custom-select">
-                            <option selected>Популярность</option>
-                            <option value="1">Чаще покупают</option>
-                            <option value="2">Реже покупают</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <select class="custom-select">
-                            <option selected>Кислотность</option>
-                            <option value="1">Ниже</option>
-                            <option value="2">Выше</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <select class="custom-select">
-                            <option selected>Плотность</option>
-                            <option value="1">Ниже</option>
-                            <option value="2">Выше</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
+            <p class="sort">
+                <a class="custom-select filter-sort" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Фильтры
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample">
+                    <form>
+                        <div class="row sort">
+                            <div class="col-md-3">
+                                <select class="custom-select filter-sort">
+                                    <option selected>Цена</option>
+                                    <option value="1">Дешевле</option>
+                                    <option value="2">Дороже</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="custom-select filter-sort">
+                                    <option selected>Популярность</option>
+                                    <option value="1">Чаще покупают</option>
+                                    <option value="2">Реже покупают</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="custom-select filter-sort">
+                                    <option selected>Кислотность</option>
+                                    <option value="1">Ниже</option>
+                                    <option value="2">Выше</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="custom-select filter-sort">
+                                    <option selected>Плотность</option>
+                                    <option value="1">Ниже</option>
+                                    <option value="2">Выше</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+
         </div>
         {{--ФИЛЬТРЫ--}}
         <section class="product-section">
@@ -152,4 +172,7 @@
             </div>
         </section>
     </div>
+@endsection
+@section('js')
+    <script src="{{ URL::asset('js/shop/catalog-page.js') }}"></script>
 @endsection

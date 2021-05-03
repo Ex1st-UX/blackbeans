@@ -9,11 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function category() {
+    public function category()
+    {
         return $this->hasOne('App\Models\Category');
     }
 
-    public function sku() {
+    public function sku()
+    {
         return $this->hasOne('App\Models\Sku');
     }
 }

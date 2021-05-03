@@ -122,7 +122,7 @@
                 <li class="title-catalog text-left mb-4">Новинки</li>
                 <li class="title-catalog text-left mb-4">Акции</li>
             </ul>
-            <div class="row">
+            <div class="row product-catalog-wrapper">
                 {{--PRODUCTS-ARCHIVE--}}
                 @foreach($data as $prod)
                     <div class="col-lg-4 ">

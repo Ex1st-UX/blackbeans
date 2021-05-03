@@ -60,12 +60,10 @@ class ProductController extends Controller
     // Изменить товар в админке - отправка формы
     public function product_edit($id, Request $req)
     {
-
         $product = Product::find($id);
 
         $product->name = $req->input('name');
         $product->price = $req->input('price');
-//        $product->price_2 = $req->input('price_2');
         $product->description = $req->input('description');
         $product->acidity = $req->input('acidity');
         $product->dencity = $req->input('dencity');
@@ -119,8 +117,7 @@ class ProductController extends Controller
             if ($req->isSku == 'true') {
                 $sku = true;
                 $dataSku = 'yes';
-            }
-            else {
+            } else {
                 $sku = false;
                 $dataSku = 'no';
             }
@@ -140,9 +137,7 @@ class ProductController extends Controller
                         'grind' => $req->grind
                     ),
                 );
-            }
-
-            // Добавляемый товар НЕ является торговым предложением
+            } // Добавляемый товар НЕ является торговым предложением
             elseif (!$sku) {
                 $product = Product::where('id', $req->id)->first();
 
@@ -166,15 +161,16 @@ class ProductController extends Controller
     }
 
     // Показать все товары на странице каталога
-    public function product_catalog_list() {
+    public function product_catalog_list()
+    {
         $product = new Product();
 
         return view('templates.product.catalog-product', ['data' => $product->all()]);
     }
 
     // Отфильтровать по категории
-    public function category_filter(Request $req) {
-
+    public function category_filter(Request $req)
+    {
         if ($req->ajax()) {
 
             $products = new Product();
@@ -182,26 +178,65 @@ class ProductController extends Controller
 
             // Фильтр по категории "Турка"
             if ($req->item == 'category-turka') {
-                $resTurka = $categories->where('category', 'like', '%Турка%')->get();
 
-                foreach ($resTurka as $key => $item) {
-                    $resultTurka[] = $products->where('id', $item->product_id)->get();
-                }
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Турка%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                foreach ($resultTurka as $productItem) {
-
-                    foreach ($productItem as $value) {
-                        $categoryItem = $categories->where('product_id', $value->id)->get();
-
-                        foreach ($categoryItem as $category) {
-                            array_push($resultTurka, $category->category);
-                        }
-                    }
-                }
-
+                $data = $res->get();
             }
 
-            return response()->json($resultTurka);
+            // Фильтр по категории "Гейзер"
+            if ($req->item == 'category-gaser') {
+
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Гейзер%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                $data = $res->get();
+            }
+
+            // Фильтр по категории "Френч-пресс"
+            if ($req->item == 'category-french') {
+
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Френчпресс%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                $data = $res->get();
+            }
+
+            // Фильтр по категории "Пуровер"
+            if ($req->item == 'category-purover') {
+
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Пуровер%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                $data = $res->get();
+            }
+
+            // Фильтр по категории "Кофеварка"
+            if ($req->item == 'category-cofemachine') {
+
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Кофеварка%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                $data = $res->get();
+            }
+
+            // Фильтр по категории "Кофеварка"
+            if ($req->item == 'category-cup') {
+
+                $res = $products->join('categories', function ($join) {
+                    $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Чашка%');
+                })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                $data = $res->get();
+            }
+
+            return response()->json(['data' => $data]);
         }
     }
 }

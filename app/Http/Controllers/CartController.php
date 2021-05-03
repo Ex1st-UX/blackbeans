@@ -41,36 +41,37 @@ class CartController extends Controller
     }
 
     // Получаем корзину
-    public function cart_render(Request $req)
-    {
-        if ($req->ajax()) {
-
-            // куки
-            if (!Cookie::get('user_id')) {
-                $generate_id = intval(uniqid());
-                $user_id = $generate_id;
-            } else {
-                $user_id = Cookie::get('user_id');
-            }
-
-            // Если корзина не пуста, возвращаем JSON
-            if (\Cart::session($user_id)->isEmpty()) {
-                $data = false;
-            } else {
-                $user_id = Cookie::get('user_id');
-
-                $session = \Cart::session($user_id);
-
-                $data = \Cart::getContent();
-                $cartTotal = $session->getTotal();
-            }
-
-            return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
-        }
-    }
+//    public function cart_render(Request $req)
+//    {
+//        if ($req->ajax()) {
+//
+//            // куки
+//            if (!Cookie::get('user_id')) {
+//                $generate_id = intval(uniqid());
+//                $user_id = $generate_id;
+//            } else {
+//                $user_id = Cookie::get('user_id');
+//            }
+//
+//            // Если корзина не пуста, возвращаем JSON
+//            if (\Cart::session($user_id)->isEmpty()) {
+//                $data = false;
+//            } else {
+//                $user_id = Cookie::get('user_id');
+//
+//                $session = \Cart::session($user_id);
+//
+//                $data = \Cart::getContent();
+//                $cartTotal = $session->getTotal();
+//            }
+//
+//            return response()->json(['data' => $data, 'cartTotal' => $cartTotal]);
+//        }
+//    }
 
     //Обновляем товар из корзины
-    public function cartRenderAction(Request $req) {
+    public function cartRenderAction(Request $req)
+    {
 
         // куки
         if (!Cookie::get('user_id')) {
@@ -81,11 +82,9 @@ class CartController extends Controller
         }
 
         if (\Cart::session($user_id)->isEmpty()) {
-            $data = false;
-        } else {
-            // Получаем активные доставки
-            $delieveryCollection = new Delievery();
 
+            return response()->json(['data' => false]);
+        } else {
             // Удаление товара
             if ($req->action == 'delete') {
                 \Cart::session($user_id)->remove($req->id);

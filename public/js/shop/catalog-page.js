@@ -1,10 +1,34 @@
+var filterItem = {
+    item: '',
+    option: '',
+    sort: '',
+    _token: $('meta[name="csrf-token"]').attr('content')
+}
+
+// Показываем все товары при загрузке страницы
+$(document).ready(function () {
+    filterProdut();
+});
+
 // Фильтр по категориям
 $('.filter-category-item').on('click', function () {
 
-    var filterItem = {
-        item: $(this).data('filter'),
-        _token: $('meta[name="csrf-token"]').attr('content')
-    }
+    filterItem.item = $(this).data('filter');
+
+    filterProdut();
+});
+
+// Сортировка по цене
+$('.filter-sort').on('change', function () {
+
+    filterItem.sort = $('option:selected', this).val();
+    filterItem.option = $('option:selected', this).data('option');
+
+    filterProdut();
+});
+
+// Функция AJAX запроса для фильтрации и сортировки
+function filterProdut() {
 
     $.ajax({
         url: '/catalog/filterByCategory',
@@ -85,4 +109,4 @@ $('.filter-category-item').on('click', function () {
             alert('Ошибка');
         }
     });
-});
+}

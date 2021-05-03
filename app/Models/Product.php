@@ -18,4 +18,9 @@ class Product extends Model
     {
         return $this->hasOne('App\Models\Sku');
     }
+
+//    public function sortProduct($option, $direction)
+//    {
+//        return $this->orderBy($option, $direction);
+//    }
 }

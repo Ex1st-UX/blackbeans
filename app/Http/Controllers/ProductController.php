@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Darryldecode\Cart\Cart;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Sku;
@@ -176,6 +177,22 @@ class ProductController extends Controller
             $products = new Product();
             $categories = new Category();
 
+            $option = $req->option;
+            $direction = $req->sort;
+
+            // Если никакая из сортировок не выбрана
+            if (empty($req->item)) {
+
+                $res = $products->join('categories', 'products.id', '=', 'categories.product_id')
+                    ->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                if (empty($option)) {
+                    $data = $res->orderBy('name', 'asc')->get();
+                } else {
+                    $data = $res->orderBy($option, $direction)->get();
+                }
+            }
+
             // Фильтр по категории "Турка"
             if ($req->item == 'category-turka') {
 
@@ -183,57 +200,71 @@ class ProductController extends Controller
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Турка%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
-            }
-
-            // Фильтр по категории "Гейзер"
-            if ($req->item == 'category-gaser') {
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
+            } // Фильтр по категории "Гейзер"
+            elseif ($req->item == 'category-gaser') {
 
                 $res = $products->join('categories', function ($join) {
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Гейзер%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
-            }
-
-            // Фильтр по категории "Френч-пресс"
-            if ($req->item == 'category-french') {
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
+            } // Фильтр по категории "Френч-пресс"
+            elseif ($req->item == 'category-french') {
 
                 $res = $products->join('categories', function ($join) {
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Френчпресс%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
-            }
-
-            // Фильтр по категории "Пуровер"
-            if ($req->item == 'category-purover') {
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
+            } // Фильтр по категории "Пуровер"
+            elseif ($req->item == 'category-purover') {
 
                 $res = $products->join('categories', function ($join) {
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Пуровер%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
-            }
-
-            // Фильтр по категории "Кофеварка"
-            if ($req->item == 'category-cofemachine') {
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
+            } // Фильтр по категории "Кофеварка"
+            elseif ($req->item == 'category-cofemachine') {
 
                 $res = $products->join('categories', function ($join) {
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Кофеварка%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
-            }
-
-            // Фильтр по категории "Кофеварка"
-            if ($req->item == 'category-cup') {
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
+            } // Фильтр по категории "Кофеварка"
+            elseif ($req->item == 'category-cup') {
 
                 $res = $products->join('categories', function ($join) {
                     $join->on('products.id', '=', 'categories.product_id')->where('categories.category', 'like', '%Чашка%');
                 })->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $data = $res->get();
+                if (!empty($option)) {
+                    $data = $res->orderBy($option, $direction)->get();
+                } else {
+                    $data = $res->get();
+                }
             }
 
             return response()->json(['data' => $data]);

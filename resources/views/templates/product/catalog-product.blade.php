@@ -84,29 +84,29 @@
                             <div class="col-md-3">
                                 <select class="custom-select filter-sort">
                                     <option selected>Цена</option>
-                                    <option value="1">Дешевле</option>
-                                    <option value="2">Дороже</option>
+                                    <option data-option="price" value="asc">Дешевле</option>
+                                    <option data-option="price" value="desc">Дороже</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="custom-select filter-sort">
                                     <option selected>Популярность</option>
-                                    <option value="1">Чаще покупают</option>
-                                    <option value="2">Реже покупают</option>
+                                    <option data-option="popularity" value="asc">Чаще покупают</option>
+                                    <option data-option="popularity" value="desc">Реже покупают</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="custom-select filter-sort">
                                     <option selected>Кислотность</option>
-                                    <option value="1">Ниже</option>
-                                    <option value="2">Выше</option>
+                                    <option data-option="acidity" value="asc">Ниже</option>
+                                    <option data-option="acidity" value="desc">Выше</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="custom-select filter-sort">
                                     <option selected>Плотность</option>
-                                    <option value="1">Ниже</option>
-                                    <option value="2">Выше</option>
+                                    <option data-option="dencity" value="asc">Ниже</option>
+                                    <option data-option="dencity" value="desc">Выше</option>
                                 </select>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
             </ul>
             <div class="row product-catalog-wrapper">
                 {{--PRODUCTS-ARCHIVE--}}
-                @foreach($data as $prod)
+                {{--@foreach($data as $prod)
                     <div class="col-lg-4 ">
                         <a href="/shop/{{ $prod->id }}">
                             <div class="card product-list-single">
@@ -132,8 +132,8 @@
                                     <p class="card-text text-center text-dark font-weight-bolder">{{ $prod->name }}</p>
                                     <p class="card-text text-center">{{ $prod->category->category }}</p>
                                 </div>
-                                {{--                                    <img src="{{ asset('/storage/') . '/' . $prod->image }}" alt="{{ $prod->name }}"--}}
-                                {{--                                         class="product-list-image">--}}
+                                --}}{{--                                    <img src="{{ asset('/storage/') . '/' . $prod->image }}" alt="{{ $prod->name }}"--}}{{--
+                                --}}{{--                                         class="product-list-image">--}}{{--
                                 <img src="{{ asset('/images/product.png') }}" alt="{{ $prod->name }}"
                                      class="product-list-image">
                                 <div class="card-body">
@@ -167,7 +167,7 @@
                             </div>
                         </a>
                     </div>
-                @endforeach
+                @endforeach--}}
                 {{--PRODUCTS-ARCHIVE--}}
             </div>
         </section>

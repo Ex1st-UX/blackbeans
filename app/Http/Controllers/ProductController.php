@@ -125,7 +125,7 @@ class ProductController extends Controller
 
             // Добавляемый товар является торговым предложением
             if ($sku) {
-                $skuProduct = Sku::where('id', $req->id)->first();
+                $skuProduct = Sku::where('id', intval($req->id))->first();
 
                 $data = array(
                     'id' => $skuProduct->id,
@@ -140,7 +140,7 @@ class ProductController extends Controller
                 );
             } // Добавляемый товар НЕ является торговым предложением
             elseif (!$sku) {
-                $product = Product::where('id', $req->id)->first();
+                $product = Product::where('id', intval($req->id))->first();
 
                 $data = array(
                     'id' => $product->id,

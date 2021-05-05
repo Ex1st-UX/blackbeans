@@ -63,13 +63,14 @@ function filterProdut() {
 
                     $(
                         '<div class="col-lg-4 ">' +
-                        '<a href="/shop/' + id + '">' +
                         '<div class="card product-list-single">' +
+                        '<a class="text-center" href="/shop/' + id + '">' +
                         '<div class="card-body">' +
                         '<p class="card-text text-center text-dark font-weight-bolder">' + name + '</p>' +
                         '<p class="card-text text-center">' + category + '</p>' +
                         '</div>' +
                         '<img src="/images/product.png" alt="' + name + '" class="product-list-image">' +
+                        '</a>' +
                         '<div class="card-body">' +
                         '<p class="card-text">Кислотность</p>' +
                         '<div class="progress">' +
@@ -86,20 +87,23 @@ function filterProdut() {
                         '</div>' +
                         '<div class="bottom-card">' +
                         '<div class="float-left">' +
+                        '<a>' +
                         '<p class="card-text gramm-text">250г</p>' +
-                        '<h5 class="">' + price + '  р</h5>' +
+                        '<h5 class="price-product" data-sku="false" data-item="' + id + '">' + price + '  р</h5>' +
+                        '</a>' +
                         '</div>' +
                         '<div class="float-left margin-left">' +
+                        '<a>' +
                         '<p class="card-text gramm-text">1000г</p>' +
-                        '<h5 class="">' + skuPrice + ' р</h5>' +
+                        '<h5 class="price-product" data-sku="true" data-item="' + skuId + '">' + skuPrice + ' р</h5>' +
+                        '</a>' +
                         '</div>' +
                         '<div class="float-right button-size">' +
-                        '<button class="btn btn-dark">Купить</button>' +
+                        '<button type="button" data-sku="false" data-item="' + id + '" class="btn btn-dark add-to-cart">Купить</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '</a>' +
                         '</div>'
                     ).appendTo('.product-catalog-wrapper');
                 }
@@ -110,3 +114,56 @@ function filterProdut() {
         }
     });
 }
+
+var arProduct = {
+    id: '',
+    isSku: '',
+    qty: 1,
+    grind: 'Для турки',
+    _token: $('meta[name="csrf-token"]').attr('content')
+};
+
+// Отслеживаем выбор торгового предложения
+$(document).on('click', '.price-product', function () {
+
+    var productSku = $(this).data('sku');
+    var productId = $(this).data('item');
+
+    var objAddToCartButton = $(this).closest('.float-left').nextAll('.button-size').children('.add-to-cart');
+
+    $(objAddToCartButton).attr('data-item', productId);
+    $(objAddToCartButton).attr('data-sku', productSku);
+
+    arProduct.isSku = $(this).data('sku');
+    arProduct.id = $(this).data('item');
+
+    console.log(arProduct);
+});
+
+// AJAX запрос добавления в корзину
+$(document).ready(function () {
+    $(document).on('click', '.add-to-cart', function () {
+
+        arProduct.isSku = $(this).data('sku');
+        arProduct.id = $(this).data('item');
+
+        console.log(arProduct);
+
+        $.ajax({
+            url: '/shop/buy',
+            type: 'POST',
+            dataType: 'JSON',
+            data: arProduct,
+            success: function (response) {
+                console.log('done');
+            },
+            error: function () {
+                alert('Ошибка')
+            },
+        });
+    });
+});
+
+
+
+

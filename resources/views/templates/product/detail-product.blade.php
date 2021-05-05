@@ -60,7 +60,7 @@
                                     data-price="{{ $data->sku->price }}" id="sku-two"
                                     class="btn btn-style border-btn  mt-4 sku-button">1000г
                             </button>
-                            <button type="submit" id="add-to-cart" data-action="{{ '/shop/{id}/buy' }}"
+                            <button type="submit" id="add-to-cart" data-action="{{ '/shop/buy' }}"
                                     data-item="{{ $data->id }}" data-sku="250"
                                     data-summary="{{ $data->price }}"
                                     class="btn btn-style btn-primary  mt-4 add-to-cart">Купить

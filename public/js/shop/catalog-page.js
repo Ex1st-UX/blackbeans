@@ -61,6 +61,7 @@ function filterProdut() {
                         skuId = dataItem[1].sku_id,
                         skuPrice = dataItem[1].sku_price;
 
+                    // Рендерим карточку товара
                     $(
                         '<div class="col-lg-4 ">' +
                         '<div class="card product-list-single">' +
@@ -89,17 +90,17 @@ function filterProdut() {
                         '<div class="float-left">' +
                         '<a>' +
                         '<p class="card-text gramm-text">250г</p>' +
-                        '<h5 class="price-product" data-sku="false" data-item="' + id + '">' + price + '  р</h5>' +
+                        '<h5 class="price-product" data-price="' + price + '" data-sku="false" data-item="' + id + '">' + price + '  р</h5>' +
                         '</a>' +
                         '</div>' +
                         '<div class="float-left margin-left">' +
                         '<a>' +
                         '<p class="card-text gramm-text">1000г</p>' +
-                        '<h5 class="price-product" data-sku="true" data-item="' + skuId + '">' + skuPrice + ' р</h5>' +
+                        '<h5 class="price-product" data-price="' + skuPrice + '" data-sku="true" data-item="' + skuId + '">' + skuPrice + ' р</h5>' +
                         '</a>' +
                         '</div>' +
                         '<div class="float-right button-size">' +
-                        '<button type="button" data-sku="false" data-item="' + id + '" class="btn btn-dark add-to-cart">Купить</button>' +
+                        '<button type="button" data-sku="false" data-price="' + price + '" data-item="' + id + '" class="btn btn-dark add-to-cart">Купить</button>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -115,54 +116,45 @@ function filterProdut() {
     });
 }
 
+// Объект с информацией о добавляемом товаре
 var arProduct = {
     id: '',
     isSku: '',
+    price: 0,
     qty: 1,
     grind: 'Для турки',
+    cartTotal: Number($('#cart-total').text()),
     _token: $('meta[name="csrf-token"]').attr('content')
 };
 
 // Отслеживаем выбор торгового предложения
 $(document).on('click', '.price-product', function () {
 
+    var productPrice = $(this).data('price');
     var productSku = $(this).data('sku');
     var productId = $(this).data('item');
 
+    // Находим через DOM дерево кнопку добавления в корзину
     var objAddToCartButton = $(this).closest('.float-left').nextAll('.button-size').children('.add-to-cart');
 
+    $(objAddToCartButton).attr('data-price', productPrice);
     $(objAddToCartButton).attr('data-item', productId);
     $(objAddToCartButton).attr('data-sku', productSku);
-
-    arProduct.isSku = $(this).data('sku');
-    arProduct.id = $(this).data('item');
-
-    console.log(arProduct);
 });
 
 // AJAX запрос добавления в корзину
 $(document).ready(function () {
     $(document).on('click', '.add-to-cart', function () {
 
-        arProduct.isSku = $(this).data('sku');
-        arProduct.id = $(this).data('item');
+        // Получаем данные о товара из кнопки добавления в корзину
+        arProduct.price = $(this).attr('data-price');
+        arProduct.isSku = $(this).attr('data-sku');
+        arProduct.id = $(this).attr('data-item');
 
-        console.log(arProduct);
-
-        $.ajax({
-            url: '/shop/buy',
-            type: 'POST',
-            dataType: 'JSON',
-            data: arProduct,
-            success: function (response) {
-                console.log('done');
-            },
-            error: function () {
-                alert('Ошибка')
-            },
-        });
+        addToCart(arProduct);
     });
 });
+
 
 
 

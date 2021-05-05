@@ -60,22 +60,7 @@ $(document).ready(function () {
     $('#add-to-cart-form').on('submit', function (e) {
         e.preventDefault();
 
-        $.ajax({
-            url: data.action,
-            type: 'POST',
-            dataType: 'JSON',
-            data: data,
-            success: function () {
-                $('#add-to-cart-modals-button').trigger('click');
-
-                data.cartTotal = data.cartTotal + (data.price * data.qty);
-                $('#cart-total').text(data.cartTotal);
-            },
-            error: function () {
-                alert('Ошибка');
-            }
-
-        });
+        addToCart(data);
     });
 });
 

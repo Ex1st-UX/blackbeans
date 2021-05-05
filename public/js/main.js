@@ -109,3 +109,23 @@ $('#cart-condition').mouseleave(function () {
 $('#cart_condition_close').on('click', function () {
     $('.cart-condition').attr('style', 'display: none!important;');
 });
+
+// Функция добавляющая товар в корзину через AJAX
+function addToCart(data) {
+    $.ajax({
+        url: '/shop/buy',
+        type: 'POST',
+        dataType: 'JSON',
+        data: data,
+        success: function () {
+            $('#add-to-cart-modals-button').trigger('click');
+
+            data.cartTotal = data.cartTotal + (data.price * data.qty);
+            $('#cart-total').text(data.cartTotal);
+        },
+        error: function () {
+            alert('Ошибка');
+        }
+
+    });
+}

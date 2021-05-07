@@ -15,6 +15,12 @@ $('.filter-category-item').on('click', function () {
 
     filterItem.item = $(this).data('filter');
 
+    // Удаляем класс / отметку с выбранной категории
+    $('.filter-icon-active').removeClass('filter-icon-active');
+
+    // Добавляем класс - визуально отмечаем выбранный элемент
+    $(this).find('.filter-icon').addClass('filter-icon-active');
+    
     filterProdut();
 });
 
@@ -90,13 +96,13 @@ function filterProdut() {
                         '<div class="float-left">' +
                         '<a>' +
                         '<p class="card-text gramm-text">250г</p>' +
-                        '<h5 class="price-product" data-price="' + price + '" data-sku="false" data-item="' + id + '">' + price + '  р</h5>' +
+                        '<h5 class="price-product" data-price="' + price + '" data-sku="false" data-item="' + id + '"><span class="price-product-border price-product-active">' + price + '</span>  р</h5>' +
                         '</a>' +
                         '</div>' +
                         '<div class="float-left margin-left">' +
                         '<a>' +
                         '<p class="card-text gramm-text">1000г</p>' +
-                        '<h5 class="price-product" data-price="' + skuPrice + '" data-sku="true" data-item="' + skuId + '">' + skuPrice + ' р</h5>' +
+                        '<h5 class="price-product" data-price="' + skuPrice + '" data-sku="true" data-item="' + skuId + '"><span class="price-product-border">' + skuPrice + '</span> р</h5>' +
                         '</a>' +
                         '</div>' +
                         '<div class="float-right button-size">' +
@@ -140,13 +146,22 @@ $(document).on('click', '.price-product', function () {
     $(objAddToCartButton).attr('data-price', productPrice);
     $(objAddToCartButton).attr('data-item', productId);
     $(objAddToCartButton).attr('data-sku', productSku);
+
+    // Отмечаем выбранное торговое предложение
+    if (productSku) {
+        $(this).closest('.margin-left').prev().find('span').removeClass('price-product-active');
+    }
+    else {
+        $(this).closest('.float-left').next().find('span').removeClass('price-product-active');
+    }
+    $(this).children().addClass('price-product-active');
 });
 
 // AJAX запрос добавления в корзину
 $(document).ready(function () {
     $(document).on('click', '.add-to-cart', function () {
 
-        // Получаем данные о товара из кнопки добавления в корзину
+        // Получаем данные о товаре из кнопки добавления в корзину
         arProduct.price = $(this).attr('data-price');
         arProduct.isSku = $(this).attr('data-sku');
         arProduct.id = $(this).attr('data-item');
@@ -154,6 +169,8 @@ $(document).ready(function () {
         addToCart(arProduct);
     });
 });
+
+
 
 
 

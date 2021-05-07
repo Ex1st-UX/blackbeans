@@ -27,7 +27,7 @@ class ProductController extends Controller
         $product->acidity = $req->input('acidity');
         $product->dencity = $req->input('dencity');
         $product->image = $req->file('image')->store('uploads', 'public');
-        $product->category_list = implode($req->input('options'), ', ');
+        $product->category_list = implode(',', $req->input('options'));
 
         $product->save();
 
@@ -43,7 +43,7 @@ class ProductController extends Controller
 
         // Записываем категории товара в таблицу categories
         $category->product_id = $product->id;
-        $category->category = implode($req->input('options'), ', ');
+        $category->category = implode(', ', $req->input('options'));
 
         $category->save();
 

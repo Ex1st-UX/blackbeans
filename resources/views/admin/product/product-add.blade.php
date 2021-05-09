@@ -28,7 +28,23 @@
                 <label class="custom-control-label" for="customCheck{{ $id }}">{{ $item->name }}</label>
             </div>
         @endforeach
-
+        <br>
+        <p>Принадлежность к специальным предложениям</p>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="recommend" value="Рекомендуемые"
+                   name="saleMarks[]">
+            <label class="custom-control-label" for="recommend">Рекомендуемые</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="sale" value="Акции"
+                   name="saleMarks[]">
+            <label class="custom-control-label" for="sale">Акции</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" value="Новинки"
+                   name="saleMarks[]" id="new">
+            <label class="custom-control-label" for="new">Новинки</label>
+        </div>
         <div class="form-group">
             <label for="formGroupExampleInput3">Цена за 250 гр</label>
             <input type="text" class="form-control" id="formGroupExampleInput3" name="price" value="">

@@ -266,7 +266,7 @@
     margin-bottom: 20px;
 }
 .price-product-active {
-    border-bottom: 3px solid black!important; 
+    border-bottom: 3px solid black!important;
 }
 .sort {
     margin-top: 60px;
@@ -294,6 +294,13 @@
     margin-bottom: 150px;
     margin-top: 150px;
     padding: 20px!important;
+}
+.category-body {
+    height: 60px;
+}
+.mark-item-active {
+    color: black;
+    font-weight: bolder;
 }
 
 /*MEDIA*/

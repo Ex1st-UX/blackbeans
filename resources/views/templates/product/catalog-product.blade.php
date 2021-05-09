@@ -78,6 +78,7 @@
                     Фильтры
                 </a>
             </p>
+            {{--Сортировки--}}
             <div class="collapse" id="collapseExample">
                     <form>
                         <div class="row sort">
@@ -116,11 +117,12 @@
         </div>
         {{--ФИЛЬТРЫ--}}
         <section class="product-section">
+            {{--Тэги--}}
             <ul class="catalog-tabs">
-                <li class="title-catalog text-left mb-4">Все</li>
-                <li class="title-catalog text-left mb-4">Рекомендуем</li>
-                <li class="title-catalog text-left mb-4">Новинки</li>
-                <li class="title-catalog text-left mb-4">Акции</li>
+                <li class="title-catalog text-left mb-4 mark-item-active" data-item="all_items" id="all_items"><a>Все</a></li>
+                <li class="title-catalog text-left mb-4" data-item="reccomended_items"><a>Рекомендуем</a></li>
+               <li class="title-catalog text-left mb-4" data-item="new_items"><a>Новинки</a></li>
+                <li class="title-catalog text-left mb-4" data-item="sales_item"><a>Акции</a></li>
             </ul>
             <div class="row product-catalog-wrapper">
                 {{--PRODUCTS-ARCHIVE--}}

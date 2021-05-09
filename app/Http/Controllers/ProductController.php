@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SaleMark;
 use Darryldecode\Cart\Cart;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class ProductController extends Controller
         $category = new Category();
         $product = new Product();
         $skuProduct = new Sku();
+        $saleMark = new SaleMark();
 
         // Записываем товар в БД
         $product->name = $req->input('name');
@@ -46,6 +48,19 @@ class ProductController extends Controller
         $category->category = implode(', ', $req->input('options'));
 
         $category->save();
+
+        // Записываем маркетинговые метки
+        $product_id = $product->id;
+        $arSaleMarkNames = $req->input('saleMarks');
+
+        foreach ($arSaleMarkNames as $item) {
+            $arSaleMark = array(
+                'product_id' => $product_id,
+                'name' => $item
+            );
+
+            $saleMark->insert($arSaleMark);
+        }
 
         return redirect()->route('product-admin')->with('success', 'товар добавлен');
     }
@@ -180,19 +195,10 @@ class ProductController extends Controller
             $option = $req->option;
             $direction = $req->sort;
 
-            // Если никакая из сортировок не выбрана
-            if (empty($req->item)) {
+            $allProducts = $products->join('categories', 'products.id', '=', 'categories.product_id')
+                ->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
 
-                $res = $products->join('categories', 'products.id', '=', 'categories.product_id')
-                    ->join('skus', 'products.id', '=', 'skus.product_id')->select('products.image', 'products.price', 'products.name', 'dencity', 'category', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
-
-                if (empty($option)) {
-                    $data = $res->orderBy('name', 'asc')->get();
-                } else {
-                    $data = $res->orderBy($option, $direction)->get();
-                }
-            }
-
+            // Сначала фильтр по категориям
             // Фильтр по категории "Турка"
             if ($req->item == 'category-turka') {
 
@@ -264,6 +270,53 @@ class ProductController extends Controller
                     $data = $res->orderBy($option, $direction)->get();
                 } else {
                     $data = $res->get();
+                }
+            } // Фильтр по тегам
+            else {
+                // Все товары
+                if ($req->tag == 'all_items') {
+
+                    if (!empty($option)) {
+                        $data = $allProducts->orderBy($option, $direction)->get();
+                    } else {
+                        $data = $allProducts->orderBy('name', 'asc')->get();
+                    }
+                } // Рекомендуемые
+                elseif ($req->tag == 'reccomended_items') {
+
+                    $res = $products->join('sale_marks', function ($join) {
+                        $join->on('products.id', '=', 'sale_marks.product_id')->where('sale_marks.name', '=', 'Рекомендуемые');
+                    })->join('skus', 'products.id', '=', 'skus.product_id')->join('categories', 'categories.product_id', '=', 'products.id')->select('products.image', 'products.price', 'categories.category', 'products.name', 'dencity', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                    if (!empty($option)) {
+                        $data = $res->orderBy($option, $direction)->get();
+                    } else {
+                        $data = $res->orderBy('name', 'asc')->get();
+                    }
+                } // Новинки
+                elseif ($req->tag == 'new_items') {
+
+                    $res = $products->join('sale_marks', function ($join) {
+                        $join->on('products.id', '=', 'sale_marks.product_id')->where('sale_marks.name', '=', 'Новинки');
+                    })->join('skus', 'products.id', '=', 'skus.product_id')->join('categories', 'categories.product_id', '=', 'products.id')->select('products.image', 'products.price', 'categories.category', 'products.name', 'dencity', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                    if (!empty($option)) {
+                        $data = $res->orderBy($option, $direction)->get();
+                    } else {
+                        $data = $res->orderBy('name', 'asc')->get();
+                    }
+                } // Акции
+                elseif ($req->tag == 'sales_item') {
+
+                    $res = $products->join('sale_marks', function ($join) {
+                        $join->on('products.id', '=', 'sale_marks.product_id')->where('sale_marks.name', '=', 'Акции');
+                    })->join('skus', 'products.id', '=', 'skus.product_id')->join('categories', 'categories.product_id', '=', 'products.id')->select('products.image', 'products.price', 'categories.category', 'products.name', 'dencity', 'acidity', 'products.id', 'skus.id as sku_id', 'skus.price as sku_price');
+
+                    if (!empty($option)) {
+                        $data = $res->orderBy($option, $direction)->get();
+                    } else {
+                        $data = $res->orderBy('name', 'asc')->get();
+                    }
                 }
             }
 

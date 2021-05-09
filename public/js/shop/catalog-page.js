@@ -2,6 +2,7 @@ var filterItem = {
     item: '',
     option: '',
     sort: '',
+    tag: 'all_items',
     _token: $('meta[name="csrf-token"]').attr('content')
 }
 
@@ -18,9 +19,13 @@ $('.filter-category-item').on('click', function () {
     // Удаляем класс / отметку с выбранной категории
     $('.filter-icon-active').removeClass('filter-icon-active');
 
+    // Ставим отметку на тэг "Все
+    $('.title-catalog').removeClass('mark-item-active');
+    $('#all_items').addClass('mark-item-active');
+
     // Добавляем класс - визуально отмечаем выбранный элемент
     $(this).find('.filter-icon').addClass('filter-icon-active');
-    
+
     filterProdut();
 });
 
@@ -29,6 +34,21 @@ $('.filter-sort').on('change', function () {
 
     filterItem.sort = $('option:selected', this).val();
     filterItem.option = $('option:selected', this).data('option');
+
+    filterProdut();
+});
+
+// Фильтрация по тегам
+$('.title-catalog').on('click', function () {
+
+    filterItem.tag = $(this).data('item');
+    filterItem.item = '';
+
+    // Сбрасываем отметку на выборе категории
+    $('.filter-icon-active').removeClass('filter-icon-active');
+
+    $('.title-catalog').removeClass('mark-item-active');
+    $(this).addClass('mark-item-active');
 
     filterProdut();
 });
@@ -74,7 +94,7 @@ function filterProdut() {
                         '<a class="text-center" href="/shop/' + id + '">' +
                         '<div class="card-body">' +
                         '<p class="card-text text-center text-dark font-weight-bolder">' + name + '</p>' +
-                        '<p class="card-text text-center">' + category + '</p>' +
+                        '<p class="card-text text-center category-body">' + category + '</p>' +
                         '</div>' +
                         '<img src="/images/product.png" alt="' + name + '" class="product-list-image">' +
                         '</a>' +

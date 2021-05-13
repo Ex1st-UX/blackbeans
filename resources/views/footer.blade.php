@@ -89,72 +89,8 @@
     <!-- /move top -->
 </section>
 {{--МОДАЛЬНЫЕ ОКНА--}}
-
-<!-- Button trigger modal -->
-<button id="add-to-cart-modals-button" type="hidden" style="display: none" class="btn btn-primary" data-toggle="modal"
-        data-target="#add-to-cart-success">
-    Launch demo modal
-</button>
-
-{{--Попап об успешном добавлении в корзину--}}
-<div class="modal fade" id="add-to-cart-success" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center modal-success-content">
-            <div class="container">
-                <span class="success-symbol">&#10004;</span>
-                <h3 class="success-element">Товар добавлен в корзину</h3>
-                <a href="/cart"><button class="btn-lg btn-block btn-order">Перейти в корзину</button></a>
-                <a class="continue-shop" data-dismiss="modal">Продолжить покупки</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{--<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"--}}
-{{--     aria-labelledby="myLargeModalLabel" aria-hidden="true" id="add-to-cart-success">--}}
-{{--    <div class="modal-dialog modal-lg modal-dialog-centered">--}}
-{{--        <div class="modal-content">--}}
-{{--            <div class="modal-header">--}}
-{{--                <h5 class="modal-title" id="exampleModalCenteredLabel">Товар добавлен</h5>--}}
-{{--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                    <span aria-hidden="true">&times;</span>--}}
-{{--                </button>--}}
-{{--            </div>--}}
-{{--            <table class="table text-center cart-modal-success table-responsive">--}}
-{{--                <thead>--}}
-{{--                <tr>--}}
-{{--                    <th></th>--}}
-{{--                    <th>Название</th>--}}
-{{--                    <th>Количество</th>--}}
-{{--                    <th>Цена</th>--}}
-{{--                    <th>Стоимость</th>--}}
-{{--                </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                @if ($cartItems)--}}
-{{--                    @foreach($cartItems as $item)--}}
-{{--                        <tr class="">--}}
-{{--                            <th scope="row"><img width="100px" src="{{ asset('/images/product.png') }}"></th>--}}
-{{--                            <td class="test">{{ $item->name }}</td>--}}
-{{--                            <td class="test">{{ $item->quantity }}</td>--}}
-{{--                            <td class="test">{{ $item->price }}</td>--}}
-{{--                            <td class="test">{{ $item->price * $item->quantity }}</td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-{{--                @endif--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-{{--            <div class="modal-footer">--}}
-{{--                <button type="button" class="btn  btn-white" data-dismiss="modal">Продолжить покупки</button>--}}
-{{--                <button type="button" class="btn  btn-primary">Перейти в корзину</button>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
+@include('templates.modals.modals')
 {{--МОДАЛЬНЫЕ ОКНА--}}
-
 <!-- Template JavaScript -->
 <script src="{{ URL::asset('js/jquery-3.x-git.js') }}"></script>
 

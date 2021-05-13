@@ -68,25 +68,6 @@ function cartRender(response) {
             '<button type="submit" id="add_to_order" class="btn-lg btn-block btn-order-submit">Оформить заказ</button>' +
             '</div>'
         ).appendTo('.left-side-block');
-
-        // Рендерим способы доставки
-        // var isExistPochta = true;
-        //
-        // if (isExistPochta) {
-        //     $(
-        //         '<a class="" data-toggle="collapse" href="#delievery-pochta-russian-map-open" aria-expanded="false" aria-controls="collapseExample">' +
-        //         '<div class="delievery-item-wrapper">' +
-        //         '<img class="pochta-russia-logo" src="/images/pochta-russia-logo.png">' +
-        //         '<span class="delievery-item-content">' +
-        //         'Почта России' +
-        //         '</span>' +
-        //         '</div>' +
-        //         '</a>'
-        //     ).appendTo('#delievery_method_item');
-        // }
-        //
-        // isExistPochta = false;
-
     }
 }
 
@@ -205,7 +186,7 @@ $(document).on('click', '.total-cart-plus', function () {
 });
 
 // Создать заказ
-$(document).on('click', '#add_to_order', function (e) {
+$(document).on('submit', '#order_create', function (e) {
     e.preventDefault();
 
     var arOrder = {
@@ -225,14 +206,16 @@ $(document).on('click', '#add_to_order', function (e) {
         payment: $('#payment-method-cache').data('id'),
         _token: $('meta[name="csrf-token"]').attr('content'),
     };
-    x
+
     $.ajax({
         url: '/cart/submit',
         dataType: 'JSON',
         method: 'POST',
         data: arOrder,
-        success: function () {
-            console.log('ok');
+        success: function (response) {
+            $('#order_id').text(response.orderId);
+
+            $('#order-modals-button').trigger('click');
         },
         error: function () {
             alert('Ошибка');

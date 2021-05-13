@@ -18,6 +18,8 @@ class OrderController extends Controller
 
         $basketOrder = new BasketOrder();
         $order = new Order();
+        $productEntity = new Product();
+        $skuEntity = new Sku();
 
         $user_id = Cookie::get('user_id');
 
@@ -58,6 +60,25 @@ class OrderController extends Controller
             );
 
             $basketInsert = $basketOrder->insert($products);
+        }
+
+        // Записываем товарам в заказе популярность
+        foreach ($data as $item) {
+
+            // Если товар является торговым предложением, то получаем его ID
+            if ($item->attributes->sku == 'yes') {
+                $skuId = $skuEntity->where('id', '=', $item->id)->select('product_id')->get();
+
+                foreach ($skuId as $item) {
+                    $item->id = $item->product_id;
+                }
+            }
+
+            $currPopularity = $productEntity->where('id', '=', $item->id)->select('popularity')->first();
+
+            $popularityInsert = $productEntity->where('id', '=', $item->id)->update(array(
+                'popularity' => $currPopularity->popularity + $item->quantity
+            ));
         }
 
         if ($basketInsert) {

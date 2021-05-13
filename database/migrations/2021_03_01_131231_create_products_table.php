@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('acidity');
             $table->integer('dencity');
             $table->string('category_list');
+            $table->integer('popularity');
         });
     }
 

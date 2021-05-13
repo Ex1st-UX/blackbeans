@@ -269,11 +269,34 @@
     border-bottom: 3px solid black!important;
 }
 .sort {
+    padding-top: 60px;
+    background-color: #fafafa!important;
+}
+.sort-button {
     margin-top: 60px;
 }
-
+.sort-wrapper {
+    background-color: #fafafa!important;
+}
 .filters-wrapper {
     margin-top: 40px;
+}
+.filter-sort-items:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+    background-image: url('/images/arr-bold-gray.svg') !important;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
 }
 .catalog-tabs li{
     display: inline;
@@ -283,6 +306,16 @@
 }
 .filter-sort {
     background-color: #fafafa!important;
+}
+.filter-sort-items {
+    border: none!important;
+    border-bottom: 2px solid black!important;
+    border-radius: 0!important;
+}
+.filter-items-label {
+    padding-left: 0.75rem;
+    color: black;
+    font-size: 16px;
 }
 .preloader-catalog-products {
     margin-bottom: 120px;

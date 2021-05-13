@@ -302,7 +302,7 @@ class ProductController extends Controller
 
                     if (!empty($option)) {
                         $data = $res->orderBy($option, $direction)->get();
-                    } else {
+                    } else {    
                         $data = $res->orderBy('name', 'asc')->get();
                     }
                 } // Акции

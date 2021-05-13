@@ -16,7 +16,7 @@
     <section class="w3l-contact-6 py-5" id="contact">
         <div class="contact-info  py-lg-4 py-md-3">
             <div class="container">
-                <form method="post" action="{{ route('order-submit') }}" id="order_create">
+                <form method="post" id="order_create">
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
                         <div class="contacts12-main left-side-block">
@@ -28,19 +28,19 @@
                                            class="contact-input"/>
                                 </div>
                                 <div>
-                                    <label class="form-field" for="w3lSender">Фамилия</label class="form-field">
+                                    <label class="form-field" for="w3lSender">Фамилия</label>
                                     <input type="text" name="w3lSender" id="surname" required placeholder="Иванов"
                                            class="contact-input"/>
                                 </div>
                             </div>
                             <div>
-                                <label class="form-field" for="w3lSubect">E-mail</label class="form-field">
-                                <input type="text" name="w3lSubect" id="email" required placeholder="info@blackbeans.ru"
+                                <label class="form-field" for="w3lSubect">E-mail</label>
+                                <input type="email" name="w3lSubect" id="email" required placeholder="info@blackbeans.ru"
                                        class="contact-input"/>
                             </div>
                             <div>
-                                <label class="form-field" for="w3lSubect">Номер телефона</label class="form-field">
-                                <input type="text" name="w3lSubect " id="phone" required
+                                <label class="form-field" for="w3lSubect">Номер телефона</label>
+                                <input type="phone" name="w3lSubect " id="phone" required
                                        placeholder="+7 (999) 999 99 99"
                                        class="contact-input form-control"/>
                             </div>
@@ -67,20 +67,19 @@
                                         <div class="input-grids delievery-">
                                             <div>
                                                 <label class="form-field"
-                                                       for="w3lSubect">Город</label class="form-field">
+                                                       for="w3lSubect">Город</label>
                                                 <input type="text" name="w3lSubect" id="city" required
                                                        placeholder="Москва"
                                                        class="contact-input"/>
                                             </div>
                                             <div>
                                                 <label class="form-field" for="w3lSubect">Улица,
-                                                    дом</label class="form-field">
+                                                    дом</label>
                                                 <input type="text" name="w3lSubect" id="street" required
                                                        placeholder="Тверская д. 18"
                                                        class="contact-input"/>
                                             </div>
                                             <div class="input-grids">
-
                                                 <div>
                                                     <label class="form-field" for="w3lName">Квартира</label>
                                                     <input type="text" name="w3lName" id="apps" required
@@ -134,7 +133,6 @@
                                 </table>
                             </div>
                             {{--Итог--}}
-
                         </div>
                     </div>
                 </form>

@@ -25,31 +25,30 @@ use App\Http\Controllers\CartController;
 Route::get('/', [ProductController::class, 'product_list'])->name('home');
 
 /*PRODUCT*/
-
-// product pages
 Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
 Route::post('/shop/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
-
 // catalog product
 Route::get('/catalog', [ProductController::class, 'product_catalog_list'])->name('catalog-product');
 Route::post('/catalog/filterByCategory', [ProductController::class, 'category_filter']);
 
 /*CART*/
-
-// cart condition
 Route::post('/shop/condition', [CartController::class, 'cart_condition'])->name('cart-condition');
-
-// cart page
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('/cart/render', [CartController::class, 'cartRenderAction'])->name('cart-render');
 Route::post('/cart/submit', [OrderController::class, 'orderCreate'])->name('order-submit');
-
-// cart delete
 Route::post('/cart/update', [CartController::class, 'cartRenderAction'])->name('cart-update');
+
+/*ADDITIONAL PAGES*/
+Route::get('/contact', function () {
+    return view('templates.pages.contact');
+})->name('contact');
+
+Route::get('/about', function () {
+    return view('templates.pages.about');
+})->name('about');
 
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 /*ADMIN PANEL ROUTES*/
 Route::group(['middleware' => ['role:admin']], function () {
@@ -72,7 +71,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/admin/product/add/submit', [ProductController::class, 'add_product']);
 
 
-//category
+    //category
     Route::get('/admin/category', [CategoryController::class, 'category_list'])->name('category-admin');
 
     Route::get('/admin/category/add', function () {
@@ -86,7 +85,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/delivery/add', [DelieveryController::class, 'delievery_add'])->name('delievery-add-admin');
     Route::post('/admin/delivery/add/submit', [DelieveryController::class, 'delievery_add_submit'])->name('delievery-add-submit-admin');
 
-//users-content
+    //users-content
     Route::get('/admin/users', function () {
         return view('admin.user.users-content');
     })->name('users-admin');

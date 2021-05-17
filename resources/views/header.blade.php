@@ -29,13 +29,13 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
                         <a class="nav-link" href="{{ route('catalog-product') }}">Купить</a>
                     </li>
                     <li class="nav-item menu__active">
-                        <a class="nav-link" href="menu.html">Menu</a>
+                        <a class="nav-link" href="{{ route('about') }}">О нас</a>
                     </li>
                     <li class="nav-item contact__active">
-                        <a class="nav-link" href="contact.html">Contacts</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Контакты</a>
                     </li>
                     <li class="nav-item contact__active">
-                        <a class="nav-link" href="{{ route('home-admin') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('home-admin') }}">Вход</a>
                     </li>
                     <li class="nav-item contact__active">
                         <a class="nav-link"

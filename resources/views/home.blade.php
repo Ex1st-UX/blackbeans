@@ -207,7 +207,8 @@
                         <h3 class="title-big">Кофе из магазина у дома - другое</h3>
                         <p class="mt-4">Дело в том, что напиток теряет вкусовые качества с первых минут после обжарки.
                             Прочувствовать букет запахов и вкусов можно только, если пить свежий кофе</p>
-                        <a href="{{ route('about') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Рассказываем подробно</a>
+                        <a href="{{ route('about') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Рассказываем
+                            подробно</a>
                     </div>
                     <div class="col-lg-6 left-wthree-img text-right mt-lg-0 mt-5 ">
                         <img src="images/about.jpg" alt="" class="radius-image img-fluid">
@@ -303,51 +304,23 @@
         </div>
     </section>
     <!-- //homeblock2-->
-    <section class="w3l-homeblock3">
-        <div class="midd-w3 py-5">
-            <div class="container py-lg-5 py-md-3">
-                <div class="row">
-                    <div class="col-lg-6 ">
-                        <img src="images/bg.jpg" alt="" class="radius-image img-fluid">
-                    </div>
-                    <div class="col-lg-6 mt-lg-0 mt-3 about-right-faq align-self">
-                        <h3 class="title-big">Какой путь проходят зёрна перед тем, как попасть в вашу турку?</p>
-                        <ul class="w3l-lists mt-4">
-                            <li><span class="fa fa-check" aria-hidden="true"></span>1 cup unsweetened cocoa powder</li>
-                            <li><span class="fa fa-check" aria-hidden="true"></span>1/2 cup butter, cut into 1–inch
-                                pieces
-                            </li>
-                            <li><span class="fa fa-check" aria-hidden="true"></span>1 1/4 cups granulated sugar</li>
-                            <li><span class="fa fa-check" aria-hidden="true"></span>1/2 cup firmly packed dark brown
-                                sugar
-                            </li>
-                            <li><span class="fa fa-check" aria-hidden="true"></span>1 1/4 tsp baking soda</li>
-                            <li><span class="fa fa-check" aria-hidden="true"></span>Add a Insulated Coffee Flask /
-                                Shaker & a Cafe Cap
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="w3l-homeblock5 py-5">
+
+    {{--<section class="w3l-homeblock5 py-5">
         <div class="container py-lg-5 py-md-3">
             <div class="row">
                 <div class="col-lg-6 about-right-faq align-self">
-                    <h3 class="title-big">Sale and Delivery Points</h3>
-                    <p class="mt-4">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel.</p>
+                    <h3 class="title-big">Попробуйте кофе со всего мира</h3>
+                    <p class="mt-4">Пейте кофе, выращенный по разным традициям</p>
                     <h3 class="title-small mt-5">Where to buy our coffee</h3>
                     <ul class="w3l-lists mt-4">
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>Brazil (10) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>Canada (17) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>Australia (19) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>America (15) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>London (02) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>Russia (05) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>Mexico (27) </a></li>
-                        <li><a href="#url"><span class="fa fa-check" aria-hidden="true"></span>England (06) </a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Бразилия</a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Канада</a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Австралия</a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Америка</a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Лондон</a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Russia (05) </a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>Mexico (27) </a></li>
+                        <li><a ><span class="fa fa-check" aria-hidden="true"></span>England (06) </a></li>
                     </ul>
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-5 ">
@@ -355,21 +328,24 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
     <div class="w3l-bg-image">
         <div class="bg-mask py-5">
             <div class="container py-lg-5 py-4">
-                <div class="text-align text-center py-lg-4 py-md-3">
-                    <h3>Discover The Taste Of Real Coffee</h3>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        when
-                        looking at its layout.</p>
+                <div class="text-align text-center py-lg-4 py-md-3 free-shipping">
+                    <h3>Заказать дешевле, чем купить в магазине</h3>
+                    <p>Бесплатная доставка</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <section class="w3l-homeblock7 py-5">
+    <div class="text-center w-100">
+        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2"
+           href="{{ route('catalog-product') }}">
+            Перейти в каталог</a>
+    </div>
+    <br>
+    {{--<section class="w3l-homeblock7 py-5">
         <div class="container py-lg-5 py-md-3">
             <div class="row">
                 <div class="col-lg-4 mb-lg-0 mb-md-5 mb-4">
@@ -397,6 +373,6 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
 
 @endsection

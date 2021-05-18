@@ -47,6 +47,14 @@ Route::get('/about', function () {
     return view('templates.pages.about');
 })->name('about');
 
+Route::get('/delivery', function () {
+    return view('templates.pages.delivery');
+})->name('delivery');
+
+Route::get('/pay', function () {
+    return view('templates.pages.pay');
+})->name('pay');
+
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

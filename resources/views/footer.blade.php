@@ -12,51 +12,43 @@
         <div class="container">
             <div class="d-grid grid-col-4 footer-top-29">
                 <div class="footer-list-29 footer-1">
-                    <h6 class="footer-title-29">Contact Us</h6>
+                    <h6 class="footer-title-29">Контакты</h6>
                     <ul>
-                        <li><p><span class="fa fa-map-marker"></span> 2005 Stokes Isle Apt. 896, Coffee Cafe Center,
-                                Vacaville 10010, USA.</p></li>
-                        <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8888</a></li>
+                        <li><p><span class="fa fa-map-marker"></span>Россия, Самарская обл., г. Тольятти</p></li>
+                        <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> + 7 (905) 019-66-59</a></li>
                         <li><a href="mailto:coffee@mail.com" class="mail"><span class="fa fa-envelope-open-o"></span>
-                                Coffee@mail.com</a></li>
+                                support@blackbeans.ru</a></li>
                     </ul>
                     <div class="main-social-footer-29">
-                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
-                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
-                        <a href="#google-plus" class="google-plus"><span class="fa fa-google-plus"></span></a>
-                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+{{--                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>--}}
+{{--                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>--}}
+{{--                        <a href="#google-plus" class="google-plus"><span class="fa fa-google-plus"></span></a>--}}
+{{--                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>--}}
                     </div>
                 </div>
                 <div class="footer-list-29 footer-2">
                     <ul>
-                        <h6 class="footer-title-29">Featured Links</h6>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#insta">Instagram feed</a></li>
-                        <li><a href="contact.html">Our Branches</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#help">Help & Support</a></li>
+                        <h6 class="footer-title-29">Полезное</h6>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="{{ route('catalog-product') }}">Каталог</a></li>
+                        <li><a href="{{ route('cart') }}">Коризна</a></li>
                     </ul>
                 </div>
                 <div class="footer-list-29 footer-3">
 
-                    <h6 class="footer-title-29">Newsletter </h6>
-                    <p class="mb-3">Get in your inbox the latest News and</p>
+                    <h6 class="footer-title-29">Хочешь скидку?</h6>
+                    <p class="mb-3">Дарим промокоды каждую неделю</p>
                     <form action="#" class="subscribe" method="post">
                         <input type="email" name="email" placeholder="Email" required="">
                         <button><span class="fa fa-envelope-o"></span></button>
                     </form>
-                    <p>Subscribe and get our weekly newsletter</p>
-                    <p>We'll never share your email address</p>
-
                 </div>
                 <div class="footer-list-29 footer-4">
                     <ul>
-                        <h6 class="footer-title-29">Quick Links</h6>
-                        <li><a href="index.html">Home Page</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="menu.html">Our Menu</a></li>
-                        <li><a href="#blog"> Blog Posts</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <h6 class="footer-title-29">Важное</h6>
+                        <li><a href="{{ route('delivery') }}">Доставка</a></li>
+                        <li><a href="{{ route('pay') }}">Возврат</a></li>
+                        <li><a href="c{{ route('pay') }}">Оплата</a></li>
                     </ul>
                 </div>
             </div>

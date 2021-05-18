@@ -335,7 +335,17 @@
     color: black;
     font-weight: bolder;
 }
-
+.free-shipping h3{
+    text-transform: none!important;
+}
+.footer-title-29 h6 {
+    text-transform: none!important;
+}
+.pay-wrapper {
+    font-size: 24px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

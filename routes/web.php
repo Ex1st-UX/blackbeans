@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\FeedbackMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,9 @@ Route::get('/delivery', function () {
 Route::get('/pay', function () {
     return view('templates.pages.pay');
 })->name('pay');
+
+// Mails actions
+Route::post('/contact/submit', [FeedbackMailController::class, 'feedback_submit']);
 
 Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

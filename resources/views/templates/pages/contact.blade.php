@@ -73,7 +73,7 @@
                                           required=""></textarea>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-style btn-primary submit">Отправить</button>
+                                <button id="feedback_submit" class="btn btn-style btn-primary submit">Отправить</button>
                             </div>
                         </form>
                     </div>
@@ -82,4 +82,8 @@
     </section>
     <!-- //contact-form -->
 
+@endsection
+
+@section('js')
+    <script src="{{ URL::asset('js/inc/feedback.js') }}"></script>
 @endsection

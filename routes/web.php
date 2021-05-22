@@ -21,8 +21,9 @@ use App\Http\Controllers\CartController;
 */
 
 /*main page*/
-// Сделать рендер главной страницы в соответствующем контроллере + создавать куки  user_id при входе
-Route::get('/', [ProductController::class, 'product_list'])->name('home');
+//TODO Сделать рендер главной страницы в соответствующем контроллере + создавать куки  user_id при входе
+Route::get('/', [ProductController::class, 'product_list_popularity'])->name('home');
+Route::get('/', [ProductController::class, 'product_list_sales'])->name('home');
 
 /*PRODUCT*/
 Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');

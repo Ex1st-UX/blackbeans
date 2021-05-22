@@ -87,116 +87,135 @@
         </div>
     </section>
     <!-- /main-slider -->
-    {{--    PRODUCT SALES--}}
+    <br><br>
     <section>
         <div class="container">
-            <h1 class="section-title">Cкидки</h1>
+            <h3 class=" title-big">Популярное за май</h3>
             <div class="row">
-                <div class="col-lg-4 ">
-                    <a href="/">
+                {{--PRODUCTS-ARCHIVE--}}
+                @foreach($product as $item)
+                    <div class="col-lg-4 ">
                         <div class="card product-list-single">
-                            <div class="card-body">
-                                <p class="card-text text-center text-dark font-weight-bolder">Бразилия сантос</p>
-                                <p class="card-text text-center">Для эспрессо</p>
-                            </div>
-                            <img src="{{ asset('/images/product.png') }}" alt="Card image" class="product-list-image">
+                            <a class="text-center" href="/shop/<?= $item->id ?>">
+                                <div class="card-body">
+                                    <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
+                                    <p class="card-text text-center category-body"><?= $item->category->category ?></p>
+                                </div>
+                                <img src="/images/product.png" alt="<?= $item->name ?>" class="product-list-image">
+                            </a>
                             <div class="card-body">
                                 <p class="card-text">Кислотность</p>
                                 <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 41%"
-                                         aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark" role="progressbar"
+                                         style="width: <?= 25 * $item->acidity ?>%"
+                                         aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
                                 </div>
                                 <p class="card-text">Плотность</p>
                                 <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 81%"
+                                    <div class="progress-bar bg-dark" role="progressbar"
+                                         style="width: <?= 25 * $item->dencity ?>%"
                                          aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <div class="bottom-card">
                                     <div class="float-left">
-                                        <p class="card-text gramm-text">250г</p>
-                                        <h5 class="">279 Р</h5>
+                                        <a>
+                                            <p class="card-text gramm-text">250г</p>
+                                            <h5 class="price-product" data-price="<?= $item->price ?>" data-sku="false"
+                                                data-item="<?= $item->id ?>"><span
+                                                    class="price-product-border price-product-active"><?= $item->price ?></span>
+                                                р</h5>
+                                        </a>
                                     </div>
                                     <div class="float-left margin-left">
-                                        <p class="card-text gramm-text">1000г</p>
-                                        <h5 class="">999 Р</h5>
+                                        <a>
+                                            <p class="card-text gramm-text">1000г</p>
+                                            <h5 class="price-product" data-price="<?= $item->sku->price ?>"
+                                                data-sku="true"
+                                                data-item="<?= $item->sku->id ?>"><span
+                                                    class="price-product-border"><?= $item->sku->price ?></span>
+                                                р</h5>
+                                        </a>
                                     </div>
                                     <div class="float-right button-size">
-                                        <button class="btn btn-dark">Купить</button>
+                                        <button type="button" data-sku="false" data-price="<?= $item->sku->price ?>"
+                                                data-item="<?= $item->id ?>" class="btn btn-dark add-to-cart">
+                                            Купить
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 product-list-single">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text text-center text-dark font-weight-bolder">Бразилия сантос</p>
-                            <p class="card-text text-center">Для эспрессо</p>
-                        </div>
-                        <img src="{{ asset('/images/product.png') }}" alt="Card image" class="product-list-image">
-                        <div class="card-body">
-                            <p class="card-text">Кислотность</p>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 41%"
-                                     aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="card-text">Плотность</p>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 81%"
-                                     aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="bottom-card">
-                                <div class="float-left">
-                                    <p class="card-text gramm-text">250г</p>
-                                    <h5 class="">279 Р</h5>
+                    </div>
+                @endforeach
+                {{--PRODUCTS-ARCHIVE--}}
+            </div>
+        </div>
+    </section>
+    <br><br>
+    <section>
+        <div class="container">
+            <h3 class=" title-big">Выгодно</h3>
+            <div class="row">
+                {{--PRODUCTS-ARCHIVE--}}
+                @foreach($product as $item)
+                    <div class="col-lg-4 ">
+                        <div class="card product-list-single">
+                            <a class="text-center" href="/shop/<?= $item->id ?>">
+                                <div class="card-body">
+                                    <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
+                                    <p class="card-text text-center category-body"><?= $item->category->category ?></p>
                                 </div>
-                                <div class="float-left margin-left">
-                                    <p class="card-text gramm-text">1000г</p>
-                                    <h5 class="">999 Р</h5>
+                                <img src="/images/product.png" alt="<?= $item->name ?>" class="product-list-image">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">Кислотность</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar"
+                                         style="width: <?= 25 * $item->acidity ?>%"
+                                         aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
                                 </div>
-                                <div class="float-right button-size">
-                                    <button class="btn btn-dark">Купить</button>
+                                <p class="card-text">Плотность</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar"
+                                         style="width: <?= 25 * $item->dencity ?>%"
+                                         aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="bottom-card">
+                                    <div class="float-left">
+                                        <a>
+                                            <p class="card-text gramm-text">250г</p>
+                                            <h5 class="price-product" data-price="<?= $item->price ?>" data-sku="false"
+                                                data-item="<?= $item->id ?>"><span
+                                                    class="price-product-border price-product-active"><?= $item->price ?></span>
+                                                р</h5>
+                                        </a>
+                                    </div>
+                                    <div class="float-left margin-left">
+                                        <a>
+                                            <p class="card-text gramm-text">1000г</p>
+                                            <h5 class="price-product" data-price="<?= $item->sku->price ?>"
+                                                data-sku="true"
+                                                data-item="<?= $item->sku->id ?>"><span
+                                                    class="price-product-border"><?= $item->sku->price ?></span>
+                                                р</h5>
+                                        </a>
+                                    </div>
+                                    <div class="float-right button-size">
+                                        <button type="button" data-sku="false" data-price="<?= $item->sku->price ?>"
+                                                data-item="<?= $item->id ?>" class="btn btn-dark add-to-cart">
+                                            Купить
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 product-list-single">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="card-text text-center text-dark font-weight-bolder">Бразилия сантос</p>
-                            <p class="card-text text-center">Для эспрессо</p>
-                        </div>
-                        <img src="{{ asset('/images/product.png') }}" alt="Card image" class="product-list-image">
-                        <div class="card-body">
-                            <p class="card-text">Кислотность</p>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 41%"
-                                     aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
-                                </div>
-                            </div>
-                            <p class="card-text">Плотность</p>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" style="width: 81%"
-                                     aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="bottom-card">
-                                <div class="float-left">
-                                    <p class="card-text gramm-text">250г</p>
-                                    <h5 class="">279 Р</h5>
-                                </div>
-                                <div class="float-left margin-left">
-                                    <p class="card-text gramm-text">1000г</p>
-                                    <h5 class="">999 Р</h5>
-                                </div>
-                                <div class="float-right button-size">
-                                    <button class="btn btn-dark">Купить</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                {{--PRODUCTS-ARCHIVE--}}
+            </div>
+        </div>
     </section>
     <section class="w3l-index3" id="bottom">
         <div class="midd-w3 py-5">
@@ -252,57 +271,6 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container">
-            <h3 class=" title-big">Популярное за февраль</h3>
-            <div class="row">
-                {{--PRODUCTS-ARCHIVE--}}
-                @foreach($product as $prod)
-                    <div class="col-lg-4 ">
-                        <a href="/shop/{{ $prod->id }}">
-                            <div class="card product-list-single">
-                                <div class="card-body">
-                                    <p class="card-text text-center text-dark font-weight-bolder">{{ $prod->name }}</p>
-                                    <p class="card-text text-center">{{ $prod->category->category }}</p>
-                                </div>
-                                <img src="{{ asset('/storage/') . '/' . $prod->image }}" alt="{{ $prod->name }}"
-                                     class="product-list-image">
-                                <div class="card-body">
-                                    <p class="card-text">Кислотность</p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar"
-                                             style="width: {{ $prod->acidity * 25 }}%"
-                                             aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                    <p class="card-text">Плотность</p>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-dark" role="progressbar"
-                                             style="width: {{ $prod->dencity * 25 }}%"
-                                             aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="bottom-card">
-                                        <div class="float-left">
-                                            <p class="card-text gramm-text">250г</p>
-                                            <h5 class="">{{ $prod->price }} Р</h5>
-                                        </div>
-                                        <div class="float-left margin-left">
-                                            <p class="card-text gramm-text">1000г</p>
-                                            <h5 class="">999 Р</h5>
-                                        </div>
-                                        <div class="float-right button-size">
-                                            <button class="btn btn-dark">Купить</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-                {{--PRODUCTS-ARCHIVE--}}
-            </div>
-        </div>
-    </section>
     <!-- //homeblock2-->
 
     {{--<section class="w3l-homeblock5 py-5">
@@ -329,50 +297,120 @@
             </div>
         </div>
     </section>--}}
-    <div class="w3l-bg-image">
-        <div class="bg-mask py-5">
-            <div class="container py-lg-5 py-4">
-                <div class="text-align text-center py-lg-4 py-md-3 free-shipping">
-                    <h3>Заказать дешевле, чем купить в магазине</h3>
-                    <p>Бесплатная доставка</p>
+    <section class="w3l-testimonials py-5" id="testimonials" style="margin-top: 20px">
+        <!-- main-slider -->
+        <div class="container py-lg-5 py-md-4 mb-md-0 mb-md-5 mb-4">
+            <div class="heading text-center mx-auto">
+                <h5 class="title-small text-center mb-2">О нас говорят</h5>
+                <h3 class="title-big text-center mb-5">Отзывы</h3>
+            </div>
+            <div class="owl-testimonial owl-carousel owl-theme">
+                <div class="item">
+                    <div class="slider-info">
+                        <div class="img-circle">
+                            <img src="images/review-image.jpg" class="img-fluid rounded" alt="client image">
+                        </div>
+                        <div class="message-info">
+                            <div>
+                                <ul class="rating-star mt-5">
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                </ul>
+                            </div>
+                            <div class="message">Раньше покупал упаковки молотого кофе в магните. Наткнулся на этот
+                                магазин, теперь заказываю только тут!
+                            </div>
+                            <div class="name">- Сергей</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="slider-info">
+                        <div class="img-circle">
+                            <img src="images/review-image.jpg" class="img-fluid rounded" alt="client image">
+                        </div>
+                        <div class="message-info">
+                            <div>
+                                <ul class="rating-star mt-5">
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                </ul>
+                            </div>
+                            <div class="message">Заказываю в третий раз. Цены не кусаются и зёрна свежие.</div>
+                            <div class="name">- Наталья</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="slider-info">
+                        <div class="img-circle">
+                            <img src="images/review-image.jpg" class="img-fluid rounded" alt="client image">
+                        </div>
+                        <div class="message-info">
+                            <div>
+                                <ul class="rating-star mt-5">
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                </ul>
+                            </div>
+                            <div class="message">Покупать тут реально удобно, спасибо</div>
+                            <div class="name">- Екатерина</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="slider-info">
+                        <div class="img-circle">
+                            <img src="images/review-image.jpg" class="img-fluid rounded" alt="client image">
+                        </div>
+                        <div class="message-info">
+                            <div>
+                                <ul class="rating-star mt-5">
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star"></span></li>
+                                    <li><span class="fa fa-star-o"></span></li>
+                                </ul>
+                            </div>
+                            <div class="message">Нравится, что за доставку платить не нужно, как в других интернет
+                                магазинах. Всё ок, но не совсем удобно, что доставка толькой почтой России. Пока 4
+                            </div>
+                            <div class="name">- Виктория</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="text-center w-100">
-        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2"
-           href="{{ route('catalog-product') }}">
-            Перейти в каталог</a>
-    </div>
-    <br>
-    {{--<section class="w3l-homeblock7 py-5">
+        <!-- /main-slider -->
+    </section>
+    <section class="w3l-homeblock7 py-5">
         <div class="container py-lg-5 py-md-3">
             <div class="row">
                 <div class="col-lg-4 mb-lg-0 mb-md-5 mb-4">
-                    <h3 class="title-big">Opening Hours and Reservations.</h3>
-                    <p class="mt-4">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit.
-                        dignissimos quis soluta sapiente aperiam quod.</p>
+                    <h3 class="title-big">Безопасность и комфорт</h3>
+                    <p class="mt-4">Мы понимаем, что "вкусный кофе", как фломастеры - разные. Напишите, если не
+                        понравилось. Заменим на другой сорт или вернём деньги
+                        <a href="{{ route('catalog-product') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Посмотреть ассортимент</a>
+                    </p>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-8">
                     <img src="images/middle.png" alt="" class="radius-image img-fluid">
                 </div>
-                <div class="col-lg-4 col-sm-6 mt-sm-0 mt-4">
-                    <ul class="w3l-lists mb-md-5 mb-4">
-                        <h3 class="title-small"> Opening Hours: </h3>
-                        <li>Monday – Friday // 09:00 - 06:00</li>
-                        <li>Saturday // 10:00 – 01:00</li>
-                        <li>Sunday // CLOSED</li>
-                    </ul>
-                    <ul class="w3l-lists">
-                        <h3 class="title-small"> Reservation numbers: </h3>
-                        <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8888</a></li>
-                        <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8899</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
-    </section>--}}
+    </section>
 
+@endsection
+@section('js')
+    <script src="{{ URL::asset('js/shop/catalog-page.js') }}"></script>
 @endsection

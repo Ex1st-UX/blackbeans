@@ -346,6 +346,9 @@
     padding-top: 120px;
     padding-bottom: 120px;
 }
+.rating-star li{
+    display: inline!important;
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

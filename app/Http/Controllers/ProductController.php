@@ -99,11 +99,18 @@ class ProductController extends Controller
     }
 
     // Показать товары на главной
-    public function product_list()
+    public function product_list_popularity()
     {
         $product = new Product();
 
-        return view('home', ['product' => $product->all()]);
+        return view('home', ['product' => $product->all()->take(9)]);
+    }
+
+    public function product_list_sales()
+    {
+        $product = new Product();
+
+        return view('home', ['product' => $product->all()->take(9)]);
     }
 
     // Детальная страница товара
@@ -302,7 +309,7 @@ class ProductController extends Controller
 
                     if (!empty($option)) {
                         $data = $res->orderBy($option, $direction)->get();
-                    } else {    
+                    } else {
                         $data = $res->orderBy('name', 'asc')->get();
                     }
                 } // Акции

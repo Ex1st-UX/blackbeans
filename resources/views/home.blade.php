@@ -101,7 +101,7 @@
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
                                     <p class="card-text text-center category-body"><?= $item->category->category ?></p>
                                 </div>
-                                <img src="/images/product.png" alt="<?= $item->name ?>" class="product-list-image">
+                                <img src="/storage/<?= $item->image ?>" alt="<?= $item->name ?>" class="product-list-image">
                             </a>
                             <div class="card-body">
                                 <p class="card-text">Кислотность</p>
@@ -166,7 +166,7 @@
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
                                     <p class="card-text text-center category-body"><?= $item->category->category ?></p>
                                 </div>
-                                <img src="/images/product.png" alt="<?= $item->name ?>" class="product-list-image">
+                                <img src="/storage/<?= $item->image ?>" alt="<?= $item->name ?>" class="product-list-image">
                             </a>
                             <div class="card-body">
                                 <p class="card-text">Кислотность</p>
@@ -297,7 +297,7 @@
             </div>
         </div>
     </section>--}}
-    <section class="w3l-testimonials py-5" id="testimonials" style="margin-top: 20px">
+    <section class="w3l-testimonials py-5" id="testimonials">
         <!-- main-slider -->
         <div class="container py-lg-5 py-md-4 mb-md-0 mb-md-5 mb-4">
             <div class="heading text-center mx-auto">

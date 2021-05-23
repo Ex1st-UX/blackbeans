@@ -144,7 +144,7 @@ function filterProdut() {
                         '<p class="card-text text-center text-dark font-weight-bolder">' + name + '</p>' +
                         '<p class="card-text text-center category-body">' + category + '</p>' +
                         '</div>' +
-                        '<img src="/images/product.png" alt="' + name + '" class="product-list-image">' +
+                        '<img src="/storage/' + image + '" alt="' + name + '" class="product-list-image">' +
                         '</a>' +
                         '<div class="card-body">' +
                         '<p class="card-text">Кислотность</p>' +

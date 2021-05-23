@@ -116,7 +116,6 @@ class ProductController extends Controller
     // Детальная страница товара
     public function product_detail($id, Request $req)
     {
-
         $product = Product::where('id', $id)->first();
 
         return view('templates.product.detail-product', ['data' => $product]);

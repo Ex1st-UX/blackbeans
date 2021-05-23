@@ -17,7 +17,7 @@
     <div class="container py-lg-5 py-md-3">
         <div class="row">
             <div class="col-lg-6 text-center">
-                <img class="detail-image" src="{{ asset('/storage/app/public/') . '/' . $data->image }}">
+                <img class="detail-image" src="{{ asset('/storage') . '/' . $data->image }}">
             </div>
             <div class="col-lg-6 detail-entry-content">
                 <div class="detail-product-wrapper">

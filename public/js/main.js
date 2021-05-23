@@ -66,7 +66,7 @@ function conditionHandler() {
                         // Отрисовываем твоар в состояние корзины
                         $(
                             '<div class="media cart-condition-entry">' +
-                            '<img class="d-flex align-self-center mr-3 cart-condition-image" data-src="{{ asset(\'/images/product.png\') }}" src="/images/product.png">' +
+                            '<img class="d-flex align-self-center mr-3 cart-condition-image" data-src="{{ asset(\'/images/product.png\') }}" src="/storage/' + image + '">' +
                             '<div class="media-body">' +
                             '<h5 class="mt-0">' + name + '</h5>' +
                             '<span>' +

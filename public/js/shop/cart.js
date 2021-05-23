@@ -21,7 +21,7 @@ function cartRender(response) {
 
             $(
                 '<tr>' +
-                '<td><img width="100px" src="/images/product.png"</td>' +
+                '<td><img width="100px" src="/storage/' + image + '"</td>' +
                 '<td>' +
                 '<a style="color: darkgrey;" href="/shop/' + id + '">' + name + '</a>' +
                 '<p class="additionally-information">Помол: <span class="">' + grind + '</span></p>' +

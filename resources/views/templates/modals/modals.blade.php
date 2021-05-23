@@ -40,3 +40,23 @@
         </div>
     </div>
 </div>
+
+{{--Попап об успешной отправке обратной связи--}}
+<button id="feedback_modal_button" type="hidden" style="display: none" class="btn btn-primary" data-toggle="modal"
+        data-target="#feedback_modal">
+    Launch demo modal
+</button>
+
+<div class="modal fade" id="feedback_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center modal-success-content">
+            <div class="container">
+                <span class="success-symbol">&#10004;</span>
+                <h3 class="success-element">Спасибо!</h3>
+                <p>Ответим на вашу почту в течении 60 минут</p>
+                <a href="{{ route('catalog-product') }}"><button class="btn-lg btn-block btn-order">Перейти в каталог</button></a>
+            </div>
+        </div>
+    </div>
+</div>

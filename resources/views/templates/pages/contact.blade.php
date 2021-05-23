@@ -49,31 +49,32 @@
                         </div>
                     </div>
                     <div class="contacts12-main">
-                        <form class="signin-form">
+                        <form class="signin-form" id="feedback_submit">
                             <div class="input-grids">
                                 <div>
                                     <label class="form-field" for="w3lName">Имя</label>
                                     <input type="text" name="w3lName" id="w3lName" placeholder="Иван"
-                                           class="contact-input" />
+                                           class="contact-input">
                                 </div>
                                 <div>
                                     <label class="form-field" for="w3lSender">Email для обратной связи</label>
-                                    <input type="email" name="w3lSender" id="w3lSender" placeholder="support@blackbeans.ru"
-                                           class="contact-input" />
+                                    <input type="email" name="w3lSender" id="w3lSender"
+                                           placeholder="support@blackbeans.ru"
+                                           class="contact-input" required>
                                 </div>
                             </div>
                             <div>
                                 <label class="form-field" for="w3lSubect">Тема</label>
                                 <input type="text" name="w3lSubect" id="w3lSubect" placeholder="Есть вопрос!"
-                                       class="contact-input" />
+                                       class="contact-input">
                             </div>
                             <div>
                                 <label class="form-field" for="w3lMessage">Текст</label>
                                 <textarea name="w3lMessage" id="w3lMessage" placeholder="Опишите суть вопроса"
-                                          required=""></textarea>
+                                          required></textarea>
                             </div>
                             <div class="text-right">
-                                <button id="feedback_submit" class="btn btn-style btn-primary submit">Отправить</button>
+                                <button id="" class="btn btn-style btn-primary submit">Отправить</button>
                             </div>
                         </form>
                     </div>

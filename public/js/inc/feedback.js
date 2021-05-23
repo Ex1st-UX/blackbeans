@@ -1,5 +1,5 @@
 // Вешаем AJAX на отправку формы по обратной связи
-$('#feedback_submit').on('click', function (e) {
+$('#feedback_submit').on('submit', function (e) {
     e.preventDefault();
 
     var arFeedbackData = {
@@ -16,10 +16,10 @@ $('#feedback_submit').on('click', function (e) {
         method: 'POST',
         data: arFeedbackData,
         success: function (response) {
-            console.log('test');
+            $('#feedback_modal_button').trigger('click');
         },
         error: function () {
-            console.log('error');
+            alert('Ошибка, Попробуйте снова.')
         }
     });
 });

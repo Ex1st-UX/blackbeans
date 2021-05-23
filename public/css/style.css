@@ -349,6 +349,9 @@
 .rating-star li{
     display: inline!important;
 }
+.text-bg-image {
+    background-image: url("/images/email-logo.jpg");
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

@@ -16,7 +16,7 @@
     <section class="w3l-contact-6 py-5" id="contact">
         <div class="contact-info  py-lg-4 py-md-3">
             <div class="container">
-                <form method="post" id="order_create">
+                    <form method="post" id="order_create">
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
                         <div class="contacts12-main left-side-block">
@@ -46,6 +46,7 @@
                             </div>
                             {{--ДОСТАВКА--}}
                             <h3 class="title-big text-left mb-5 delievery-title">Доставка</h3>
+
                             {{--РЕНДЕРИМ СПОСОБЫ ДОСТАВКИ--}}
                             @foreach ($dataDelievery as $delieveryItem)
                                 @if ($delieveryItem->active == 'Y')
@@ -62,7 +63,6 @@
                                             </span>
                                         </div>
                                     </a>
-
                                     <div class="collapse delievery-adress" id="{{ $delieveryItem->symbol_code }}">
                                         <div class="input-grids delievery-">
                                             <div>
@@ -112,10 +112,17 @@
                             {{--Способы оплаты--}}
                             <div class="payment-wrapper">
                                 <h3 class="title-big text-left mb-5 delievery-title">Оплата</h3>
-                                <a>
-                                    <div data-method="" id="payment-method-cache" class="delievery-item-wrapper" data-id="1">
+                                <a class="delivery-wrapper">
+                                    <div data-method="" id="payment-method-cache" class="payment-item-wrapper" data-id="1">
                                         <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
                                         <span class="delievery-item-content">Наложенный платеж</span>
+                                    </div>
+                                </a>
+                                <br>
+                                <a class="delivery-wrapper">
+                                    <div data-method="" id="payment-method-online" class="payment-item-wrapper" data-id="2">
+                                        <img class="cachelogo" src="{{ asset('/images/visa.svg') }}">
+                                        <span class="delievery-item-content">Онлайн оплата</span>
                                     </div>
                                 </a>
                             </div>

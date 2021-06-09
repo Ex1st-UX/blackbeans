@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Sku;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cookie;
+use App\Http\Controllers\RelatedController;
 
 
 class ProductController extends Controller

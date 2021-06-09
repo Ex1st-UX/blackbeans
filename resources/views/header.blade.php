@@ -7,7 +7,7 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark stroke" style="margin-bottom: 30px; margin-top: 25px;">
             <a class="navbar-brand" href="/">
-                <span class="fa fa-coffee"></span> Coffee
+                <span class="fa fa-coffee"></span> BlackBeans
             </a>
             <!-- if logo is image enable this
       <a class="navbar-brand" href="#/">

@@ -70,7 +70,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         return view('admin.main');
     })->name('home-admin');
 
-// product-content
+    // product-content
     Route::get('/admin/product', [ProductController::class, 'product_list_admin'])->name('product-admin');
 
     Route::get('/admin/product/edit/{id}', [ProductController::class, 'product_edit_page'])->name('product-edit-admin');
@@ -83,8 +83,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     Route::post('/admin/product/add/submit', [ProductController::class, 'add_product']);
 
-
-    //category
+    // category
     Route::get('/admin/category', [CategoryController::class, 'category_list'])->name('category-admin');
 
     Route::get('/admin/category/add', function () {

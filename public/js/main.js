@@ -62,6 +62,7 @@ function conditionHandler() {
                         var name = arItem[1].name;
                         var quantity = arItem[1].quantity;
                         var price = arItem[1].price;
+                        var image = arItem[1].attributes.image;
 
                         // Отрисовываем твоар в состояние корзины
                         $(

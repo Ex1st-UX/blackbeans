@@ -185,6 +185,8 @@ $(document).on('click', '.total-cart-plus', function () {
     });
 });
 
+var payment = 2
+
 // Создать заказ
 $(document).on('submit', '#order_create', function (e) {
     e.preventDefault();
@@ -193,7 +195,6 @@ $(document).on('submit', '#order_create', function (e) {
         name: $('#name').val(),
         surname: $('#surname').val(),
         email: $('#email').val(),
-        phone: $('#phone').val(),
         delievery: $('#method-item').data('id'),
         delieveryCost: $('#delievery_cost_total').text(),
         discount: $('#discount').text(),
@@ -203,7 +204,7 @@ $(document).on('submit', '#order_create', function (e) {
         phone: $('#phone').val(),
         appartments: $('#apps').val(),
         postcode: $('#postcode').val(),
-        payment: $('#payment-method-cache').data('id'),
+        payment: payment,
         _token: $('meta[name="csrf-token"]').attr('content'),
     };
 
@@ -223,6 +224,15 @@ $(document).on('submit', '#order_create', function (e) {
     });
 });
 
+// Отмечаем выбранный способ оплаты
+$('.payment-item-wrapper').on('click', function () {
+
+    $('.payment-item-wrapper').removeClass('payment-active');
+
+    $(this).addClass('payment-active');
+
+    payment = $(this).data('id')
+});
 
 
 

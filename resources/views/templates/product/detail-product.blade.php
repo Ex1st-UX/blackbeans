@@ -8,8 +8,10 @@
 <section class="w3l-breadcrumb">
     <div class="container">
         <ul class="breadcrumbs-custom-path">
-            <li><a href="#url">Home</a></li>
-            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> About Us</li>
+            <li><a href="{{ route('home') }}">Главная</a></li>
+            @foreach ($breadcrumbs as $page)
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>{{  $page }}</li>
+            @endforeach
         </ul>
     </div>
 </section>

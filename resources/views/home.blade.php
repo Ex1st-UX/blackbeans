@@ -12,8 +12,8 @@
                             <div class="banner-info">
                                 <div class="container">
                                     <div class="banner-info-bg">
-                                        <h5>Бесплатная доставка <span>и</span> свежий кофе</h5>
-                                        <p class="mt-4">Доставим до почтового отделения или двери за наш счет</p>
+                                        <h5>Бесплатная доставка и свежий кофе</h5>
+                                        <p class="mt-4">Доставим до почтового отделения отделения или двери за на счет</p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2"
                                            href="{{ route('catalog-product') }}">
                                             Купить</a>

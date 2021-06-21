@@ -2,6 +2,8 @@
 
 @section('title', 'Доставка')
 
+{{ $data }}
+
 @section('body')
     <div class="inner-banner">
     </div>

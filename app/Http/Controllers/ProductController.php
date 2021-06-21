@@ -11,6 +11,8 @@ use App\Models\Sku;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\RelatedController;
+use Illuminate\Support\Facades\Request as pathRequest;
+use App\Http\Controllers\BreadcrumbController;
 
 
 class ProductController extends Controller
@@ -117,9 +119,13 @@ class ProductController extends Controller
     // Детальная страница товара
     public function product_detail($id, Request $req)
     {
+        $breadcrumbs = new BreadcrumbController();
+
+        $path = $breadcrumbs->getBreadcrumb();
+
         $product = Product::where('id', $id)->first();
 
-        return view('templates.product.detail-product', ['data' => $product]);
+        return view('templates.product.detail-product', ['data' => $product, 'breadcrumbs' => $path]);
     }
 
     // Добавить товар в корзину
@@ -191,7 +197,7 @@ class ProductController extends Controller
         return view('templates.product.catalog-product', ['data' => $product->all()]);
     }
 
-    // Отфильтровать по категории
+    // Фильтр на странице каталога
     public function category_filter(Request $req)
     {
         if ($req->ajax()) {

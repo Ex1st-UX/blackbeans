@@ -40,7 +40,7 @@
                         <div class="grid">
                             <span class="fa fa-phone"></span>
                             <div class="email-info">
-                                <span>Phone Number</span>
+                                <span>Телефон</span>
                                 <a href="tel:(123) 456-78-90"> 7 (905) 019-66-59</a><br>
                             </div>
                         </div>

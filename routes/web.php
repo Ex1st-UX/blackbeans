@@ -29,14 +29,14 @@ Route::get('/', [ProductController::class, 'product_list_popularity'])->name('ho
 Route::get('/', [ProductController::class, 'product_list_sales'])->name('home');
 
 /*PRODUCT*/
-Route::get('/shop/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
-Route::post('/shop/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
+Route::get('/catalog/{id}', [ProductController::class, 'product_detail'])->name('detail-product');
+Route::post('/catalog/buy', [ProductController::class, 'product_add_to_cart'])->name('detail-product-submit');
 // catalog product
 Route::get('/catalog', [ProductController::class, 'product_catalog_list'])->name('catalog-product');
 Route::post('/catalog/filterByCategory', [ProductController::class, 'category_filter']);
 
 /*CART*/
-Route::post('/shop/condition', [CartController::class, 'cart_condition'])->name('cart-condition');
+Route::post('/catalog/condition', [CartController::class, 'cart_condition'])->name('cart-condition');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('/cart/render', [CartController::class, 'cartRenderAction'])->name('cart-render');
 Route::post('/cart/submit', [OrderController::class, 'orderCreate'])->name('order-submit');

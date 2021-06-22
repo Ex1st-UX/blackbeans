@@ -38,7 +38,7 @@ $('#cart-total-icon').mouseenter(function (e) {
 
 function conditionHandler() {
     $.ajax({
-        url: '/shop/condition',
+        url: '/catalog/condition',
         type: 'POST',
         dataType: 'JSON',
         beforeSend: function () {
@@ -120,7 +120,7 @@ $('#cart_condition_close').on('click', function () {
 // Функция добавляющая товар в корзину через AJAX
 function addToCart(data) {
     $.ajax({
-        url: '/shop/buy',
+        url: '/catalog/buy',
         type: 'POST',
         dataType: 'JSON',
         data: data,

@@ -48,7 +48,7 @@
                         <h6 class="footer-title-29">Важное</h6>
                         <li><a href="{{ route('delivery') }}">Доставка</a></li>
                         <li><a href="{{ route('pay') }}">Возврат</a></li>
-                        <li><a href="c{{ route('pay') }}">Оплата</a></li>
+                        <li><a href="{{ route('pay') }}">Оплата</a></li>
                     </ul>
                 </div>
             </div>

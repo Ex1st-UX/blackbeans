@@ -96,7 +96,7 @@
                 @foreach($product as $item)
                     <div class="col-lg-4 ">
                         <div class="card product-list-single">
-                            <a class="text-center" href="/shop/<?= $item->id ?>">
+                            <a class="text-center" href="/catalog/<?= $item->id ?>">
                                 <div class="card-body">
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
                                     <p class="card-text text-center category-body"><?= $item->category->category ?></p>
@@ -161,7 +161,7 @@
                 @foreach($product as $item)
                     <div class="col-lg-4 ">
                         <div class="card product-list-single">
-                            <a class="text-center" href="/shop/<?= $item->id ?>">
+                            <a class="text-center" href="/catalog/<?= $item->id ?>">
                                 <div class="card-body">
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
                                     <p class="card-text text-center category-body"><?= $item->category->category ?></p>

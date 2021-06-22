@@ -119,13 +119,9 @@ class ProductController extends Controller
     // Детальная страница товара
     public function product_detail($id, Request $req)
     {
-        $breadcrumbs = new BreadcrumbController();
-
-        $path = $breadcrumbs->getBreadcrumb();
-
         $product = Product::where('id', $id)->first();
 
-        return view('templates.product.detail-product', ['data' => $product, 'breadcrumbs' => $path]);
+        return view('templates.product.detail-product', ['data' => $product]);
     }
 
     // Добавить товар в корзину

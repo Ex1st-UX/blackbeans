@@ -1,20 +1,15 @@
 @extends('index')
 
-@section('title', 'Детальная страница')
+@section('title', $data->name . ' - купить свежее кофе в интернет магазине')
 
 @section('body')
 <div class="inner-banner">
 </div>
-<section class="w3l-breadcrumb">
-    <div class="container">
-        <ul class="breadcrumbs-custom-path">
-            <li><a href="{{ route('home') }}">Главная</a></li>
-            @foreach ($breadcrumbs as $page)
-            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>{{  $page }}</li>
-            @endforeach
-        </ul>
-    </div>
-</section>
+<?php
+// Хлебные крошки
+$breadcrumb = new App\Http\Controllers\BreadcrumbController();
+$breadcrumb->getBreadcrumb();
+?>
 <section class="w3l-aboutblock1 py-5" id="bottom">
     <div class="container py-lg-5 py-md-3">
         <div class="row">
@@ -39,7 +34,7 @@
                              aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     Плотность
-                    <form id="add-to-cart-form" action="{{ '/shop/{id}/buy' }}" method="post">
+                    <form id="add-to-cart-form" action="{{ '/catalog/{id}/buy' }}" method="post">
                         @csrf
                         <select id="grind" class="custom-select detail-product-category">
                             <option selected>Выберите помол</option>
@@ -62,7 +57,7 @@
                                     data-price="{{ $data->sku->price }}" id="sku-two"
                                     class="btn btn-style border-btn  mt-4 sku-button">1000г
                             </button>
-                            <button type="submit" id="add-to-cart" data-action="{{ '/shop/buy' }}"
+                            <button type="submit" id="add-to-cart" data-action="{{ '/catalog/buy' }}"
                                     data-item="{{ $data->id }}" data-sku="250"
                                     data-summary="{{ $data->price }}"
                                     class="btn btn-style btn-primary  mt-4 add-to-cart">Купить

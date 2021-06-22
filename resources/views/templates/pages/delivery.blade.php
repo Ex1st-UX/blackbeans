@@ -2,19 +2,14 @@
 
 @section('title', 'Доставка')
 
-{{ $data }}
-
 @section('body')
     <div class="inner-banner">
     </div>
-    <section class="w3l-breadcrumb">
-        <div class="container">
-            <ul class="breadcrumbs-custom-path">
-                <li><a href="#url">Home</a></li>
-                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> About Us</li>
-            </ul>
-        </div>
-    </section>
+    <?php
+    // Хлебные крошки
+    $breadcrumb = new App\Http\Controllers\BreadcrumbController();
+    $breadcrumb->getBreadcrumb();
+    ?>
 
     <section class="w3l-homeblock3">
         <div class="midd-w3 py-5">

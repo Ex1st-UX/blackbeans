@@ -139,7 +139,7 @@ function filterProdut() {
                     $(
                         '<div class="col-lg-4 ">' +
                         '<div class="card product-list-single">' +
-                        '<a class="text-center" href="/shop/' + id + '">' +
+                        '<a class="text-center" href="/catalog/' + id + '">' +
                         '<div class="card-body">' +
                         '<p class="card-text text-center text-dark font-weight-bolder">' + name + '</p>' +
                         '<p class="card-text text-center category-body">' + category + '</p>' +

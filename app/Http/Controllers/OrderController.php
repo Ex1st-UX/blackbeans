@@ -82,6 +82,7 @@ class OrderController extends Controller
         }
 
         if ($basketInsert) {
+            \Cart::session($user_id)->clear();
             return response()->json(array('orderId' => $orderId));
         } else {
             return response()->json(array('orderId' => 'Ошибка. Попробуйте снова'));

@@ -33,11 +33,11 @@ class BreadcrumbController extends Controller
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="/">Главная</a></li>
                     <?php foreach ($this->result as $pageResult): ?>
-                            <li class=""><span
-                                    class="fa fa-arrow-right mx-2" aria-hidden="true"></span><a target="_blank"
-                                                                                                href="/<?= $this->pages[0] ?>"><?= $pageResult ?></a>
-                            </li>
-                        <?php endforeach; ?>
+                        <li class=""><span
+                            class="fa fa-arrow-right mx-2" aria-hidden="true"></span><a target="_blank"
+                            href="/<?= $this->pages[0] ?>"><?= $pageResult ?></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </section>
@@ -78,6 +78,14 @@ class BreadcrumbController extends Controller
 
         if ($this->pages[0] == 'pay') {
             $this->result[0] = 'Оплата и возврат';
+        }
+
+        if ($this->pages[0] == 'login') {
+            $this->result[0] = 'Вход';
+        }
+
+        if ($this->pages[0] == 'register') {
+            $this->result[0] = 'Регистрация';
         }
 
         if ($this->pages[0] == 'catalog' and isset($this->pages[1])) {

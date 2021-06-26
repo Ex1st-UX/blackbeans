@@ -359,6 +359,9 @@
 .payment-active {
     border: 4px solid black;
 }
+.auth-wrapper {
+    margin-top: 50px;
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

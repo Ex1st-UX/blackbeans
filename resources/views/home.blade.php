@@ -44,42 +44,6 @@
                         </div>
                     </li>
                 </div>
-                {{--                <div class="item">
-                                    <li>
-                                        <div class="slider-info banner-view banner-top2 bg bg2">
-                                            <div class="banner-info">
-                                                <div class="container">
-                                                    <div class="banner-info-bg">
-                                                        <h5>We provide <span>the best taste coffee</span></h5>
-                                                        <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-                                                            quisquam, doloremque placeat aut numquam ipsam. </p>
-                                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="reservation.html">
-                                                            Book a table</a>
-                                                        <a class="btn btn-style btn-white mt-sm-5 mt-4" href="about.html"> About us</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="item">
-                                    <li>
-                                        <div class="slider-info banner-view banner-top3 bg bg2">
-                                            <div class="banner-info">
-                                                <div class="container">
-                                                    <div class="banner-info-bg">
-                                                        <h5>We offer <span>you the best coffee product</span></h5>
-                                                        <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-                                                            quisquam, doloremque placeat aut numquam ipsam. </p>
-                                                        <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="reservation.html">
-                                                            Book a table</a>
-                                                        <a class="btn btn-style btn-white mt-sm-5 mt-4" href="about.html"> About us</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </div>--}}
             </div>
             <!-- <div class="icon-pos">
                 <a href="#bottom"><span class="fa fa-arrow-down"></span></a>

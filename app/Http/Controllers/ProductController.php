@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\RelatedController;
 use Illuminate\Support\Facades\Request as pathRequest;
 use App\Http\Controllers\BreadcrumbController;
+use App\Http\Controllers\RelatedProductController;
 
 
 class ProductController extends Controller
@@ -121,7 +122,9 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $id)->first();
 
-        return view('templates.product.detail-product', ['data' => $product]);
+        $relatedProducts = \App\Http\Controllers\RelatedProductController::getRelatedProducts($id);
+
+        return view('templates.product.detail-product', ['data' => $product, 'related' => $relatedProducts]);
     }
 
     // Добавить товар в корзину

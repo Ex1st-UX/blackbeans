@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FeedbackMailController;
+use App\Http\Controllers\RelatedProductController;
 
 
 /*

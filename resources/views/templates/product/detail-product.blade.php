@@ -10,6 +10,7 @@
 $breadcrumb = new App\Http\Controllers\BreadcrumbController();
 $breadcrumb->getBreadcrumb();
 ?>
+{{ $related }}
 <section class="w3l-aboutblock1 py-5" id="bottom">
     <div class="container py-lg-5 py-md-3">
         <div class="row">
@@ -67,32 +68,7 @@ $breadcrumb->getBreadcrumb();
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#description">Описание</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#characteristics">Доставка</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#opinion">Оплата</a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="description">
-                        Описание товара...
-                    </div>
-                    <div class="tab-pane fade" id="characteristics">
-                        Характеристики товара...
-                    </div>
-                    <div class="tab-pane fade" id="opinion">
-                        Отзывы...
-                    </div>
-                </div>
-            </div>
-        </div>
+    
     </div>
 </section>
 @endsection

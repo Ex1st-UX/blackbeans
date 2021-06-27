@@ -68,8 +68,7 @@
                     <h5 class="title-small mb-3">Стоит один раз попробовать</h5>
                     <h3 class="title-big">Готовьте, как удобно</h3>
                     <p class="mt-4">Удобный фильтр поможет выбрать сорт специально для вашего способа приготовления. Чтобы попробовать свежий кофе, достаточно лишь чашки и кипятка!</p>
-                    <a href="{{ route('catalog-product') }}" class="btn btn-style btn-primary mt-lg-5 mt-4 mr-2">Посмотреть наличие</a>
-                    <a href="{{ route('contact') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Задать вопрос</a>
+                    <a href="{{ route('catalog-product') }}" class="btn btn-style btn-primary mt-lg-5 mt-4 mr-2">Подобрать</a>
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-5 ">
                     <img src="images/about.png" alt="" class="radius-image img-fluid">

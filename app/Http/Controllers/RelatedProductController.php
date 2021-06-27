@@ -45,6 +45,7 @@ class RelatedProductController extends Controller
 
                 if ($relatedItem->product_id != $id) {
                     $relatedProductsId[] = $relatedItem->product_id;
+                    $relatedProductsId = array_unique($relatedProductsId);
                 }
             }
         }

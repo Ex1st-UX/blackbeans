@@ -130,7 +130,6 @@ class ProductController extends Controller
     // Добавить товар в корзину
     public function product_add_to_cart(Request $req)
     {
-
         if ($req->ajax()) {
 
             // Проверяем, есть ли ID Пользователя в куки. Если нет - записываем

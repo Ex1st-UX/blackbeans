@@ -11,54 +11,68 @@ class RelatedProductController extends Controller
     protected static $arCategory = array();
     protected static $arProductsId = array();
 
-    public static function getRelatedProducts($id) {
-       self::getCategory($id);
-       self::getProductsId();  
-       self::getProducts();     
-   }
- // Заполняет массив категорий для выбранного товара
-   protected static function getCategory($id) {
-    $product = new Product();
+    public static function getRelatedProducts($id)
+    {
+        self::getCategory($id);
+        self::getProductsId($id);
 
-    $productItem = $product->find($id);
+        $arProducts = self::getProducts();
 
-    $arCategory = explode(', ', $productItem->category->category);
-
-    self::$arCategory = $arCategory;
-}
-protected static function getProductsId() {
-    $product = new Category();
-
-    foreach (self::$arCategory as $categoryItem) {
-        $resRelatedCategory = $product->inRandomOrder()->select('product_id')->where('category', 'like', '%' . $categoryItem . '%')->take(4)->get();
-
-        foreach ($resRelatedCategory as $relatedItem) {
-            $relatedProductsId[$relatedItem->product_id] = $relatedItem->product_id;
-        }
+        return $arProducts;
     }
 
-    
+    // Заполняет массив категорий для выбранного товара
+    protected static function getCategory($id)
+    {
+        $product = new Product();
 
-    self::$arProductsId = $relatedProductsId;
-}
+        $productItem = $product->find($id);
 
-protected static function getProducts() {
-    $product = new Product();
+        $arCategory = explode(', ', $productItem->category->category);
 
-    foreach (self::$arProductsId as $item) {
-        $res = $product->where('id', $item)->get();
-
-        foreach ($res as $key => $arItem) {
-            $arProduct[] = array(
-                'name' => $arItem->name,
-                'id' => $arItem->id
-            );
-        }
+        self::$arCategory = $arCategory;
     }
 
-    echo "<pre>";
-    print_r($arProduct);
-    echo "</pre>";
-    exit;
-}
+    // Получает ID рекомендцуемых товаров
+    protected static function getProductsId($id)
+    {
+        $product = new Category();
+
+        foreach (self::$arCategory as $categoryItem) {
+            $resRelatedCategory = $product->inRandomOrder()->select('product_id')->where('category', 'like', '%' . $categoryItem . '%')->take(3)->get();
+
+            foreach ($resRelatedCategory as $relatedItem) {
+
+                if ($relatedItem->product_id != $id) {
+                    $relatedProductsId[] = $relatedItem->product_id;
+                }
+            }
+        }
+
+        self::$arProductsId = $relatedProductsId;
+    }
+
+    protected static function getProducts()
+    {
+        $product = new Product();
+
+        foreach (self::$arProductsId as $item) {
+            $res = $product->where('id', $item)->get();
+
+            foreach ($res as $key => $arItem) {
+                $arProducts[] = array(
+                    'id' => $arItem->id,
+                    'name' => $arItem->name,
+                    'price' => $arItem->price,
+                    'image' => $arItem->image,
+                    'acidity' => $arItem->acidity,
+                    'dencity' => $arItem->dencity,
+                    'category' => $arItem->category->category,
+                    'sku_price' => $arItem->sku->price
+                );
+            }
+        }
+
+        return $arProducts;
+    }
 }

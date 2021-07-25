@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('dencity');
             $table->string('category_list');
             $table->integer('popularity');
+            $table->string('url');
         });
     }
 

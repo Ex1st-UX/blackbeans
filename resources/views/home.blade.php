@@ -52,7 +52,7 @@
     <br><br>
     <section>
         <div class="container">
-            <h3 class=" title-big">Популярное за май</h3>
+            <h3 class=" title-big">Популярное за август</h3>
             <div class="row">
                 {{--PRODUCTS-ARCHIVE--}}
                 @foreach($product as $item)
@@ -188,8 +188,7 @@
                         <h3 class="title-big">Кофе из магазина у дома - другое</h3>
                         <p class="mt-4">Дело в том, что напиток теряет вкусовые качества с первых минут после обжарки.
                             Прочувствовать букет запахов и вкусов можно только, если пить свежий кофе</p>
-                        <a href="{{ route('about') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Рассказываем
-                            подробно</a>
+                        <a href="{{ route('about') }}" class="btn btn-style border-btn mt-lg-5 mt-4">Подробнее</a>
                     </div>
                     <div class="col-lg-6 left-wthree-img text-right mt-lg-0 mt-5 ">
                         <img src="images/about.jpg" alt="" class="radius-image img-fluid">

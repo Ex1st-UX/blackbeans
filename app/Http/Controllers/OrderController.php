@@ -86,7 +86,6 @@ class OrderController extends Controller
         if ($basketInsert) {
             // Отправляем уведомление о новом заказе на почту админа
             MailController::OrderAdminNotification($orderId);
-            exit;
 
             \Cart::session($user_id)->clear();
 

@@ -35,6 +35,10 @@ class ProductController extends Controller
         $product->image = $req->file('image')->store('uploads', 'public');
         $product->category_list = implode(',', $req->input('options'));
 
+        $idQuery = $product->orderBy('id', 'desc')->first();
+        $idAfterSave = $idQuery->id + 1;
+        $product->url = '/catalog/' . $idAfterSave;
+
         $product->save();
 
         //Записываем торговое предложение в таблицу sku
@@ -44,6 +48,7 @@ class ProductController extends Controller
         $skuProduct->name = $parrentName . ' (1000г)';
         $skuProduct->price = $req->input('sku_price');
         $skuProduct->image = $req->file('sku_image')->store('uploads', 'public');
+        $skuProduct->url = '/catalog/' . $product->id;
 
         $skuProduct->save();
 

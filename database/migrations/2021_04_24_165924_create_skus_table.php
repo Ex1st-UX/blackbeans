@@ -20,6 +20,7 @@ class CreateSkusTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('image');
+            $table->string('url');
         });
     }
 

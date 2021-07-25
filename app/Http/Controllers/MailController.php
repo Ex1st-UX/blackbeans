@@ -72,6 +72,7 @@ class MailController extends Controller
                         $productName = $productSkuItem->name;
                         $productPrice = $productSkuItem->price;
                         $productImage = $productSkuItem->image;
+                        $productUrl = $productSkuItem->url;
                     }
                 } else {
                     $product = new Product();
@@ -81,6 +82,7 @@ class MailController extends Controller
                         $productName = $productItem->name;
                         $productPrice = $productItem->price;
                         $productImage = $productItem->image;
+                        $productUrl = $productItem->url;
                     }
                 }
 
@@ -90,7 +92,8 @@ class MailController extends Controller
                     'quantity' => $basketItem->quantity,
                     'product_name' => $productName,
                     'product_price' => $productPrice,
-                    'product_image' => $productImage
+                    'product_image' => $productImage,
+                    'product_url' => $productUrl
                 );
             }
 

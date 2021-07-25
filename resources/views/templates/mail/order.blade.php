@@ -22,7 +22,7 @@
                             <tr>
                                 <th>{{ $item['product_id'] }}</th>
                                 <th width="33%"><img src="blackbeans.ru/storage/" {{ $item['product_image'] }}></th>
-                                <th>{{ $item['product_name'] }}</th>
+                                <th><a href="blackbeans.ru/" . {{ $item['product_url'] }}>{{ $item['product_name'] }}</a></th>
                                 <th>{{ $item['grind'] }}</th>
                                 <th width="10%">{{ $item['quantity'] }}</th>
                                 <th width="10%">{{ $item['product_price'] }}</th>

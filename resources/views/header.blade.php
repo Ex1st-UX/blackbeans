@@ -36,7 +36,7 @@ $cookie = Illuminate\Support\Facades\Cookie::get('user_id');
                     </li>
                     <li class="nav-item contact__active">
                         <a class="nav-link"
-                           href="/cart" id="cart-total-icon">Корзина (<span id="cart-total">{{$cookie ? \Cart::session($cookie)->getTotal() : '0'}}</span>)</a>
+                           href="/cart" id="cart-total-icon">Корзина (<span id="cart-total">{{$cookie ? \Cart::session($cookie)->getTotal() : '0'}}</span> Р)</a>
                     </li>
                 </ul>
             </div>

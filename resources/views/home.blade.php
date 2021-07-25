@@ -17,8 +17,6 @@
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2"
                                            href="{{ route('catalog-product') }}">
                                             Купить</a>
-                                        <a class="btn btn-style btn-white mt-sm-5 mt-4" href="{{ route('contact') }}">О
-                                            нас</a>
                                     </div>
                                 </div>
                             </div>

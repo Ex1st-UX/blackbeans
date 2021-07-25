@@ -33,7 +33,7 @@ class RelatedProductController extends Controller
         self::$arCategory = $arCategory;
     }
 
-    // Получает ID рекомендцуемых товаров
+    // Получает ID рекомендуемых товаров
     protected static function getProductsId($id)
     {
         $product = new Category();

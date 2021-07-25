@@ -20,6 +20,7 @@ class CreateBasketOrdersTable extends Migration
             $table->integer('product_id');
             $table->string('grind');
             $table->integer('quantity');
+            $table->string('is_sku');
         });
     }
 

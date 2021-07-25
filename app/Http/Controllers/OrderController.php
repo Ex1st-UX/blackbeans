@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Sku;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cookie;
+use App\Http\Controllers\MailController;
 
 class OrderController extends Controller
 {
@@ -57,6 +58,7 @@ class OrderController extends Controller
                 'product_id' => $value->id,
                 'grind' => $value->attributes->grind,
                 'quantity' => $value->quantity,
+                'is_sku' => $value->attributes->sku
             );
 
             $basketInsert = $basketOrder->insert($products);
@@ -82,7 +84,12 @@ class OrderController extends Controller
         }
 
         if ($basketInsert) {
+            // Отправляем уведомление о новом заказе на почту админа
+            MailController::OrderAdminNotification($orderId);
+            exit;
+
             \Cart::session($user_id)->clear();
+
             return response()->json(array('orderId' => $orderId));
         } else {
             return response()->json(array('orderId' => 'Ошибка. Попробуйте снова'));

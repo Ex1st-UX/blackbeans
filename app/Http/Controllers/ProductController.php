@@ -117,6 +117,8 @@ class ProductController extends Controller
         return view('home', ['product' => $product->all()->take(9)]);
     }
 
+
+
     // Детальная страница товара
     public function product_detail($id, Request $req)
     {

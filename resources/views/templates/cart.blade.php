@@ -13,7 +13,7 @@
     <section class="w3l-contact-6 py-5" id="contact">
         <div class="contact-info  py-lg-4 py-md-3">
             <div class="container">
-                    <form method="post" id="order_create">
+                <form method="post" id="order_create">
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
                         <div class="contacts12-main left-side-block">
@@ -32,7 +32,8 @@
                             </div>
                             <div>
                                 <label class="form-field" for="w3lSubect">E-mail</label>
-                                <input type="email" name="w3lSubect" id="email" required placeholder="info@blackbeans.ru"
+                                <input type="email" name="w3lSubect" id="email" required
+                                       placeholder="info@blackbeans.ru"
                                        class="contact-input"/>
                             </div>
                             <div>
@@ -47,7 +48,8 @@
                             {{--РЕНДЕРИМ СПОСОБЫ ДОСТАВКИ--}}
                             @foreach ($dataDelievery as $delieveryItem)
                                 @if ($delieveryItem->active == 'Y')
-                                    <a class="" data-toggle="collapse" id="method-item" data-symbol="{{ $delieveryItem->symbol_code }}"
+                                    <a class="" data-toggle="collapse" id="method-item"
+                                       data-symbol="{{ $delieveryItem->symbol_code }}"
                                        data-cost="{{ $delieveryItem->cost }}"
                                        data-id="{{ $delieveryItem->id }}" href="#{{ $delieveryItem->symbol_code }}"
                                        aria-expanded="false"
@@ -92,16 +94,16 @@
                                             </div>
                                         </div>
                                         {{--Виджет Почты России--}}
-                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">
-                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>
-                                            <script>
-                                                ecomStartWidget({
-                                                    id: 12627,
-                                                    callbackFunction: null,
-                                                    containerId: 'ecom-widget'
-                                                });
-                                            </script>
-                                        </div>
+{{--                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">--}}
+{{--                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>--}}
+{{--                                            <script>--}}
+{{--                                                ecomStartWidget({--}}
+{{--                                                    id: 12627,--}}
+{{--                                                    callbackFunction: null,--}}
+{{--                                                    containerId: 'ecom-widget'--}}
+{{--                                                });--}}
+{{--                                            </script>--}}
+{{--                                        </div>--}}
                                         {{--Виджет Почты России--}}
                                     </div>
                                 @endif
@@ -110,14 +112,16 @@
                             <div class="payment-wrapper">
                                 <h3 class="title-big text-left mb-5 delievery-title">Оплата</h3>
                                 <a class="delivery-wrapper">
-                                    <div data-method="" id="payment-method-cache" class="payment-item-wrapper" data-id="1">
+                                    <div data-method="" id="payment-method-cache" class="payment-item-wrapper"
+                                         data-id="1">
                                         <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
                                         <span class="delievery-item-content">Наложенный платеж</span>
                                     </div>
                                 </a>
                                 <br>
                                 <a class="delivery-wrapper">
-                                    <div data-method="" id="payment-method-online" class="payment-item-wrapper" data-id="2">
+                                    <div data-method="" id="payment-method-online" class="payment-item-wrapper"
+                                         data-id="2">
                                         <img class="cachelogo" src="{{ asset('/images/visa.svg') }}">
                                         <span class="delievery-item-content">Онлайн оплата</span>
                                     </div>

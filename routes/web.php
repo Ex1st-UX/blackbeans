@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FeedbackMailController;
 use App\Http\Controllers\RelatedProductController;
+use App\Http\Controllers\CookieController;
 
 
 /*

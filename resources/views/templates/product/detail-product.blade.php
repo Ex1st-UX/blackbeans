@@ -20,6 +20,7 @@
                     <div class="detail-product-wrapper">
                         <h3 class="title-big ">{{ $data->name }}</h3>
                         <h5 class="title-price" id="currentPrice">{{ $data->price }} р</h5>
+                        <p style="margin-top: 10px">Доставка: 0 руб.</p>
                         <p class="card-text detail-product-category">{{ $data->category->category }}</p>
                         <p class="card-text detail-product-category">{{ $data->description }}</p>
                         <div class="progress detail-product-progress">

@@ -1,3 +1,12 @@
+// возвращает куки с указанным name,
+// или undefined, если ничего не найдено
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 // Проверка, является ли переменная/массив пустым
 function isEmpty(str) {
     if (str == 0 || str.length === 0) {
@@ -145,11 +154,29 @@ $(document).ready(function () {
         url: '/setcookie',
         type: 'GET',
         data: {},
-        // success: function () {
-        //     console.log('cookie exist');
-        // },
-        // error: function () {
-        //     console.log('cookie dont exist');
-        // }
+    });
+
+
+    console.log(document.cookie);
+
+    // Обработчик для промо баннера в нижнем правом углу
+    $(document).scroll(function () {
+        var scrollFromTop = pageYOffset;
+        var cookiePromo = getCookie('promo');
+
+        if (!cookiePromo) {
+            if (scrollFromTop >= 800) {
+                $('.promo-popup').css('visibility', 'visible');
+            } else {
+                $('.promo-popup').css('visibility', 'hidden');
+            }
+
+            $('.promo_popup_button').on('click', function () {
+                $('.promo-popup').css('visibility', 'hidden');
+
+                document.cookie = 'promo=1';
+            });
+        }
     });
 });
+

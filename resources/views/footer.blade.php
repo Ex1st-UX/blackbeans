@@ -58,6 +58,18 @@
     <button onclick="topFunction()" id="movetop" title="Go to top">
         <span class="fa fa-angle-up"></span>
     </button>
+
+    {{--Промо окно в нижнем правом углу--}}
+    <div class="card promo-popup">
+        <div class="card-body">
+            <button type="button" class="close promo_popup_button" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p>Бесплатно доставим до двери в день заказа</p>
+            <a href="/catalog"><button type="button" class="btn-lg btn-block btn-promo promo_popup_button">Проверить</button></a>
+        </div>
+    </div>
+
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {

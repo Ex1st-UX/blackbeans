@@ -12,11 +12,11 @@
                             <div class="banner-info">
                                 <div class="container">
                                     <div class="banner-info-bg">
-                                        <h5>Бесплатная доставка и свежий кофе</h5>
-                                        <p class="mt-4">Доставим до почтового отделения отделения или двери за на счет</p>
+                                        <h5>Бесплатная доставка до двери в день заказа</h5>
+                                        <p class="mt-4">Любимый напиток закончился, а до доставки новой пачки ждать несколько дней? - Мы поможем</p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2"
                                            href="{{ route('catalog-product') }}">
-                                            Купить</a>
+                                            Заказать</a>
                                     </div>
                                 </div>
                             </div>

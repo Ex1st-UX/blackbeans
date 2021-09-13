@@ -148,6 +148,16 @@
     outline: none !important;
 }
 
+.btn-promo {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    border-color: black;
+    border-radius: 0 !important;
+    outline: none !important;
+}
+
 .btn-order-submit {
     margin-top: 35px;
     margin-bottom: 20px;
@@ -364,6 +374,26 @@
 }
 .cart-condition-empty {
     vertical-align: middle;
+}
+.promo-popup {
+    visibility: hidden;
+    position: fixed!important;
+    bottom: 45px;
+    right: 80px;
+    z-index: 99;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    min-height: 150px!important;
+    line-height: 35px;
+    border: solid black 1px!important;
+    -o-border-image: initial;
+    border-image: initial;
+    outline: none;
+    background: var(--primary-color);
+    padding: 0px;
+    border-radius: 50px;
+    transition: height 5s cubic-bezier(0, 0, 1, 1) !important;
 }
 
 /*MEDIA*/

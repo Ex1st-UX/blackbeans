@@ -13,5 +13,8 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('css/style-starter.css')}}">
+
+    {{--ФАВИКОН--}}
+    <link type="image/x-icon" href="{{ URL::asset('images/favicon.jpg') }}" rel="shortcut icon">
 </head>
 <body>

@@ -395,6 +395,10 @@
     border-radius: 50px;
     transition: height 5s cubic-bezier(0, 0, 1, 1) !important;
 }
+.btn-get-more {
+    display: flex!important;
+    justify-content: center!important;
+}
 
 /*MEDIA*/
 @media (max-width: 600px) {

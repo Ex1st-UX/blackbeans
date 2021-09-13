@@ -68,7 +68,7 @@ function conditionHandler() {
                     '<p class="text-center cart-condition-empty" id="cart_condition_empty">Ваша корзина пуста</p>' +
                     '<p class="text-center cart-condition-empty">&#128064;</p>' +
                     '<a href="/catalog"><button type="button" class="btn-lg btn-block btn-order">Исправить ?</button></a>'
-                ).appendTo('.cart-condition');
+                ).appendTo('#cart-condition-content');
             } else {
                 // Проходим по элементам объекта
                 for (var arItem of Object.entries(arData)) {

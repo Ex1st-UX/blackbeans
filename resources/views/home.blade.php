@@ -52,7 +52,7 @@
     <br><br>
     <section>
         <div class="container">
-            <h3 class=" title-big">Популярное за август</h3>
+            <h3 class=" title-big">Популярное за сентябрь</h3>
             <div class="row">
                 {{--PRODUCTS-ARCHIVE--}}
                 @foreach($product as $item)
@@ -111,6 +111,9 @@
                     </div>
                 @endforeach
                 {{--PRODUCTS-ARCHIVE--}}
+            </div>
+            <div class=" btn-get-more">
+                <a href="{{ route('catalog-product') }}"><button type="button" class="text-center btn-lg btn-block btn-order-submit">Посмотреть все</button></a>
             </div>
         </div>
     </section>
@@ -176,6 +179,9 @@
                     </div>
                 @endforeach
                 {{--PRODUCTS-ARCHIVE--}}
+            </div>
+            <div class=" btn-get-more">
+                <a href="{{ route('catalog-product') }}"><button type="button" class="text-center btn-lg btn-block btn-order-submit">Посмотреть все</button></a>
             </div>
         </div>
     </section>

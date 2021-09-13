@@ -70,62 +70,66 @@
                     </div>
                 </div>
 
-                @foreach ($related as $item)
-                    <div class="col-lg-4">
-                        <div class="card product-list-single">
-                            <a class="text-center" href="/catalog/{{ $item['id'] }}">
+                @if (!empty($related))
+
+                    @foreach ($related as $item)
+                        <div class="col-lg-4">
+                            <div class="card product-list-single">
+                                <a class="text-center" href="/catalog/{{ $item['id'] }}">
+                                    <div class="card-body">
+                                        <p class="card-text text-center text-dark font-weight-bolder">{{ $item['name'] }}</p>
+                                        <p class="card-text text-center category-body">{{ $item['category'] }}</p>
+                                    </div>
+                                    <img src="/storage/{{ $item['image'] }}" alt="{{ $item['name'] }}"
+                                         class="product-list-image">
+                                </a>
                                 <div class="card-body">
-                                    <p class="card-text text-center text-dark font-weight-bolder">{{ $item['name'] }}</p>
-                                    <p class="card-text text-center category-body">{{ $item['category'] }}</p>
-                                </div>
-                                <img src="/storage/{{ $item['image'] }}" alt="{{ $item['name'] }}"
-                                     class="product-list-image">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">Кислотность</p>
-                                <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar"
-                                         style="width: {{ 25 * $item['acidity'] }}%"
-                                         aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
+                                    <p class="card-text">Кислотность</p>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar"
+                                             style="width: {{ 25 * $item['acidity'] }}%"
+                                             aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
-                                </div>
-                                <p class="card-text">Плотность</p>
-                                <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar"
-                                         style="width: {{ 25 * $item['dencity'] }}%"
-                                         aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="bottom-card">
-                                    <div class="float-left">
-                                        <a>
-                                            <p class="card-text gramm-text">250г</p>
-                                            <h5 class="price-product" data-price="{{ $item['price'] }}" data-sku="false"
-                                                data-item="{{ $item['id'] }}"><span
-                                                    class="price-product-border price-product-active">{{ $item['price'] }}</span>
-                                                р</h5>
-                                        </a>
+                                    <p class="card-text">Плотность</p>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-dark" role="progressbar"
+                                             style="width: {{ 25 * $item['dencity'] }}%"
+                                             aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <div class="float-left margin-left">
-                                        <a>
-                                            <p class="card-text gramm-text">1000г</p>
-                                            <h5 class="price-product" data-price="{{ $item['sku_price'] }}"
-                                                data-sku="true"
-                                                data-item="{{ $item['id'] }}"><span
-                                                    class="price-product-border">{{ $item['sku_price'] }}</span>
-                                                р</h5>
-                                        </a>
-                                    </div>
-                                    <div class="float-right button-size">
-                                        <button type="button" data-sku="false" data-price="{{ $item['sku_price'] }}"
-                                                data-item="{{ $item['id'] }}" class="btn btn-dark add-to-cart">
-                                            Купить
-                                        </button>
+                                    <div class="bottom-card">
+                                        <div class="float-left">
+                                            <a>
+                                                <p class="card-text gramm-text">250г</p>
+                                                <h5 class="price-product" data-price="{{ $item['price'] }}"
+                                                    data-sku="false"
+                                                    data-item="{{ $item['id'] }}"><span
+                                                        class="price-product-border price-product-active">{{ $item['price'] }}</span>
+                                                    р</h5>
+                                            </a>
+                                        </div>
+                                        <div class="float-left margin-left">
+                                            <a>
+                                                <p class="card-text gramm-text">1000г</p>
+                                                <h5 class="price-product" data-price="{{ $item['sku_price'] }}"
+                                                    data-sku="true"
+                                                    data-item="{{ $item['id'] }}"><span
+                                                        class="price-product-border">{{ $item['sku_price'] }}</span>
+                                                    р</h5>
+                                            </a>
+                                        </div>
+                                        <div class="float-right button-size">
+                                            <button type="button" data-sku="false" data-price="{{ $item['sku_price'] }}"
+                                                    data-item="{{ $item['id'] }}" class="btn btn-dark add-to-cart">
+                                                Купить
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

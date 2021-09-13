@@ -50,7 +50,9 @@ class RelatedProductController extends Controller
             }
         }
 
-        self::$arProductsId = $relatedProductsId;
+        if (!empty($relatedProductsId)) {
+            self::$arProductsId = $relatedProductsId;
+        }
     }
 
     protected static function getProducts()

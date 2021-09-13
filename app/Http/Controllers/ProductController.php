@@ -43,7 +43,7 @@ class ProductController extends Controller
         else {
             $idAfterSave = 1;
         }
-        
+
         $product->url = '/catalog/' . $idAfterSave;
 
         $product->save();

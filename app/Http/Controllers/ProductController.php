@@ -36,15 +36,14 @@ class ProductController extends Controller
         $product->category_list = implode(',', $req->input('options'));
 
         $idQuery = $product->orderBy('id', 'desc')->first();
-        
+
         if ($idQuery) {
             $idAfterSave = $idQuery->id + 1;
         }
         else {
             $idAfterSave = 1;
         }
-
-        $idAfterSave = $idQuery->id + 1;
+        
         $product->url = '/catalog/' . $idAfterSave;
 
         $product->save();

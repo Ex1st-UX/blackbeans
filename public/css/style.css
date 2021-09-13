@@ -362,6 +362,10 @@
 .auth-wrapper {
     margin-top: 50px;
 }
+.cart-condition-empty {
+    vertical-align: middle;
+}
+
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

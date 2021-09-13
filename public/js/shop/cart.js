@@ -73,7 +73,6 @@ function cartRender(response) {
 
 // При загрузке страницы отправляем AJAX для получения корзины
 $(document).ready(function () {
-
     $.ajax({
         url: '/cart/render',
         dataType: 'JSON',

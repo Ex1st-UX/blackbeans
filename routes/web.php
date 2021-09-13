@@ -26,7 +26,9 @@ use App\Http\Controllers\CookieController;
 */
 
 /*main page*/
-//TODO Сделать рендер главной страницы в соответствующем контроллере + создавать куки  user_id при входе
+// Установка куки user_id
+Route::get('/setcookie', [CookieController::class, 'getUserID']);
+
 Route::get('/', [ProductController::class, 'product_list_popularity'])->name('home');
 Route::get('/', [ProductController::class, 'product_list_sales'])->name('home');
 

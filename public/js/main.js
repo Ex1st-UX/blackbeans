@@ -22,14 +22,13 @@ function preloaderAdd(target, styles = '') {
     ).appendTo(target);
 }
 
+// Удаляет прелоадер
 function preloaderRemove() {
     $('.spinner-border').detach();
     $('.sr-only').detach();
 }
 
-// Обработчик всплытия корзины при наведении
-// conditionHandler();
-
+// Показывает корзину при наведении
 $('#cart-total-icon').mouseenter(function (e) {
     e.preventDefault();
 
@@ -56,8 +55,11 @@ function conditionHandler() {
             var arData = response.data;
 
             if (!arData) {
-                $('<p class="text-center cart-condition-empty" id="cart_condition_empty">Ваша корзина пуста</p>').appendTo('.cart-condition');
-                return;
+                $(
+                    '<p class="text-center cart-condition-empty" id="cart_condition_empty">Ваша корзина пуста</p>' +
+                    '<p class="text-center cart-condition-empty">&#128064;</p>' +
+                    '<a href="/catalog"><button type="button" class="btn-lg btn-block btn-order">Исправить ?</button></a>'
+                ).appendTo('.cart-condition');
             } else {
                 // Проходим по элементам объекта
                 for (var arItem of Object.entries(arData)) {
@@ -81,13 +83,13 @@ function conditionHandler() {
                         '</div>' +
                         '</div>'
                     ).appendTo('#cart-condition-content');
-
-                    $('#cart-total-icon').unbind();
                 }
 
                 //Отрисовываем кнопку "оформить заказ"
                 $('<a href="/cart"><button type="button" class="btn-lg btn-block btn-order">Оформить заказ</button></a>').appendTo('#cart-condition-content');
             }
+
+            $('#cart-total-icon').unbind();
         },
         error: function () {
             alert('Ошибка');
@@ -136,3 +138,18 @@ function addToCart(data) {
 
     });
 }
+
+// AJAX для установки куки на каждой странице
+$(document).ready(function () {
+    $.ajax({
+        url: '/setcookie',
+        type: 'GET',
+        data: {},
+        // success: function () {
+        //     console.log('cookie exist');
+        // },
+        // error: function () {
+        //     console.log('cookie dont exist');
+        // }
+    });
+});

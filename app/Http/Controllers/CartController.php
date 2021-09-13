@@ -14,26 +14,11 @@ use Illuminate\Support\Facades\Cookie;
 // TODO: Вынести user_id в свойство контроллера
 class CartController extends Controller
 {
-    private $user_id;
-
-    public function __construct()
-    {
-        \App\Http\Controllers\CookieController::saveCookie();
-    }
-
     // Получаем состояние корзины и отправляем клиенту в JSON
     public function cart_condition(Request $req)
     {
         if ($req->ajax()) {
-            // куки
-            if (Cookie::get('user_id')) {
-                $user_id = Cookie::get('user_id');
-            } else {
-                $generate_id = intval(uniqid());
-                $user_id = $generate_id;
-
-//                $this->saveCookie('user_id', $user_id);
-            }
+            $user_id = Cookie::get('user_id');
 
             // Если корзина не пуста, возвращаем JSON
             if (\Cart::session($user_id)->isEmpty()) {
@@ -53,14 +38,7 @@ class CartController extends Controller
     //Обновляем товар из корзины
     public function cartRenderAction(Request $req)
     {
-
-        // куки
-        if (!Cookie::get('user_id')) {
-            $generate_id = intval(uniqid());
-            $user_id = $generate_id;
-        } else {
-            $user_id = Cookie::get('user_id');
-        }
+        $user_id = Cookie::get('user_id');
 
         if (\Cart::session($user_id)->isEmpty()) {
 

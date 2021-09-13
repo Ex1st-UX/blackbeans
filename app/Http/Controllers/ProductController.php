@@ -138,15 +138,7 @@ class ProductController extends Controller
     public function product_add_to_cart(Request $req)
     {
         if ($req->ajax()) {
-
-            // Проверяем, есть ли ID Пользователя в куки. Если нет - записываем
-            if (!Cookie::get('user_id')) {
-                $generate_id = intval(uniqid());
-//                $user_id = $req->cookie('user_id', $generate_id);
-                $user_id = $generate_id;
-            } else {
-                $user_id = Cookie::get('user_id');
-            }
+            $user_id = Cookie::get('user_id');
 
             if ($req->isSku == 'true') {
                 $sku = true;

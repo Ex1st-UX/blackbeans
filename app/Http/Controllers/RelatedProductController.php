@@ -76,6 +76,8 @@ class RelatedProductController extends Controller
             }
         }
 
-        return $arProducts;
+        if (!empty($arProducts)) {
+            return $arProducts;
+        }
     }
 }

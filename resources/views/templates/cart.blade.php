@@ -68,7 +68,7 @@
                                                 <label class="form-field"
                                                        for="w3lSubect">Город</label>
                                                 <input type="text" name="w3lSubect" id="city" required
-                                                       placeholder="Москва"
+                                                       placeholder="Тольятти"
                                                        class="contact-input"/>
                                             </div>
                                             <div>
@@ -85,12 +85,12 @@
                                                            placeholder="72"
                                                            class="contact-input"/>
                                                 </div>
-                                                <div>
-                                                    <label class="form-field" for="w3lName">Индекс</label>
-                                                    <input type="text" name="w3lName" id="postcode" required
-                                                           placeholder="000000"
-                                                           class="contact-input"/>
-                                                </div>
+{{--                                                <div>--}}
+{{--                                                    <label class="form-field" for="w3lName">Индекс</label>--}}
+{{--                                                    <input type="text" name="w3lName" id="postcode" required--}}
+{{--                                                           placeholder="000000"--}}
+{{--                                                           class="contact-input"/>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                         {{--Виджет Почты России--}}
@@ -115,7 +115,7 @@
                                     <div data-method="" id="payment-method-cache" class="payment-item-wrapper"
                                          data-id="1">
                                         <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
-                                        <span class="delievery-item-content">Наложенный платеж</span>
+                                        <span class="delievery-item-content">Оплата при получении</span>
                                     </div>
                                 </a>
                                 <br>

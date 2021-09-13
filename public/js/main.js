@@ -78,7 +78,7 @@ function conditionHandler() {
                     var price = arItem[1].price;
                     var image = arItem[1].attributes.image;
 
-                    // Отрисовываем твоар в состояние корзины
+                    // Отрисовываем товар в состояние корзины
                     $(
                         '<div class="media cart-condition-entry">' +
                         '<img class="d-flex align-self-center mr-3 cart-condition-image" data-src="{{ asset(\'/images/product.png\') }}" src="/storage/' + image + '">' +
@@ -93,6 +93,8 @@ function conditionHandler() {
                         '</div>'
                     ).appendTo('#cart-condition-content');
                 }
+
+                // $('<p>Очистить корзину</p>').appendTo('#cart-condition-content');
 
                 //Отрисовываем кнопку "оформить заказ"
                 $('<a href="/cart"><button type="button" class="btn-lg btn-block btn-order">Оформить заказ</button></a>').appendTo('#cart-condition-content');
@@ -155,9 +157,6 @@ $(document).ready(function () {
         type: 'GET',
         data: {},
     });
-
-
-    console.log(document.cookie);
 
     // Обработчик для промо баннера в нижнем правом углу
     $(document).scroll(function () {

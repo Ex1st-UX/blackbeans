@@ -184,11 +184,13 @@ $(document).on('click', '.total-cart-plus', function () {
     });
 });
 
-var payment = 2
+var payment = 0;
 
 // Создать заказ
 $(document).on('submit', '#order_create', function (e) {
     e.preventDefault();
+
+    $('#payment_method_error').detach();
 
     var arOrder = {
         name: $('#name').val(),
@@ -207,25 +209,30 @@ $(document).on('submit', '#order_create', function (e) {
         _token: $('meta[name="csrf-token"]').attr('content'),
     };
 
-    $.ajax({
-        url: '/cart/submit',
-        dataType: 'JSON',
-        method: 'POST',
-        data: arOrder,
-        success: function (response) {
-            $('#order_id').text(response.orderId);
+    if (payment) {
+        $.ajax({
+            url: '/cart/submit',
+            dataType: 'JSON',
+            method: 'POST',
+            data: arOrder,
+            success: function (response) {
+                $('#order_id').text(response.orderId);
 
-            $('#order-modals-button').trigger('click');
-        },
-        error: function () {
-            alert('Ошибка');
-        }
-    });
+                $('#order-modals-button').trigger('click');
+            },
+            error: function () {
+                alert('Ошибка');
+            }
+        });
+    }
+    else {
+        $('<p class="text-danger" id="payment_method_error">Выберите способ оплаты</p>').appendTo('.payment-wrapper');
+    }
 });
+
 
 // Отмечаем выбранный способ оплаты
 $('.payment-item-wrapper').on('click', function () {
-
     $('.payment-item-wrapper').removeClass('payment-active');
 
     $(this).addClass('payment-active');

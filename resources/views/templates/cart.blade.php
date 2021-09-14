@@ -55,7 +55,7 @@
                                        aria-expanded="false"
                                        aria-controls="collapseExample">
                                         <div class="delievery-item-wrapper">
-                                            <img class="pochta-russia-logo"
+                                            <img class="delivery-logo"
                                                  src="{{ asset('/storage/' . $delieveryItem->image) }}">
                                             <span class="delievery-item-content">
                                             {{ $delieveryItem->name }}

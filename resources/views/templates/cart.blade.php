@@ -68,21 +68,21 @@
                                                 <label class="form-field"
                                                        for="w3lSubect">Город</label>
                                                 <input type="text" name="w3lSubect" id="city" required
-                                                       placeholder="Тольятти"
+                                                       value="г. Тольятти"
                                                        class="contact-input"/>
                                             </div>
                                             <div>
                                                 <label class="form-field" for="w3lSubect">Улица,
                                                     дом</label>
                                                 <input type="text" name="w3lSubect" id="street" required
-                                                       placeholder="Тверская д. 18"
+                                                       placeholder="Баныкина д. 20"
                                                        class="contact-input"/>
                                             </div>
                                             <div class="input-grids">
                                                 <div>
                                                     <label class="form-field" for="w3lName">Квартира</label>
                                                     <input type="text" name="w3lName" id="apps" required
-                                                           placeholder="72"
+                                                           placeholder="кв. 72"
                                                            class="contact-input"/>
                                                 </div>
 {{--                                                <div>--}}

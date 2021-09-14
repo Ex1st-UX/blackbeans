@@ -204,7 +204,7 @@ $(document).on('submit', '#order_create', function (e) {
         city: $('#city').val(),
         phone: $('#phone').val(),
         appartments: $('#apps').val(),
-        postcode: $('#postcode').val(),
+        postcode: 445000,
         payment: payment,
         _token: $('meta[name="csrf-token"]').attr('content'),
     };

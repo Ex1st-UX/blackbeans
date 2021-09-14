@@ -378,8 +378,8 @@
 .promo-popup {
     visibility: hidden;
     position: fixed!important;
-    bottom: 45px;
-    right: 80px;
+    bottom: 125px;
+    right: 15px;
     z-index: 99;
     font-size: 24px;
     cursor: pointer;
@@ -402,10 +402,15 @@
 .add-to-cart-detail {
     margin-left: 40px;
 }
+
+
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {
         max-width: 300px;
+    }
+    .filter-card {
+        margin-bottom: 20px;
     }
 }
 

@@ -120,7 +120,7 @@
             <ul class="catalog-tabs">
                 <li class="title-catalog text-left mb-4 mark-item-active" data-item="all_items" id="all_items">
                     <a>Все</a></li>
-                <li class="title-catalog text-left mb-4" data-item="reccomended_items"><a>Рекомендуем</a></li>
+                <li class="title-catalog text-left mb-4" id="reccomended_items" data-item="reccomended_items"><a>Рекомендуем</a></li>
                 <li class="title-catalog text-left mb-4" data-item="new_items"><a>Новинки</a></li>
                 <li class="title-catalog text-left mb-4" data-item="sales_item"><a>Акции</a></li>
             </ul>

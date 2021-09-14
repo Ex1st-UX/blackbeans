@@ -37,12 +37,16 @@ function preloaderRemove() {
     $('.sr-only').detach();
 }
 
-// Показывает корзину при наведении
-$('#cart-total-icon').mouseenter(function (e) {
-    e.preventDefault();
+// Показывает корзину при наведении (ТОЛЬКО ДЕСКТОП)
+const screenWidth = window.screen.width;
 
-    conditionHandler();
-});
+if (screenWidth > 600) {
+    $('#cart-total-icon').mouseenter(function (e) {
+        e.preventDefault();
+
+        conditionHandler();
+    });
+}
 
 function conditionHandler() {
     $.ajax({

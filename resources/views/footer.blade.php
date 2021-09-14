@@ -54,10 +54,6 @@
             </div>
         </div>
     </div>
-    <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fa fa-angle-up"></span>
-    </button>
 
     {{--Промо окно в нижнем правом углу--}}
     <div class="card promo-popup">
@@ -66,9 +62,14 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             <p>Бесплатно доставим до двери в день заказа</p>
-            <a href="/catalog"><button type="button" class="btn-lg btn-block btn-promo promo_popup_button">Проверить</button></a>
+            <a href="/catalog"><button type="button" class="btn-lg btn-block btn-promo promo_popup_button">Перейти в каталог</button></a>
         </div>
     </div>
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
 
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
@@ -92,12 +93,13 @@
     </script>
     <!-- /move top -->
 </section>
+
 {{--МОДАЛЬНЫЕ ОКНА--}}
 @include('templates.modals.modals')
 {{--МОДАЛЬНЫЕ ОКНА--}}
+
 <!-- Template JavaScript -->
 <script src="{{ URL::asset('js/jquery-3.x-git.js') }}"></script>
-
 <!-- script for testimonials -->
 <script>
     $(document).ready(function () {

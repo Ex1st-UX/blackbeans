@@ -27,6 +27,10 @@ $('.filter-category-item').on('click', function () {
     $(this).find('.filter-icon').addClass('filter-icon-active');
 
     filterProdut();
+
+    // Перемещаем пользователя к товарам после выбора категории
+    var product = document.getElementById('all_items');
+    product.scrollIntoView({block: "center", inline: "center", behavior: "auto"});
 });
 
 // Сортировка по цене
@@ -103,7 +107,6 @@ $(document).ready(function () {
 
 // Функция AJAX запроса для фильтрации и сортировки
 function filterProdut() {
-
     $.ajax({
         url: '/catalog/filterByCategory',
         type: 'POST',

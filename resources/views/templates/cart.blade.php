@@ -5,11 +5,13 @@
 @section('body')
     <div class="inner-banner">
     </div>
+
     <?php
     // Хлебные крошки
     $breadcrumb = new App\Http\Controllers\BreadcrumbController();
     $breadcrumb->getBreadcrumb();
     ?>
+
     <section class="w3l-contact-6 py-5" id="contact">
         <div class="contact-info  py-lg-4 py-md-3">
             <div class="container">

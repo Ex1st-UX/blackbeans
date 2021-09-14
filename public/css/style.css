@@ -399,7 +399,9 @@
     display: flex!important;
     justify-content: center!important;
 }
-
+.add-to-cart-detail {
+    margin-left: 40px;
+}
 /*MEDIA*/
 @media (max-width: 600px) {
     .detail-image {

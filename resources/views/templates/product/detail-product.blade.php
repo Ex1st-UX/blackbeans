@@ -63,13 +63,14 @@
                                 <button type="submit" id="add-to-cart" data-action="{{ '/catalog/buy' }}"
                                         data-item="{{ $data->id }}" data-sku="250"
                                         data-summary="{{ $data->price }}"
-                                        class="btn btn-style btn-primary  mt-4 add-to-cart">Купить
+                                        class="btn btn-style btn-primary  mt-4 add-to-cart-detail">Купить
                                 </button>
                             </div>
                         </form>
                     </div>
                 </div>
 
+                {{--Похожие товары--}}
                 @if (!empty($related))
 
                     @foreach ($related as $item)

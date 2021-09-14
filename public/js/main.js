@@ -108,24 +108,8 @@ function conditionHandler() {
     });
 }
 
-// Убирать состояние корзины, если пользователь убрал мышь
-$('#cart-condition').mouseleave(function () {
 
-    $('.cart-condition').attr('style', 'display: none!important;')
-
-    // Удаляем содержимое в состоянии корзины
-    $('.cart-condition-entry').detach();
-    $('.btn-order').detach();
-    $('.cart-condition-empty').detach();
-
-    $('#cart-total-icon').bind('mouseenter', function (e) {
-        e.preventDefault();
-
-        conditionHandler();
-    });
-});
-
-//Кнопка закрыть в окне состояния корзины
+// Кнопка закрыть в окне состояния корзины
 $('#cart_condition_close').on('click', function () {
     $('.cart-condition').attr('style', 'display: none!important;');
 });
@@ -176,6 +160,23 @@ $(document).ready(function () {
                 document.cookie = 'promo=1';
             });
         }
+    });
+
+    // Убирать состояние корзины, если пользователь убрал мышь
+    $('#cart-condition').mouseleave(function () {
+
+        $('.cart-condition').attr('style', 'display: none!important;')
+
+        // Удаляем содержимое в состоянии корзины
+        $('.cart-condition-entry').detach();
+        $('.btn-order').detach();
+        $('.cart-condition-empty').detach();
+
+        $('#cart-total-icon').bind('mouseenter', function (e) {
+            e.preventDefault();
+
+            conditionHandler();
+        });
     });
 });
 

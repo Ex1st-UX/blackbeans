@@ -21,7 +21,7 @@ function cartRender(response) {
 
             $(
                 '<tr>' +
-                '<td><img width="100px" src="/storage/' + image + '"</td>' +
+                '<td><img width="100%" src="/storage/' + image + '"</td>' +
                 '<td>' +
                 '<a style="color: darkgrey;" href="/catalog/' + id + '">' + name + '</a>' +
                 '<p class="additionally-information">Помол: <span class="">' + grind + '</span></p>' +
@@ -240,6 +240,9 @@ $('.payment-item-wrapper').on('click', function () {
     payment = $(this).data('id')
 });
 
-
+// Перемещаем корзину в верх (ТОЛЬКО ДЛЯ МОБИЛЬНОЙ ВЕРСИИ)
+if (screenWidth <= 600) {
+    $('.contacts12-main').prependTo('.left-side-block');
+}
 
 

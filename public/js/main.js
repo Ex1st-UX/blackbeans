@@ -184,7 +184,3 @@ $(document).ready(function () {
     });
 });
 
-// Переносим корзину в верх для мобильной версии
-if (screenWidth <= 600) {
-    $('.cart-total-content').prependTo('.left-side-block');
-}

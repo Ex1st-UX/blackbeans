@@ -77,8 +77,17 @@ class CartController extends Controller
     public function cart()
     {
         $delievery = new Delievery();
-        $data = $delievery->all();
+        $deliveryData = $delievery->all();
 
-        return view('templates.cart', ['dataDelievery' => $data]);
+        $user_id = Cookie::get('user_id');
+
+        if (\Cart::session($user_id)->isEmpty()) {
+            $cartData = false;
+        }
+        else {
+            $cartData = true;
+        }
+
+        return view('templates.cart', ['dataDelievery' => $deliveryData, 'cartData' => $cartData]);
     }
 }

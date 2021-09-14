@@ -67,7 +67,7 @@
     </div>
 
     <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
+    <button class="totop_button" onclick="topFunction()" id="movetop" title="Go to top">
         <span class="fa fa-angle-up"></span>
     </button>
 

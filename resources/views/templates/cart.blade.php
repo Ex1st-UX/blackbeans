@@ -18,29 +18,30 @@
                 <form method="post" id="order_create">
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
-                        <div class="contacts12-main left-side-block">
+                        @if ($cartData)
+                        <div class="left-side-block">
                             <h3 class="title-big text-left mb-5">Оформление заказа</h3>
                             <div class="input-grids">
                                 <div>
-                                    <label class="form-field" for="w3lName">Имя</label>
-                                    <input type="text" name="w3lName" id="name" required placeholder="Сергей"
+                                    <label class="form-field" for="name">Имя</label>
+                                    <input type="text" name="name" id="name" required placeholder="Сергей"
                                            class="contact-input"/>
                                 </div>
                                 <div>
-                                    <label class="form-field" for="w3lSender">Фамилия</label>
-                                    <input type="text" name="w3lSender" id="surname" required placeholder="Иванов"
+                                    <label class="form-field" for="surname">Фамилия</label>
+                                    <input type="text" name="surname" id="surname" required placeholder="Иванов"
                                            class="contact-input"/>
                                 </div>
                             </div>
                             <div>
-                                <label class="form-field" for="w3lSubect">E-mail</label>
-                                <input type="email" name="w3lSubect" id="email" required
+                                <label class="form-field" for="email">E-mail</label>
+                                <input type="email" name="email" id="email" required
                                        placeholder="info@blackbeans.ru"
                                        class="contact-input"/>
                             </div>
                             <div>
-                                <label class="form-field" for="w3lSubect">Номер телефона</label>
-                                <input type="phone" name="w3lSubect " id="phone" required
+                                <label class="form-field" for="phone">Номер телефона</label>
+                                <input type="phone" name="phone " id="phone" required
                                        placeholder="+7 (999) 999 99 99"
                                        class="contact-input form-control"/>
                             </div>
@@ -68,44 +69,44 @@
                                         <div class="input-grids delievery-">
                                             <div>
                                                 <label class="form-field"
-                                                       for="w3lSubect">Город</label>
-                                                <input type="text" name="w3lSubect" id="city" required
+                                                       for="city">Город</label>
+                                                <input type="text" name="city" id="city" required
                                                        value="г. Тольятти"
                                                        class="contact-input"/>
                                             </div>
                                             <div>
-                                                <label class="form-field" for="w3lSubect">Улица,
+                                                <label class="form-field" for="street">Улица,
                                                     дом</label>
-                                                <input type="text" name="w3lSubect" id="street" required
+                                                <input type="text" name="street" id="street" required
                                                        placeholder="Баныкина д. 20"
                                                        class="contact-input"/>
                                             </div>
                                             <div class="input-grids">
                                                 <div>
-                                                    <label class="form-field" for="w3lName">Квартира</label>
-                                                    <input type="text" name="w3lName" id="apps" required
+                                                    <label class="form-field" for="apps">Квартира</label>
+                                                    <input type="text" name="apps" id="apps" required
                                                            placeholder="кв. 72"
                                                            class="contact-input"/>
                                                 </div>
-{{--                                                <div>--}}
-{{--                                                    <label class="form-field" for="w3lName">Индекс</label>--}}
-{{--                                                    <input type="text" name="w3lName" id="postcode" required--}}
-{{--                                                           placeholder="000000"--}}
-{{--                                                           class="contact-input"/>--}}
-{{--                                                </div>--}}
+                                                {{--                                                <div>--}}
+                                                {{--                                                    <label class="form-field" for="w3lName">Индекс</label>--}}
+                                                {{--                                                    <input type="text" name="w3lName" id="postcode" required--}}
+                                                {{--                                                           placeholder="000000"--}}
+                                                {{--                                                           class="contact-input"/>--}}
+                                                {{--                                                </div>--}}
                                             </div>
                                         </div>
                                         {{--Виджет Почты России--}}
-{{--                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">--}}
-{{--                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>--}}
-{{--                                            <script>--}}
-{{--                                                ecomStartWidget({--}}
-{{--                                                    id: 12627,--}}
-{{--                                                    callbackFunction: null,--}}
-{{--                                                    containerId: 'ecom-widget'--}}
-{{--                                                });--}}
-{{--                                            </script>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">--}}
+                                        {{--                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>--}}
+                                        {{--                                            <script>--}}
+                                        {{--                                                ecomStartWidget({--}}
+                                        {{--                                                    id: 12627,--}}
+                                        {{--                                                    callbackFunction: null,--}}
+                                        {{--                                                    containerId: 'ecom-widget'--}}
+                                        {{--                                                });--}}
+                                        {{--                                            </script>--}}
+                                        {{--                                        </div>--}}
                                         {{--Виджет Почты России--}}
                                     </div>
                                 @endif
@@ -130,17 +131,19 @@
                                 </a>
                             </div>
                         </div>
+                        @endif
+                        {{--Корзина--}}
                         <div class="contacts12-main cart-total-content">
-                            {{--Корзина--}}
+
                             <div>
                                 <h3 class="title-big text-left mb-5 ">Корзина</h3>
-                                <table class="table text-left l">
-                                    <div id="cart-total-wrapper" class="cart-total-wrapper text-center">
+                                <div id="cart-total-wrapper" class="cart-total-wrapper text-center">
+                                    <table class="table text-left l table-total-cart">
                                         @csrf
                                         <tbody id="cart-total-entry">
                                         </tbody>
-                                    </div>
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                             {{--Итог--}}
                         </div>

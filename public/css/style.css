@@ -133,6 +133,10 @@
     max-width: 100px;
     max-height: 80px;
 }
+.related-products-title {
+    margin-top: 20px;
+    font-weight: 800;
+}
 
 .cart-condition-entry {
     margin-top: 10px;

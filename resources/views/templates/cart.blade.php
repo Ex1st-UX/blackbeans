@@ -19,118 +19,100 @@
                     <div class="grid contact-grids pt-3">
                         {{--Форма с адресом--}}
                         @if ($cartData)
-                        <div class="left-side-block">
-                            <h3 class="title-big text-left mb-5">Оформление заказа</h3>
-                            <div class="input-grids">
+                            <div class="left-side-block">
+                                <h3 class="title-big text-left mb-5">Оформление заказа</h3>
+                                <div class="input-grids">
+                                    <div>
+                                        <label class="form-field" for="name">Имя</label>
+                                        <input type="text" name="name" id="name" required placeholder="Сергей"
+                                               class="contact-input"/>
+                                    </div>
+                                    <div>
+                                        <label class="form-field" for="surname">Фамилия</label>
+                                        <input type="text" name="surname" id="surname" required placeholder="Иванов"
+                                               class="contact-input"/>
+                                    </div>
+                                </div>
                                 <div>
-                                    <label class="form-field" for="name">Имя</label>
-                                    <input type="text" name="name" id="name" required placeholder="Сергей"
+                                    <label class="form-field" for="email">E-mail</label>
+                                    <input type="email" name="email" id="email" required
+                                           placeholder="info@blackbeans.ru"
                                            class="contact-input"/>
                                 </div>
                                 <div>
-                                    <label class="form-field" for="surname">Фамилия</label>
-                                    <input type="text" name="surname" id="surname" required placeholder="Иванов"
-                                           class="contact-input"/>
+                                    <label class="form-field" for="phone">Номер телефона</label>
+                                    <input type="phone" name="phone " id="phone" required
+                                           placeholder="+7 (999) 999 99 99"
+                                           class="contact-input form-control"/>
                                 </div>
-                            </div>
-                            <div>
-                                <label class="form-field" for="email">E-mail</label>
-                                <input type="email" name="email" id="email" required
-                                       placeholder="info@blackbeans.ru"
-                                       class="contact-input"/>
-                            </div>
-                            <div>
-                                <label class="form-field" for="phone">Номер телефона</label>
-                                <input type="phone" name="phone " id="phone" required
-                                       placeholder="+7 (999) 999 99 99"
-                                       class="contact-input form-control"/>
-                            </div>
-                            {{--ДОСТАВКА--}}
-                            <h3 class="title-big text-left mb-5 delievery-title">Доставка</h3>
+                                {{--ДОСТАВКА--}}
+                                <h3 class="title-big text-left mb-5 delievery-title">Доставка</h3>
 
-                            {{--РЕНДЕРИМ СПОСОБЫ ДОСТАВКИ--}}
-                            @foreach ($dataDelievery as $delieveryItem)
-                                @if ($delieveryItem->active == 'Y')
-                                    <a class="" data-toggle="collapse" id="method-item"
-                                       data-symbol="{{ $delieveryItem->symbol_code }}"
-                                       data-cost="{{ $delieveryItem->cost }}"
-                                       data-id="{{ $delieveryItem->id }}" href="#{{ $delieveryItem->symbol_code }}"
-                                       aria-expanded="false"
-                                       aria-controls="collapseExample">
-                                        <div class="delievery-item-wrapper">
-                                            <img class="delivery-logo"
-                                                 src="{{ asset('/storage/' . $delieveryItem->image) }}">
-                                            <span class="delievery-item-content">
+                                {{--РЕНДЕРИМ СПОСОБЫ ДОСТАВКИ--}}
+                                @foreach ($dataDelievery as $delieveryItem)
+                                    @if ($delieveryItem->active == 'Y')
+                                        <a class="" data-toggle="collapse" id="method-item"
+                                           data-symbol="{{ $delieveryItem->symbol_code }}"
+                                           data-cost="{{ $delieveryItem->cost }}"
+                                           data-id="{{ $delieveryItem->id }}" href="#{{ $delieveryItem->symbol_code }}"
+                                           aria-expanded="false"
+                                           aria-controls="collapseExample">
+                                            <div class="delievery-item-wrapper">
+                                                <img class="delivery-logo"
+                                                     src="{{ asset('/storage/' . $delieveryItem->image) }}">
+                                                <span class="delievery-item-content">
                                             {{ $delieveryItem->name }}
                                             </span>
-                                        </div>
-                                    </a>
-                                    <div class="collapse delievery-adress" id="{{ $delieveryItem->symbol_code }}">
-                                        <div class="input-grids delievery-">
-                                            <div>
-                                                <label class="form-field"
-                                                       for="city">Город</label>
-                                                <input type="text" name="city" id="city" required
-                                                       value="г. Тольятти"
-                                                       class="contact-input"/>
                                             </div>
-                                            <div>
-                                                <label class="form-field" for="street">Улица,
-                                                    дом</label>
-                                                <input type="text" name="street" id="street" required
-                                                       placeholder="Баныкина д. 20"
-                                                       class="contact-input"/>
-                                            </div>
-                                            <div class="input-grids">
+                                        </a>
+                                        <div class="collapse delievery-adress" id="{{ $delieveryItem->symbol_code }}">
+                                            <div class="input-grids delievery-">
                                                 <div>
-                                                    <label class="form-field" for="apps">Квартира</label>
-                                                    <input type="text" name="apps" id="apps" required
-                                                           placeholder="кв. 72"
+                                                    <label class="form-field"
+                                                           for="city">Город</label>
+                                                    <input type="text" name="city" id="city" required
+                                                           value="г. Тольятти"
                                                            class="contact-input"/>
                                                 </div>
-                                                {{--                                                <div>--}}
-                                                {{--                                                    <label class="form-field" for="w3lName">Индекс</label>--}}
-                                                {{--                                                    <input type="text" name="w3lName" id="postcode" required--}}
-                                                {{--                                                           placeholder="000000"--}}
-                                                {{--                                                           class="contact-input"/>--}}
-                                                {{--                                                </div>--}}
+                                                <div>
+                                                    <label class="form-field" for="street">Улица,
+                                                        дом</label>
+                                                    <input type="text" name="street" id="street" required
+                                                           placeholder="Баныкина д. 20"
+                                                           class="contact-input"/>
+                                                </div>
+                                                <div class="input-grids">
+                                                    <div>
+                                                        <label class="form-field" for="apps">Квартира</label>
+                                                        <input type="text" name="apps" id="apps" required
+                                                               placeholder="кв. 72"
+                                                               class="contact-input"/>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        {{--Виджет Почты России--}}
-                                        {{--                                        <div id="ecom-widget" class="delievery-map" style="height: 500px">--}}
-                                        {{--                                            <script src="https://widget.pochta.ru/map/widget/widget.js"></script>--}}
-                                        {{--                                            <script>--}}
-                                        {{--                                                ecomStartWidget({--}}
-                                        {{--                                                    id: 12627,--}}
-                                        {{--                                                    callbackFunction: null,--}}
-                                        {{--                                                    containerId: 'ecom-widget'--}}
-                                        {{--                                                });--}}
-                                        {{--                                            </script>--}}
-                                        {{--                                        </div>--}}
-                                        {{--Виджет Почты России--}}
-                                    </div>
-                                @endif
-                            @endforeach
-                            {{--Способы оплаты--}}
-                            <div class="payment-wrapper">
-                                <h3 class="title-big text-left mb-5 delievery-title">Оплата</h3>
-                                <a class="delivery-wrapper">
-                                    <div data-method="" id="payment-method-cache" class="payment-item-wrapper"
-                                         data-id="1">
-                                        <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
-                                        <span class="delievery-item-content">Оплата при получении</span>
-                                    </div>
-                                </a>
-                                <br>
-                                <a class="delivery-wrapper">
-                                    <div data-method="" id="payment-method-online" class="payment-item-wrapper"
-                                         data-id="2">
-                                        <img class="cachelogo" src="{{ asset('/images/visa.svg') }}">
-                                        <span class="delievery-item-content">Онлайн оплата</span>
-                                    </div>
-                                </a>
+                                    @endif
+                                @endforeach
+                                {{--Способы оплаты--}}
+                                <div class="payment-wrapper">
+                                    <h3 class="title-big text-left mb-5 delievery-title">Оплата</h3>
+                                    <a class="delivery-wrapper">
+                                        <div data-method="" id="payment-method-cache" class="payment-item-wrapper"
+                                             data-id="1">
+                                            <img class="cachelogo" src="{{ asset('/images/cash-logo.png') }}">
+                                            <span class="delievery-item-content">Оплата при получении</span>
+                                        </div>
+                                    </a>
+                                    <br>
+                                    <a class="delivery-wrapper">
+                                        <div data-method="" id="payment-method-online" class="payment-item-wrapper"
+                                             data-id="2">
+                                            <img class="cachelogo" src="{{ asset('/images/visa.svg') }}">
+                                            <span class="delievery-item-content">Онлайн оплата</span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         @endif
                         {{--Корзина--}}
                         <div class="contacts12-main cart-total-content">

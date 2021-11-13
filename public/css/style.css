@@ -45,15 +45,13 @@
 }
 
 .detail-image {
-    max-width: 450px;
-    max-height: 500px;
-    vertical-align: middle;
+    max-width: 508px;
+    max-height: 508px;
     margin: 0 auto;
     padding: 2px;
 }
 
 .detail-product-wrapper {
-    margin: 30px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -64,11 +62,11 @@
 }
 
 .detail-product-category {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .detail-product-progress {
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .add-to-cart {
@@ -88,7 +86,9 @@
     max-width: 150px;
     float: left;
 }
-
+.btn-to-cart:hover {
+    color: white;
+}
 .slide-image-wrapper {
     margin-left: 40px;
     margin-right: 25px;
@@ -132,6 +132,10 @@
 .cart-condition-image {
     max-width: 100px;
     max-height: 80px;
+}
+.related-products-title {
+    margin-top: 20px;
+    font-weight: 800;
 }
 
 .cart-condition-entry {

@@ -37,7 +37,7 @@
                 <div class="footer-list-29 footer-3">
 
                     <h6 class="footer-title-29">Хочешь скидку?</h6>
-                    <p class="mb-3">Дарим промокоды каждую неделю</p>
+                    <p class="mb-3">Подпишись на новости</p>
                     <form action="#" class="subscribe" method="post">
                         <input type="email" name="email" placeholder="Email" required="">
                         <button><span class="fa fa-envelope-o"></span></button>

@@ -12,7 +12,7 @@
             <div class="container">
                 <span class="success-symbol">&#10004;</span>
                 <h3 class="success-element">Товар добавлен в корзину</h3>
-                <a href="/cart"><button class="btn-lg btn-block btn-order">Перейти в корзину</button></a>
+                <a class="btn-lg btn-block btn-order btn-to-cart" href="/cart">Перейти в корзину</a>
                 <a class="continue-shop" data-dismiss="modal">Продолжить покупки</a>
             </div>
         </div>

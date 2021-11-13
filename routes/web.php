@@ -12,7 +12,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FeedbackMailController;
 use App\Http\Controllers\RelatedProductController;
 use App\Http\Controllers\CookieController;
-
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------

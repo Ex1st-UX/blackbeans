@@ -23,7 +23,7 @@
             <td>{{ $item->price }}</td>
             <td>{{ $item->updated_at }}</td>
             <td><a href="{{ route('product-edit-admin', $item->id) }}"><button class="btn btn-warning">Подробнее</button></a></td>
-            <td><button class="btn btn-warning">Удалить</button></td>
+            <td><a href="{{ route('product-delete', $item->id) }}"><button type="button" class="btn btn-warning">Удалить</button></a></td>
         </tr>
         @endforeach
         </tbody>

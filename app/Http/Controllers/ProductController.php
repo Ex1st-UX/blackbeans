@@ -39,8 +39,7 @@ class ProductController extends Controller
 
         if ($idQuery) {
             $idAfterSave = $idQuery->id + 1;
-        }
-        else {
+        } else {
             $idAfterSave = 1;
         }
 
@@ -106,6 +105,15 @@ class ProductController extends Controller
         return redirect()->route('product-admin')->with('success', 'товар изменен');
     }
 
+    public function product_delete($id)
+    {
+        Product::find($id)->delete();
+        Category::Where('product_id', '=', $id)->delete();
+        Sku::Where('product_id', '=', $id)->delete();
+
+        return redirect()->route('product-admin');
+    }
+
     // Показать список товаров в админке
     public function product_list_admin(Request $req)
     {
@@ -128,7 +136,6 @@ class ProductController extends Controller
 
         return view('home', ['product' => $product->all()->take(9)]);
     }
-
 
 
     // Детальная страница товара

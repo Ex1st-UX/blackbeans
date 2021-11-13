@@ -416,6 +416,9 @@ table tr td.td2:last-child {
 .table-total-cart > td {
     min-height: 200px;
 }
+.order_validation_error {
+    margin-bottom: 10px;
+}
 
 /*MEDIA*/
 @media (max-width: 600px) {

@@ -40,10 +40,13 @@
                             @csrf
                             <select id="grind" class="custom-select detail-product-category">
                                 <option selected>Выберите помол</option>
-                                <option value="Не молоть">Не молоть</option>
-                                <option value="Для турки">Для турки</option>
-                                <option value="Для френчпресса">Для френчпресса</option>
-                                <option value="Для гейзерной кофеварки">Для гейзерной кофеварки</option>
+                                <option value="в зернах">в зернах</option>
+                                <option value="для френч-пресса (крупный)">для френч-пресса (крупный)</option>
+                                <option value="для пуровера (средний)">для пуровера (средний)</option>
+                                <option value="для гейзерной кофеварки (средний)">для гейзерной кофеварки (средний)</option>
+                                <option value="для эспрессо (кофеварка, мелкий)">для эспрессо (кофеварка, мелкий)</option>
+                                <option value="для турки (мелкий)">для турки (мелкий)</option>
+                                <option value="для чашки (средний)">для чашки (средний)</option>
                             </select>
                             <div class="detail-entry-footer">
                                 <div class="quantity mt-4">

@@ -69,6 +69,7 @@ Auth::routes();
 
 /*ADMIN PANEL ROUTES*/
 Route::group(['middleware' => ['role:admin']], function () {
-    require '../routes/admin.php';
+    if (file_exists('../routes/admin.php'))
+        require '../routes/admin.php';
 });
 

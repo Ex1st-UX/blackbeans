@@ -52,7 +52,7 @@
     <br><br>
     <section>
         <div class="container">
-            <h3 class=" title-big">Популярное за сентябрь</h3>
+            <h3 class=" title-big">Популярное за ноябрь</h3>
             <div class="row">
                 {{--PRODUCTS-ARCHIVE--}}
                 @foreach($product as $item)
@@ -61,7 +61,7 @@
                             <a class="text-center" href="/catalog/<?= $item->id ?>">
                                 <div class="card-body">
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
-                                    <p class="card-text text-center category-body"><?= $item->category->category ?></p>
+                                    <p class="card-text text-center category-body"><?= (!empty($item->category->category)) ? $item->category->category : '' ?></p>
                                 </div>
                                 <img src="/storage/<?= $item->image ?>" alt="<?= $item->name ?>" class="product-list-image">
                             </a>
@@ -92,15 +92,17 @@
                                     <div class="float-left margin-left">
                                         <a>
                                             <p class="card-text gramm-text">1000г</p>
-                                            <h5 class="price-product" data-price="<?= $item->sku->price ?>"
+                                            <h5 class="price-product" data-price="<?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>"
                                                 data-sku="true"
-                                                data-item="<?= $item->sku->id ?>"><span
-                                                    class="price-product-border"><?= $item->sku->price ?></span>
-                                                р</h5>
+                                                data-item="<?= (!empty($item->sku->id)) ? $item->sku->id : '' ?>">
+                                                <span class="price-product-border">
+                                                    <?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>
+                                                </span>р
+                                            </h5>
                                         </a>
                                     </div>
                                     <div class="float-right button-size">
-                                        <button type="button" data-sku="false" data-price="<?= $item->sku->price ?>"
+                                        <button type="button" data-sku="false" data-price="<?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>"
                                                 data-item="<?= $item->id ?>" class="btn btn-dark add-to-cart">
                                             Купить
                                         </button>
@@ -129,7 +131,7 @@
                             <a class="text-center" href="/catalog/<?= $item->id ?>">
                                 <div class="card-body">
                                     <p class="card-text text-center text-dark font-weight-bolder"><?= $item->name ?></p>
-                                    <p class="card-text text-center category-body"><?= $item->category->category ?></p>
+                                    <p class="card-text text-center category-body"><?= (!empty($item->category->category)) ? $item->category->category : '' ?></p>
                                 </div>
                                 <img src="/storage/<?= $item->image ?>" alt="<?= $item->name ?>" class="product-list-image">
                             </a>
@@ -160,15 +162,17 @@
                                     <div class="float-left margin-left">
                                         <a>
                                             <p class="card-text gramm-text">1000г</p>
-                                            <h5 class="price-product" data-price="<?= $item->sku->price ?>"
+                                            <h5 class="price-product" data-price="<?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>"
                                                 data-sku="true"
-                                                data-item="<?= $item->sku->id ?>"><span
-                                                    class="price-product-border"><?= $item->sku->price ?></span>
-                                                р</h5>
+                                                data-item="<?= (!empty($item->sku->id)) ? $item->sku->id : '' ?>">
+                                                <span class="price-product-border">
+                                                    <?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>
+                                                </span>р
+                                            </h5>
                                         </a>
                                     </div>
                                     <div class="float-right button-size">
-                                        <button type="button" data-sku="false" data-price="<?= $item->sku->price ?>"
+                                        <button type="button" data-sku="false" data-price="<?= (!empty($item->sku->price)) ? $item->sku->price : '' ?>"
                                                 data-item="<?= $item->id ?>" class="btn btn-dark add-to-cart">
                                             Купить
                                         </button>

@@ -16,7 +16,7 @@ class DelieveryController extends Controller
     public function delievery_add() {
         $delievery = new Delievery();
 
-        return view('admin.delievery.delievery-add', ['data' => $delievery]);
+        return view('admin.delievery.delievery-add', ['data' => $delievery->all()]);
     }
 
     public function delievery_add_submit(Request $req) {
@@ -30,6 +30,6 @@ class DelieveryController extends Controller
 
         $delievery->save();
 
-        return view('admin.delievery.delievery');
+        return redirect()->route('delievery-admin');
     }
 }

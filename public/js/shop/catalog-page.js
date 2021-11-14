@@ -63,7 +63,7 @@ var arProduct = {
     isSku: '',
     price: 0,
     qty: 1,
-    grind: 'Для турки',
+    grind: 'в зернах',
     cartTotal: Number($('#cart-total').text()),
     _token: $('meta[name="csrf-token"]').attr('content')
 };

@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-9">
                 @section('admin-content')
-                    <h1 class="text-center">Привет, </h1>
+                    <h1 class="text-center">Привет, администратор!</h1>
                 @endsection
                 @yield('admin-content')
             </div>

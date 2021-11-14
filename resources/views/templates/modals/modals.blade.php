@@ -33,9 +33,9 @@
                 <span class="success-symbol">&#10004;</span>
                 <h3 class="success-element">Номер заказа: <span id="order_id"></span></h3>
                 <br>
-                <p>Менеджер свяжется с вами в течении 30 минут</p>
+                <p>Менеджер свяжется с вами в течении 5 минут</p>
                 <br>
-                <a class="continue-shop" href="{{ route('catalog-product') }}">Продолжить покупки</a>
+                <a class="continue-shop btn-lg btn-block btn-order btn-to-cart" href="{{ route('catalog-product') }}">Продолжить покупки</a>
             </div>
         </div>
     </div>

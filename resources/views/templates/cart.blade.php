@@ -26,11 +26,13 @@
                                         <label class="form-field" for="name">Имя</label>
                                         <input type="text" name="name" id="name" required placeholder="Сергей"
                                                class="contact-input"/>
+                                        <div class="order_validation_error_wrapper" id="error_name"></div>
                                     </div>
                                     <div>
                                         <label class="form-field" for="surname">Фамилия</label>
                                         <input type="text" name="surname" id="surname" required placeholder="Иванов"
                                                class="contact-input"/>
+                                        <div class="order_validation_error_wrapper" id="error_surname"></div>
                                     </div>
                                 </div>
                                 <div>
@@ -38,12 +40,14 @@
                                     <input type="email" name="email" id="email" required
                                            placeholder="info@blackbeans.ru"
                                            class="contact-input"/>
+                                    <div class="order_validation_error_wrapper" id="error_email"></div>
                                 </div>
                                 <div>
                                     <label class="form-field" for="phone">Номер телефона</label>
                                     <input type="phone" name="phone " id="phone" required
                                            placeholder="+7 (999) 999 99 99"
                                            class="contact-input form-control"/>
+                                    <div class="order_validation_error_wrapper" id="error_phone"></div>
                                 </div>
                                 {{--ДОСТАВКА--}}
                                 <h3 class="title-big text-left mb-5 delievery-title">Доставка</h3>
@@ -73,6 +77,7 @@
                                                     <input type="text" name="city" id="city" required
                                                            value="г. Тольятти"
                                                            class="contact-input"/>
+                                                    <div class="order_validation_error_wrapper" id="error_city"></div>
                                                 </div>
                                                 <div>
                                                     <label class="form-field" for="street">Улица,
@@ -80,6 +85,7 @@
                                                     <input type="text" name="street" id="street" required
                                                            placeholder="Баныкина д. 20"
                                                            class="contact-input"/>
+                                                    <div class="order_validation_error_wrapper" id="error_street"></div>
                                                 </div>
                                                 <div class="input-grids">
                                                     <div>
@@ -87,6 +93,7 @@
                                                         <input type="text" name="apps" id="apps" required
                                                                placeholder="кв. 72"
                                                                class="contact-input"/>
+                                                        <div class="order_validation_error_wrapper" id="error_apps"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -111,6 +118,7 @@
                                             <span class="delievery-item-content">Онлайн оплата</span>
                                         </div>
                                     </a>
+                                    <div class="order_validation_error_wrapper" id="error_payment"></div>
                                 </div>
                             </div>
                         @endif

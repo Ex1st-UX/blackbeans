@@ -19,7 +19,7 @@
         <tr>
             <th scope="row">{{ $item->id }}</th>
             <td>{{ $item->name }}</td>
-            <td>{{ $item->category->category }}</td>
+            <td>{{ (!empty($item->category->category)) ? $item->category->category : '' }}</td>
             <td>{{ $item->price }}</td>
             <td>{{ $item->updated_at }}</td>
             <td><a href="{{ route('product-edit-admin', $item->id) }}"><button class="btn btn-warning">Подробнее</button></a></td>

@@ -181,7 +181,9 @@
 .cart-condition-close:focus {
     outline: none !important
 }
-
+.delivery_time_text {
+    margin-top: 10px;
+}
 .cart-total {
     color: #000 !important;
 }

@@ -20,7 +20,6 @@
                     <div class="detail-product-wrapper">
                         <h3 class="title-big ">{{ $data->name }}</h3>
                         <h5 class="title-price" id="currentPrice">{{ $data->price }} р</h5>
-                        <p style="margin-top: 10px">Доставка: 0 руб.</p>
                         <p class="card-text detail-product-category">{{ $data->category->category }}</p>
                         <p class="card-text detail-product-category">{{ $data->description }}</p>
                         <div class="progress detail-product-progress">
@@ -48,6 +47,7 @@
                                 <option value="для турки (мелкий)">для турки (мелкий)</option>
                                 <option value="для чашки (средний)">для чашки (средний)</option>
                             </select>
+                            {{ \App\Http\Controllers\DeliveryTimeController::getDeliveryTime() }}
                             <div class="detail-entry-footer">
                                 <div class="quantity mt-4">
                                     <button class="btn minus border-btn" disabled type="button" id="minus">-</button>

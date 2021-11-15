@@ -69,6 +69,9 @@
                                             </span>
                                             </div>
                                         </a>
+                                        <div class="delivery_time_wrapper">
+                                            {{ \App\Http\Controllers\DeliveryTimeController::getDeliveryTime() }}
+                                        </div>
                                         <div class="collapse delievery-adress" id="{{ $delieveryItem->symbol_code }}">
                                             <div class="input-grids delievery-">
                                                 <div>
@@ -93,7 +96,8 @@
                                                         <input type="text" name="apps" id="apps" required
                                                                placeholder="кв. 72"
                                                                class="contact-input"/>
-                                                        <div class="order_validation_error_wrapper" id="error_apps"></div>
+                                                        <div class="order_validation_error_wrapper"
+                                                             id="error_apps"></div>
                                                     </div>
                                                 </div>
                                             </div>

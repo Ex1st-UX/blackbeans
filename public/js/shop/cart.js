@@ -225,7 +225,7 @@ function cartRender(response) {
     } else {
         for (var dataItem of Object.entries(data)) {
 
-            var id = dataItem[1].id;
+            let id = dataItem[1].id;
             name = dataItem[1].name;
             quantity = dataItem[1].quantity;
             price = dataItem[1].price;
@@ -233,12 +233,13 @@ function cartRender(response) {
             grind = dataItem[1].attributes.grind;
             image = dataItem[1].attributes.image;
             cartTotal = response.cartTotal;
+            url = dataItem[1].attributes.url;
 
             $(
                 '<tr>' +
                 '<td><img width="100%" src="/storage/' + image + '"</td>' +
                 '<td>' +
-                '<a style="color: darkgrey;" href="/catalog/' + id + '">' + name + '</a>' +
+                '<a style="color: darkgrey;" href="' + url + '">' + name + '</a>' +
                 '<p class="additionally-information">Помол: <span class="">' + grind + '</span></p>' +
                 '</td>' +
                 '<td>' +

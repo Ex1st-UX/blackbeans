@@ -174,7 +174,8 @@ class ProductController extends Controller
                     'attributes' => array(
                         'image' => $skuProduct->image,
                         'sku' => $dataSku,
-                        'grind' => $req->grind
+                        'grind' => $req->grind,
+                        'url' => $skuProduct->url
                     ),
                 );
             } // Добавляемый товар НЕ является торговым предложением
@@ -189,7 +190,8 @@ class ProductController extends Controller
                     'attributes' => array(
                         'image' => $product->image,
                         'sku' => $dataSku,
-                        'grind' => $req->grind
+                        'grind' => $req->grind,
+                        'url' => $product->url
                     ),
                 );
             }

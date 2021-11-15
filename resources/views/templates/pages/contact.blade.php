@@ -24,10 +24,8 @@
                         <div class="grid">
                             <span class="fa fa-map-marker"></span>
                             <div class="location-info">
-                                <span>Адресс</span>
-                                <p>г. Тольятти</p>
-                                <p>ул. Дзержинского д. 55</p>
-                                <p>445036</p>
+                                <span>Адрес</span>
+                                <p>мы находимся в г. Тольятти</p>
                             </div>
                         </div>
                         <div class="grid">

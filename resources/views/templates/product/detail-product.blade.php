@@ -38,7 +38,7 @@
                         <form id="add-to-cart-form" action="{{ '/catalog/{id}/buy' }}" method="post">
                             @csrf
                             <select id="grind" class="custom-select detail-product-category">
-                                <option selected>Выберите помол</option>
+                                <option value="в зернах" selected>Выберите помол</option>
                                 <option value="в зернах">в зернах</option>
                                 <option value="для френч-пресса (крупный)">для френч-пресса (крупный)</option>
                                 <option value="для пуровера (средний)">для пуровера (средний)</option>
